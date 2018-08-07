@@ -1,0 +1,22 @@
+{
+  "name": "ScholarshipPortal",
+  "version": "1.0.0",
+  "description": "A simple portal for NITT students to register for scholarships.",
+  "main": "server.js",
+  "author": "Delta",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "signale": "*",
+    "cookie-parser": "*",
+    "express": "*",
+    "pug": "*",
+    "mongoose": "*",
+    "path": "*",
+    "body-parser": "*",
+    "express-session": "*",
+    "express-validator": "*"
+  }
+}

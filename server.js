@@ -11,7 +11,7 @@ const defaultRouter = require('./app/routes/default-router.js');
 
 //initialising express
 const app = express();
-
+/*
 //database Connection
 mongoose.connect(config.mongodb.dbURI)
 .then(()=>{
@@ -22,7 +22,7 @@ mongoose.connect(config.mongodb.dbURI)
   process.exit();
 })
 let db = mongoose.connection
-
+*/
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -35,7 +35,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Home Route
 app.get('/',(req,res)=>{
+  res.render('login.pug');
+})
 
+app.get('/login',(req,res)=>{
+  res.render('login.pug');
 })
 
 app.use('/default', defaultRouter);

@@ -9,14 +9,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "signale": "*",
+    "body-parser": "*",
     "cookie-parser": "*",
     "express": "*",
-    "pug": "*",
-    "mongoose": "*",
-    "path": "*",
-    "body-parser": "*",
     "express-session": "*",
-    "express-validator": "*"
+    "express-validator": "*",
+    "mongoose": "*",
+    "nodemon": "^1.18.3",
+    "path": "*",
+    "pug": "*",
+    "signale": "*"
   }
 }

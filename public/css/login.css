@@ -1,25 +1,24 @@
 html,body{
 	margin: 0;
 	padding: 0;
-    background-color: rgb(249,249,249);
-    font-family: 'sans-serif';
+  background-color: rgb(249,249,249);
+  font-family: 'Times new roman'; !important
 }
 
 .title{
 	text-align: center;
 	font-size: 4.5em;
 	padding: 5px;
-    margin-top: 6vh;
-    letter-spacing: 0.2em;
+  margin-top: 6vh;
 }
 
 #loginTitle{
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 2.8em;
 	padding: 5px;
 	padding-bottom: 0px;
-    margin-top: 12vh;
-    margin-bottom: 20px;
+  margin-top: 12vh;
+  margin-bottom: 20px;
 }
 
 #usernameIn{
@@ -36,9 +35,11 @@ html,body{
 }
 
 @media only screen and (max-width: 500px) {
-    
-    .title{
-        font-size: 2.5em;
-    }
+  .title{
+      font-size: 2.5em;
+  }
+  #loginTitle{
+      font-size: 1.75em;
 
+  }
 }

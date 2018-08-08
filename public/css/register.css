@@ -1,0 +1,60 @@
+html,body{
+	margin: 0;
+	padding: 0;
+    background-color: rgb(249,249,249);
+    font-family: 'sans-serif';
+}
+
+.container-custom{
+    width: 100vw;
+}
+
+.heading{
+    margin-top: 12vh;
+}
+
+.input-container{
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.label-tag{
+    margin-top: 8px;
+}
+
+.input-big{
+    overflow: auto;
+    resize: none;
+}
+
+table td input{
+    width: 100%;   
+}
+
+.table-custom{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.table2head{
+    margin-top: 8vh;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .title{
+        font-size: 1.7em;
+        font-weight: 500;
+    }
+
+    .table2head{
+        margin-top: 6vh;
+        font-size: 1.2em;
+    }
+
+    .heading{
+        margin-top: 7vh;
+        font-size: 1.6em;
+    }
+
+}

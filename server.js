@@ -78,7 +78,7 @@ app.get('*',(req,res,next) => {
 
 //Home Route
 app.get('/',(req,res)=>{
-  res.redirect('/login')
+  res.render('home.pug');
 })
 //login Route
 app.get('/login',(req,res)=>{

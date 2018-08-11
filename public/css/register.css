@@ -3,6 +3,7 @@ html,body{
 	padding: 0;
     background-color: rgb(249,249,249);
     font-family: 'sans-serif';
+    min-height:100vh;
 }
 
 .container-custom{
@@ -10,7 +11,11 @@ html,body{
 }
 
 .heading{
-    margin-top: 12vh;
+    margin-top: 7vh;
+}
+
+.main{
+    margin-top: 8vh;
 }
 
 .input-container{
@@ -40,10 +45,36 @@ table td input{
     margin-top: 8vh;
 }
 
+.flex{
+    padding: 0px 5px;
+    display:flex;
+    align-items:center;
+}
+
+.flex-left{
+    margin-left:auto;
+}
+
+.fa-caret-down,.fa-caret-up{
+    color:#545454;
+}
+
+.hide{
+    display:none;
+}
+
+.custom-submit{
+    font-size:20px !important;
+}
+
+.dropdown-head{
+    font-size: 0.7em;
+}
+
 @media only screen and (max-width: 500px) {
     
     .title{
-        font-size: 1.7em;
+        font-size: 2em;
         font-weight: 500;
     }
 
@@ -54,7 +85,15 @@ table td input{
 
     .heading{
         margin-top: 7vh;
-        font-size: 1.6em;
+        font-size: 1.3em;
+    }
+
+    .dropdown-head{
+        font-size: 0.8em;
+    }
+
+    .custom-submit{
+        font-size: 15px !important;
     }
 
 }

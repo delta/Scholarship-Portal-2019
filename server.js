@@ -82,7 +82,11 @@ app.get('/',(req,res)=>{
 })
 //login Route
 app.get('/login',(req,res)=>{
-  res.render('login');
+  res.render('login.pug');
+})
+//register route
+app.get('/register',(req,res)=>{
+  res.render('register.pug');
 })
 
 app.use('/default', defaultRouter);

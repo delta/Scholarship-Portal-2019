@@ -1,6 +1,7 @@
-const part_1 = document.querySelector('.part-1')
-const part_2 = document.querySelector('.part-2')
-const main =  document.querySelector('.main')
+const part_1 = document.querySelector('.part-1');
+const part_2 = document.querySelector('.part-2');
+const part_3 = document.querySelector('.part-3');
+const main =  document.querySelector('.main');
 
 main.addEventListener('click',hideContent);
 
@@ -14,6 +15,10 @@ function hideContent(e){
                     e.target.classList.toggle('fa-caret-up');
                     break;
         case '2':   part_2.classList.toggle("hide")
+                    e.target.classList.toggle('fa-caret-down');
+                    e.target.classList.toggle('fa-caret-up');
+                    break;
+        case '3':   part_3.classList.toggle("hide")
                     e.target.classList.toggle('fa-caret-down');
                     e.target.classList.toggle('fa-caret-up');
                     break;

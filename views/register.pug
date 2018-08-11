@@ -1,12 +1,14 @@
 extends ./layout.pug
 
-block append head
+block append head    
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
     title Register | Scholarship Portal
     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.2.0/css/all.css', integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', crossorigin='anonymous')
     link(rel="stylesheet", href="/css/register.css")
 
 block content
@@ -15,198 +17,222 @@ block content
             .col-md-1
             h1.col-md-11(class="title") Scholarship Registration
         hr
-        .row
+        .row.main
             .col-md-2
             .col-md-8
                 form.form-horizontal(role='form')
-                h3.heading(style="margin-top:3vh;") Personal Details
-                hr
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Roll Number:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Roll Number")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag First Name:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="First Name")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Last Name:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Last Name")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Nationality:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Nationality")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Date of Birth:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Date of Birth")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Gender:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Gender")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Disability(if any please mention in detail):
-                        .col-md-8
-                            textarea.form-control.input-big(rows=3 placeholder="Disability(if any please mention in detail)")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Father's Name:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Father's Name")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Occupation:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Occupation")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Mother's Name:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Mother's Name")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Occupation:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Occupation")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Annual Income:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Total Annual Income of the family")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Address for correspondence with Telephone no./Mobile No.:
-                        .col-md-8
-                            textarea.form-control.input-big(rows=5 placeholder="Address for correspondence with Telephone no./Mobile No.")
-                h3.heading Academic Details
-                hr
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Course Name:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Course Name")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Duration of course:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="No. of years") 
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Annual estimate of fund required for the course per year(in Rs.):
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Occupation")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Tuition Fees:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Tuition Fees")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Book Fees:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Book Fees")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Institute/College Hostel Charges:
-                        .col-md-8
-                            input.form-control(type='text' placeholder="Institute/College Hostel Charges")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Any other fees(in detail):
-                        .col-md-8
-                            textarea.form-control.input-big(rows=3 placeholder="Any other fees in detail")
-                h3.heading Educational Qualifications
-                hr
-                table.table-responsive.table-condensed.table-bordered.table-custom
-                    thead
-                        tr
-                            th.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1 Name of the Examination
-                            th.col-sm-2.col-xs-2 Year
-                            th.col-sm-2.col-xs-2 Board/University/Institution
-                            th.col-sm-2.col-xs-2 Division/Class/Grade
-                            th.col-sm-2.col-xs-2 % Obtained
-                    tbody
-                        tr
-                            td.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                        tr
-                            td.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                h4(class="table2head") Graduation and above: 
-                    i (If result of final year are not received, mention upto latest result)
-                hr
-                table.table-responsive.table-condensed.table-bordered.table-custom(style="margin-top: 1vh;")
-                    thead
-                        tr
-                            th.col-sm-2.col-xs-2 Degree
-                            th.col-sm-2.col-xs-2 Year
-                            th.col-sm-2.col-xs-2 Subject
-                            th.col-sm-2.col-xs-2 Institution/University
-                            th.col-sm-2.col-xs-2 Class/Grade
-                            th.col-sm-2.col-xs-2 % Obtained
-                    tbody
-                        tr
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                        tr
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                            td.col-sm-2.col-xs-2
-                                input(class="form-control" type="text")
-                h3.heading Qualitative Achievement
-                hr
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Academic distinctions, grants and scholarships:
-                        .col-md-8
-                            textarea.form-control.input-big(rows=5 placeholder="Please mention any academic distinction, grants, scholarships and prizes received by you.")
-                .form-group
-                    .row.input-container
-                        label.col-md-4.control-label.label-tag Achievements, aspirations and life goals:
-                        .col-md-8
-                            textarea.form-control.input-big(rows=5 placeholder="Please mention your dreams, life goals and aspirations.")     
-        div(style="text-align: center; margin-top: 5vh;")
-            input.btn.btn-success(type='submit' value="Submit")
+                    h3.flex
+                        span(class="dropdown-head") Personal Details
+                        span.flex-left
+                            i.fas.fa-caret-down(data-id = "1")
+                    hr
+                    .part-1.hide
+                        .col-md-1
+                        .col-md-10
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Roll Number:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Roll Number")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag First Name:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="First Name")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Last Name:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Last Name")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Nationality:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Nationality")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Date of Birth:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Date of Birth")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Gender:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Gender")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Disability(if any please mention in detail):
+                                    .col-md-8
+                                        textarea.form-control.input-big(rows=3 placeholder="Disability(if any please mention in detail)")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Father's Name:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Father's Name")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Occupation:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Occupation")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Mother's Name:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Mother's Name")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Occupation:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Occupation")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Annual Income:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Total Annual Income of the family")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Address for correspondence with Telephone no./Mobile No.:
+                                    .col-md-8
+                                        textarea.form-control.input-big(rows=5 placeholder="Address for correspondence with Telephone no./Mobile No.")
+                        .col-md-1
+                    h3.flex
+                        span(class="dropdown-head") Academic Details, Qualifications and Achievements
+                        span.flex-left
+                            i.fas.fa-caret-down(data-id = "2")
+                    hr
+                    .part-2.hide
+                        h4.heading Academic Details
+                        hr
+                        .col-md-1
+                        .col-md-10
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Course Name:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Course Name")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Duration of course:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="No. of years") 
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Annual estimate of fund required for the course per year(in Rs.):
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Occupation")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Tuition Fees:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Tuition Fees")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Book Fees:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Book Fees")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Institute/College Hostel Charges:
+                                    .col-md-8
+                                        input.form-control(type='text' placeholder="Institute/College Hostel Charges")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Any other fees(in detail):
+                                    .col-md-8
+                                        textarea.form-control.input-big(rows=3 placeholder="Any other fees in detail")
+                        .col-md-1
+                        h4.heading Educational Qualifications
+                        hr
+                        table.table-responsive.table-condensed.table-bordered.table-custom
+                            thead
+                                tr
+                                    th.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1 Name of the Examination
+                                    th.col-sm-2.col-xs-2 Year
+                                    th.col-sm-2.col-xs-2 Board/University/Institution
+                                    th.col-sm-2.col-xs-2 Division/Class/Grade
+                                    th.col-sm-2.col-xs-2 % Obtained
+                            tbody
+                                tr
+                                    td.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                tr
+                                    td.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                        h5(class="table2head") Graduation and above: 
+                            i (If result of final year are not received, mention upto latest result)
+                        hr
+                        table.table-responsive.table-condensed.table-bordered.table-custom(style="margin-top: 1vh;")
+                            thead
+                                tr
+                                    th.col-sm-2.col-xs-2 Degree
+                                    th.col-sm-2.col-xs-2 Year
+                                    th.col-sm-2.col-xs-2 Subject
+                                    th.col-sm-2.col-xs-2 Institution/University
+                                    th.col-sm-2.col-xs-2 Class/Grade
+                                    th.col-sm-2.col-xs-2 % Obtained
+                            tbody
+                                tr
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                tr
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                                    td.col-sm-2.col-xs-2
+                                        input(class="form-control" type="text")
+                        h4.heading Qualitative Achievement
+                        hr
+                        .col-md-1
+                        .col-md-10
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Academic distinctions, grants and scholarships:
+                                    .col-md-8
+                                        textarea.form-control.input-big(rows=5 placeholder="Please mention any academic distinction, grants, scholarships and prizes received by you.")
+                            .form-group
+                                .row.input-container
+                                    label.col-md-4.control-label.label-tag Achievements, aspirations and life goals:
+                                    .col-md-8
+                                        textarea.form-control.input-big(rows=5 placeholder="Please mention your dreams, life goals and aspirations.")
+                        .col-md-1
+                    .form-group(style="margin-top:7vh;")
+                        .row
+                            .col-md-4.col-sm-4.col-xs-3
+                            .col-md-3.col-sm-3.col-xs-6
+                                input.input-lg.form-control.btn.btn-success.custom-submit(type='submit' value="Submit")
+                            .col-md-5.col-sm-5.col-xs-3
             .col-md-2
+    script(src="/js/register.js")

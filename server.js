@@ -35,17 +35,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Home Route
 app.get('/',(req,res)=>{
-  res.render('login.pug');
+  res.render('home.pug');
 })
 
 app.get('/login',(req,res)=>{
   res.render('login.pug');
-  res.redirect('/login');
 })
 
 app.get('/register',(req,res)=>{
   res.render('register.pug');
-  res.redirect('/register');
 })
 
 app.use('/default', defaultRouter);

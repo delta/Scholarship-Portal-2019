@@ -14,6 +14,7 @@ $(document).ready(function(){
     $('#smartwizard').smartWizard({
             selected: 0,
             theme: 'default',
+            keyNavigation:false,
             transitionEffect:'fade',
             showStepURLhash: true,
             toolbarSettings: {

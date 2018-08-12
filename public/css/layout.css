@@ -28,6 +28,14 @@ body::after{
     letter-spacing: 0.05em;
 }
 
+.title{
+	text-align: center;
+	font-size: 4.5em;
+	padding: 5px;
+    margin-top: 6vh;
+    letter-spacing: 0.05em;
+}
+
 .heart{
     color: #8ed10c;
 }

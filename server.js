@@ -83,6 +83,10 @@ app.get('/',(req,res)=>{
   res.render('home');
 })
 
+app.get('/status',(req,res)=>{
+  res.render('status');
+})
+
 app.use('/user', userRouter);
 
 app.get('*',(req,res)=>{

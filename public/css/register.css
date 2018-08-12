@@ -2,16 +2,7 @@ html,body,main{
 	margin: 0;
 	padding: 0;
     background-color: rgb(249,249,249);
-    font-family: 'sans-serif';
     min-height:100vh;
-}
-
-.title{
-	text-align: center;
-	font-size: 4.5em;
-	padding: 5px;
-    margin-top: 6vh;
-    letter-spacing: 0.2em;
 }
 
 .container-custom{

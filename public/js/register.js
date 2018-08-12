@@ -1,26 +1,35 @@
-const part_1 = document.querySelector('.part-1');
-const part_2 = document.querySelector('.part-2');
-const part_3 = document.querySelector('.part-3');
-const main =  document.querySelector('.main');
+$(document).ready(function(){
 
-main.addEventListener('click',hideContent);
+    $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
+       if(stepPosition === 'first'){
+           $("#prev-btn").addClass('disabled');
+       }else if(stepPosition === 'final'){
+           $("#next-btn").addClass('disabled');
+       }else{
+           $("#prev-btn").removeClass('disabled');
+           $("#next-btn").removeClass('disabled');
+       }
+    });
 
-function hideContent(e){
-    let val;
-    if(e.target.tagName != 'I') return  
-    val = e.target.getAttribute('data-id')
-    switch(val){
-        case '1':   part_1.classList.toggle("hide")
-                    e.target.classList.toggle('fa-caret-down');
-                    e.target.classList.toggle('fa-caret-up');
-                    break;
-        case '2':   part_2.classList.toggle("hide")
-                    e.target.classList.toggle('fa-caret-down');
-                    e.target.classList.toggle('fa-caret-up');
-                    break;
-        case '3':   part_3.classList.toggle("hide")
-                    e.target.classList.toggle('fa-caret-down');
-                    e.target.classList.toggle('fa-caret-up');
-                    break;
-    }
-}
+    $('#smartwizard').smartWizard({
+            selected: 0,
+            theme: 'default',
+            transitionEffect:'fade',
+            showStepURLhash: true,
+            toolbarSettings: {
+                              toolbarButtonPosition: 'end',
+                            }
+    });
+
+    $("#prev-btn").on("click", function() {
+        $('#smartwizard').smartWizard("prev");
+        return true;
+    });
+
+    $("#next-btn").on("click", function() {
+        $('#smartwizard').smartWizard("next");
+        return true;
+    });
+
+    $('#smartwizard').smartWizard("theme","arrows");
+});

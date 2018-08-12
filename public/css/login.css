@@ -9,6 +9,7 @@ html,body,main{
 	font-size: 4.5em;
 	padding: 5px;
   margin-top: 6vh;
+  letter-spacing: 0.2em;
 }
 
 #loginTitle{

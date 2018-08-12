@@ -1,0 +1,10 @@
+main{
+    min-height:87vh;
+}
+.footer{
+    height: 1.5em;
+    text-align: center;
+    background-color: #111111;
+    color: #8ed10c;
+    overflow: hidden;
+}

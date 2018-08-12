@@ -6,6 +6,14 @@ html,body,main{
     min-height:100vh;
 }
 
+.title{
+	text-align: center;
+	font-size: 4.5em;
+	padding: 5px;
+    margin-top: 6vh;
+    letter-spacing: 0.2em;
+}
+
 .container-custom{
     width: 100vw;
 }
@@ -45,34 +53,30 @@ table td input{
     margin-top: 8vh;
 }
 
-.flex{
-    padding: 0px 5px;
-    display:flex;
-    align-items:center;
-}
-
-.flex-left{
-    margin-left:auto;
-}
-
-.fa-caret-down,.fa-caret-up{
-    color:#545454;
+.h3head{
+    font-size: 2em;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
 }
 
 .hide{
     display:none;
 }
 
-.custom-submit{
-    font-size:20px !important;
+.contain-container{
+    margin-top: 6vh;
+    width: 90vw;
 }
 
 .dropdown-head{
     font-size: 0.7em;
 }
-.red{
-    color:#f78a8a
+
+.table-input{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
+
 @media only screen and (max-width: 500px) {
 
     .title{
@@ -92,10 +96,6 @@ table td input{
 
     .dropdown-head{
         font-size: 0.8em;
-    }
-
-    .custom-submit{
-        font-size: 15px !important;
     }
 
 }

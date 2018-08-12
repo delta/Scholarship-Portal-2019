@@ -2,7 +2,6 @@ html{
     margin: 0;
 	padding: 0;
     background-color: rgb(249,249,249);
-    font-family: 'sans-serif';
     background: url('/files/images/bg.jpg');
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -13,7 +12,7 @@ html{
 body{
     margin: 0;
     padding: 0;
-    background: transparent; 
+    background: transparent;
 }
 
 .title{
@@ -21,7 +20,6 @@ body{
 	font-size: 4.5em;
 	padding: 5px;
     margin-top: 6vh;
-    letter-spacing: 0.2em;
 }
 
 .jumbo-container{
@@ -29,7 +27,7 @@ body{
 }
 
 .jumbo-class{
-    background: rgba(249,249,249,0.1);
+    background: rgba(249,249,249,0.45);
 }
 
 .welcomehead{

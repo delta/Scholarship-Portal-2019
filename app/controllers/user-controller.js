@@ -40,7 +40,7 @@ exports.registerUser = (req,res) => {
       console.log(error);
       return res.redirect('/user/scholarship/register');
     }
-    console.log(req.file)
+    req.files.forEach( img => console.log(img))
     return res.send('registered')
   })
 }

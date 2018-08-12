@@ -10,11 +10,11 @@ const session = require('express-session');
 
 
 //importing router
-const defaultRouter = require('./app/routes/default-router.js');
+const userRouter = require('./app/routes/user-router.js');
 
 //initialising express
 const app = express();
-/*
+
 //database Connection
 mongoose.connect(config.mongodb.dbURI)
 .then(()=>{
@@ -25,7 +25,7 @@ mongoose.connect(config.mongodb.dbURI)
   process.exit();
 })
 let db = mongoose.connection
-*/
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -54,6 +54,8 @@ app.use(expressValidator({
     };
   }
 }));
+// initialize cookie-parser to allow us access the cookies stored in the browser.
+app.use(cookieParser());
 
 // initialize express-session to allow us track the logged-in user across sessions.
 app.use(session({
@@ -61,14 +63,14 @@ app.use(session({
   resave:true,
   saveUninitialized:false
 }))
-//sessionChecker middlewares
-let sessionChecker = (req,res,next) =>{
-  if(!req.session.user){
-    res.redirect('/user/login')
-  }else{
-    next()
+  //sessionChecker middlewares
+  let sessionChecker = (req,res,next) =>{
+    if(!req.session.user){
+      res.redirect('/user/login')
+    }else{
+      next()
+    }
   }
-}
 
 //global vari for all routes
 app.get('*',(req,res,next) => {
@@ -78,18 +80,14 @@ app.get('*',(req,res,next) => {
 
 //Home Route
 app.get('/',(req,res)=>{
-  res.render('home.pug');
-})
-//login Route
-app.get('/login',(req,res)=>{
-  res.render('login.pug');
-})
-//register route
-app.get('/register',(req,res)=>{
-  res.render('register.pug');
+  res.render('home');
 })
 
-app.use('/default', defaultRouter);
+app.use('/user', userRouter);
+
+app.get('*',(req,res)=>{
+  res.send('ERROR 404. PAGE NOT FOUND')
+})
 
 app.listen(3000,()=> {
   signale.success('Server Started on port: 3000');

@@ -2,9 +2,13 @@
 
 module.exports = {
         mongodb: {
-            dbURI: "mongodb://localhost:27017/scholarshipportal"
+                dbURI: "mongodb://localhost:27017/scholarshipportal"
         },
         session:{
-        	secretString:"Scholarships are goood xD"
+                secretString:"Scholarships are goooood xD"
+        },
+        auth:{
+                name:'scholarship',
+                password:'scholarship'
         }
 };

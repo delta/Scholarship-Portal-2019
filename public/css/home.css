@@ -2,15 +2,14 @@ html,body{
 	margin: 0;
 	padding: 0;
     background-color: rgb(249,249,249);
-    font-family: 'sans-serif';
 }
 
 .title{
-	text-align: center;
+	text-align: left;
+  margin-left:2em;
 	font-size: 4.5em;
 	padding: 5px;
-    margin-top: 6vh;
-    letter-spacing: 0.2em;
+  margin-top: 6vh;
 }
 
 .jumbo-container{
@@ -27,6 +26,7 @@ html,body{
 
 .scholarship-name{
     font-size: 1.7em;
+    text-decoration: underline;
 }
 
 .scholarship-details{
@@ -36,7 +36,7 @@ html,body{
 }
 
 @media only screen and (max-width: 500px) {
-    
+
     .title{
         font-size: 2.5em;
     }

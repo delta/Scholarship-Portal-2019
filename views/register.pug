@@ -20,7 +20,7 @@ block content
         .row.main
             .col-md-2
             .col-md-8
-                form.form-horizontal(role='form')
+                form.form-horizontal(role='form' method="POST" autocomplete="off" action = '/user/scholarship/register' enctype="multipart/form-data")
                     h3.flex
                         span(class="dropdown-head") Personal Details
                         span.flex-left
@@ -223,37 +223,37 @@ block content
                                 label.col-md-4.control-label.label-tag Achievements, aspirations and life goals:
                                 .col-md-8
                                     textarea.form-control.input-big(rows=5 placeholder="Please mention your dreams, life goals and aspirations.")
-                h3.flex
-                    span(class="dropdown-head") Document Uploads
-                    span.flex-left
-                        i.fas.fa-caret-down(data-id = "3")
-                hr  
-                .part-3.hide
-                    .form-group
-                        .row.input-container
-                            label.col-md-4.control-label.label-tag Annual Income Certificate:
-                            .col-md-8
-                                input.form-control(type='file')
-                    .form-group
-                        .row.input-container
-                            label.col-md-4.control-label.label-tag Transcript:
-                            .col-md-8
-                                input.form-control(type='file')
-                    .form-group
-                        .row.input-container
-                            label.col-md-4.control-label.label-tag 12th Marksheet:
-                            .col-md-8
-                                input.form-control(type='file')
-                    .form-group
-                        .row.input-container
-                            label.col-md-4.control-label.label-tag 10th Marksheet:
-                            .col-md-8
-                                input.form-control(type='file')
-                .form-group(style="margin-top:7vh;")
-                    .row
-                        .col-md-4.col-sm-4.col-xs-3
-                        .col-md-3.col-sm-3.col-xs-6
-                            input.input-lg.form-control.btn.btn-success.custom-submit(type='submit' value="Submit")
-                        .col-md-5.col-sm-5.col-xs-3
+                    h3.flex
+                        span(class="dropdown-head") Document Uploads
+                        span.flex-left
+                            i.fas.fa-caret-down(data-id = "3")
+                    hr  
+                    .part-3.hide
+                        .form-group
+                            .row.input-container
+                                label.col-md-4.control-label.label-tag Annual Income Certificate:
+                                .col-md-8
+                                    input.form-control(type='file' name='document')
+                        .form-group
+                            .row.input-container
+                                label.col-md-4.control-label.label-tag Transcript:
+                                .col-md-8
+                                    input.form-control(type='file' name='document')
+                        .form-group
+                            .row.input-container
+                                label.col-md-4.control-label.label-tag 12th Marksheet:
+                                .col-md-8
+                                    input.form-control(type='file' name='document')
+                        .form-group
+                            .row.input-container
+                                label.col-md-4.control-label.label-tag 10th Marksheet:
+                                .col-md-8
+                                    input.form-control(type='file' name='document')
+                    .form-group(style="margin-top:7vh;")
+                        .row
+                            .col-md-4.col-sm-4.col-xs-3
+                            .col-md-3.col-sm-3.col-xs-6
+                                input.input-lg.form-control.btn.btn-success.custom-submit(type='submit' value="Submit")
+                            .col-md-5.col-sm-5.col-xs-3
             .col-md-2
     script(src="/js/register.js")

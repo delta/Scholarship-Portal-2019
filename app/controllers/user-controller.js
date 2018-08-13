@@ -41,6 +41,6 @@ exports.registerUser = (req,res) => {
       return res.redirect('/user/scholarship/register');
     }
     req.files.forEach( img => console.log(img))
-    return res.send('registered')
+    return res.render('status')
   })
 }

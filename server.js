@@ -82,7 +82,7 @@ app.get('*',(req,res,next) => {
 app.get('/',(req,res)=>{
   res.render('home');
 })
-
+app.get('/status', (req,res) => { return res.render('status')})
 app.use('/user', userRouter);
 
 app.get('*',(req,res)=>{

@@ -3,6 +3,7 @@ html,body,main{
 	padding: 0;
     background-color: rgb(249,249,249);
     min-height:100vh;
+    font-family: "Montserrat","Raleway",sans-serif;
 }
 
 .container-custom{

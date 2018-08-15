@@ -1,6 +1,6 @@
 const signale = require('signale')
 const config = require('../../config/config.js');
-const schema = require('../models/defaultSchema.js')
+const Scholarship = require('../models/Scholarship.js')
 const _USERNAME = config.auth.name
 const _PASSWORD = config.auth.password
 var upload = require('../../config/upload.js');
@@ -41,6 +41,7 @@ exports.registerUser = (req,res) => {
       return res.redirect('/user/scholarship/register');
     }
     req.files.forEach( img => console.log(img))
+    console.log(req.body)
     return res.render('status')
   })
 }

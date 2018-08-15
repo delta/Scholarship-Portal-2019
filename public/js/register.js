@@ -34,3 +34,11 @@ $(document).ready(function(){
 
     $('#smartwizard').smartWizard("theme","arrows");
 });
+window.onload = function(){
+    document.querySelector('.sw-btn-next').addEventListener('click',(e) => {
+        window.scrollTo(0, 0);
+    })
+    document.querySelector('.sw-btn-prev').addEventListener('click',(e) => {
+        window.scrollTo(0, 0);
+    })
+}

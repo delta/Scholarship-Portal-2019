@@ -36,17 +36,16 @@ block content
                                 label.col-md-4.control-label.label-tag Roll Number
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Roll Number',name='roll')
+                                    input.form-control(type='text', placeholder='Roll Number' name='roll' pattern="[0-9]{8,12}" title="Please enter a valid roll number" maxlength='12' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag First Name
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='First Name')
+                                    input.form-control(type='text', placeholder='First Name' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Last Name
-                                    span.text-danger *
                                 .col-md-8
                                     input.form-control(type='text', placeholder='Last Name')
                             .form-group
@@ -54,18 +53,215 @@ block content
                                 label.col-md-4.control-label.label-tag Nationality
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Nationality')
+                                    select.form-control(placeholder='Nationality' required)
+                                        option(value='afghan') Afghan
+                                        option(value='albanian') Albanian
+                                        option(value='algerian') Algerian
+                                        option(value='american') American
+                                        option(value='andorran') Andorran
+                                        option(value='angolan') Angolan
+                                        option(value='antiguans') Antiguans
+                                        option(value='argentinean') Argentinean
+                                        option(value='armenian') Armenian
+                                        option(value='australian') Australian
+                                        option(value='austrian') Austrian
+                                        option(value='azerbaijani') Azerbaijani
+                                        option(value='bahamian') Bahamian
+                                        option(value='bahraini') Bahraini
+                                        option(value='bangladeshi') Bangladeshi
+                                        option(value='barbadian') Barbadian
+                                        option(value='barbudans') Barbudans
+                                        option(value='batswana') Batswana
+                                        option(value='belarusian') Belarusian
+                                        option(value='belgian') Belgian
+                                        option(value='belizean') Belizean
+                                        option(value='beninese') Beninese
+                                        option(value='bhutanese') Bhutanese
+                                        option(value='bolivian') Bolivian
+                                        option(value='bosnian') Bosnian
+                                        option(value='brazilian') Brazilian
+                                        option(value='british') British
+                                        option(value='bruneian') Bruneian
+                                        option(value='bulgarian') Bulgarian
+                                        option(value='burkinabe') Burkinabe
+                                        option(value='burmese') Burmese
+                                        option(value='burundian') Burundian
+                                        option(value='cambodian') Cambodian
+                                        option(value='cameroonian') Cameroonian
+                                        option(value='canadian') Canadian
+                                        option(value='cape verdean') Cape Verdean
+                                        option(value='central african') Central African
+                                        option(value='chadian') Chadian
+                                        option(value='chilean') Chilean
+                                        option(value='chinese') Chinese
+                                        option(value='colombian') Colombian
+                                        option(value='comoran') Comoran
+                                        option(value='congolese') Congolese
+                                        option(value='costa rican') Costa Rican
+                                        option(value='croatian') Croatian
+                                        option(value='cuban') Cuban
+                                        option(value='cypriot') Cypriot
+                                        option(value='czech') Czech
+                                        option(value='danish') Danish
+                                        option(value='djibouti') Djibouti
+                                        option(value='dominican') Dominican
+                                        option(value='dutch') Dutch
+                                        option(value='east timorese') East Timorese
+                                        option(value='ecuadorean') Ecuadorean
+                                        option(value='egyptian') Egyptian
+                                        option(value='emirian') Emirian
+                                        option(value='equatorial guinean') Equatorial Guinean
+                                        option(value='eritrean') Eritrean
+                                        option(value='estonian') Estonian
+                                        option(value='ethiopian') Ethiopian
+                                        option(value='fijian') Fijian
+                                        option(value='filipino') Filipino
+                                        option(value='finnish') Finnish
+                                        option(value='french') French
+                                        option(value='gabonese') Gabonese
+                                        option(value='gambian') Gambian
+                                        option(value='georgian') Georgian
+                                        option(value='german') German
+                                        option(value='ghanaian') Ghanaian
+                                        option(value='greek') Greek
+                                        option(value='grenadian') Grenadian
+                                        option(value='guatemalan') Guatemalan
+                                        option(value='guinea-bissauan') Guinea-Bissauan
+                                        option(value='guinean') Guinean
+                                        option(value='guyanese') Guyanese
+                                        option(value='haitian') Haitian
+                                        option(value='herzegovinian') Herzegovinian
+                                        option(value='honduran') Honduran
+                                        option(value='hungarian') Hungarian
+                                        option(value='icelander') Icelander
+                                        option(value='indian' selected) Indian
+                                        option(value='indonesian') Indonesian
+                                        option(value='iranian') Iranian
+                                        option(value='iraqi') Iraqi
+                                        option(value='irish') Irish
+                                        option(value='israeli') Israeli
+                                        option(value='italian') Italian
+                                        option(value='ivorian') Ivorian
+                                        option(value='jamaican') Jamaican
+                                        option(value='japanese') Japanese
+                                        option(value='jordanian') Jordanian
+                                        option(value='kazakhstani') Kazakhstani
+                                        option(value='kenyan') Kenyan
+                                        option(value='kittian and nevisian') Kittian and Nevisian
+                                        option(value='kuwaiti') Kuwaiti
+                                        option(value='kyrgyz') Kyrgyz
+                                        option(value='laotian') Laotian
+                                        option(value='latvian') Latvian
+                                        option(value='lebanese') Lebanese
+                                        option(value='liberian') Liberian
+                                        option(value='libyan') Libyan
+                                        option(value='liechtensteiner') Liechtensteiner
+                                        option(value='lithuanian') Lithuanian
+                                        option(value='luxembourger') Luxembourger
+                                        option(value='macedonian') Macedonian
+                                        option(value='malagasy') Malagasy
+                                        option(value='malawian') Malawian
+                                        option(value='malaysian') Malaysian
+                                        option(value='maldivan') Maldivan
+                                        option(value='malian') Malian
+                                        option(value='maltese') Maltese
+                                        option(value='marshallese') Marshallese
+                                        option(value='mauritanian') Mauritanian
+                                        option(value='mauritian') Mauritian
+                                        option(value='mexican') Mexican
+                                        option(value='micronesian') Micronesian
+                                        option(value='moldovan') Moldovan
+                                        option(value='monacan') Monacan
+                                        option(value='mongolian') Mongolian
+                                        option(value='moroccan') Moroccan
+                                        option(value='mosotho') Mosotho
+                                        option(value='motswana') Motswana
+                                        option(value='mozambican') Mozambican
+                                        option(value='namibian') Namibian
+                                        option(value='nauruan') Nauruan
+                                        option(value='nepalese') Nepalese
+                                        option(value='new zealander') New Zealander
+                                        option(value='ni-vanuatu') Ni-Vanuatu
+                                        option(value='nicaraguan') Nicaraguan
+                                        option(value='nigerien') Nigerien
+                                        option(value='north korean') North Korean
+                                        option(value='northern irish') Northern Irish
+                                        option(value='norwegian') Norwegian
+                                        option(value='omani') Omani
+                                        option(value='pakistani') Pakistani
+                                        option(value='palauan') Palauan
+                                        option(value='panamanian') Panamanian
+                                        option(value='papua new guinean') Papua New Guinean
+                                        option(value='paraguayan') Paraguayan
+                                        option(value='peruvian') Peruvian
+                                        option(value='polish') Polish
+                                        option(value='portuguese') Portuguese
+                                        option(value='qatari') Qatari
+                                        option(value='romanian') Romanian
+                                        option(value='russian') Russian
+                                        option(value='rwandan') Rwandan
+                                        option(value='saint lucian') Saint Lucian
+                                        option(value='salvadoran') Salvadoran
+                                        option(value='samoan') Samoan
+                                        option(value='san marinese') San Marinese
+                                        option(value='sao tomean') Sao Tomean
+                                        option(value='saudi') Saudi
+                                        option(value='scottish') Scottish
+                                        option(value='senegalese') Senegalese
+                                        option(value='serbian') Serbian
+                                        option(value='seychellois') Seychellois
+                                        option(value='sierra leonean') Sierra Leonean
+                                        option(value='singaporean') Singaporean
+                                        option(value='slovakian') Slovakian
+                                        option(value='slovenian') Slovenian
+                                        option(value='solomon islander') Solomon Islander
+                                        option(value='somali') Somali
+                                        option(value='south african') South African
+                                        option(value='south korean') South Korean
+                                        option(value='spanish') Spanish
+                                        option(value='sri lankan') Sri Lankan
+                                        option(value='sudanese') Sudanese
+                                        option(value='surinamer') Surinamer
+                                        option(value='swazi') Swazi
+                                        option(value='swedish') Swedish
+                                        option(value='swiss') Swiss
+                                        option(value='syrian') Syrian
+                                        option(value='taiwanese') Taiwanese
+                                        option(value='tajik') Tajik
+                                        option(value='tanzanian') Tanzanian
+                                        option(value='thai') Thai
+                                        option(value='togolese') Togolese
+                                        option(value='tongan') Tongan
+                                        option(value='trinidadian or tobagonian') Trinidadian or Tobagonian
+                                        option(value='tunisian') Tunisian
+                                        option(value='turkish') Turkish
+                                        option(value='tuvaluan') Tuvaluan
+                                        option(value='ugandan') Ugandan
+                                        option(value='ukrainian') Ukrainian
+                                        option(value='uruguayan') Uruguayan
+                                        option(value='uzbekistani') Uzbekistani
+                                        option(value='venezuelan') Venezuelan
+                                        option(value='vietnamese') Vietnamese
+                                        option(value='welsh') Welsh
+                                        option(value='yemenite') Yemenite
+                                        option(value='zambian') Zambian
+                                        option(value='zimbabwean') Zimbabwean
+
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Date of Birth
                                     span.text-danger *
                                 .col-md-8
+                                    input.form-control(type='date', placeholder='Date of Birth' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Gender
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Gender')
+                                    select.form-control(placeholder='Gender' required)
+                                        option(value='male' selected) Male
+                                        option(value='female') Female
+                                        option(value='other') Others
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Disability(if any please mention in detail):
@@ -76,23 +272,23 @@ block content
                                 label.col-md-4.control-label.label-tag Father&apos;s Name
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder="Father's Name")
+                                    input.form-control(type='text', placeholder="Father's Name" required)
                             .form-group
                                 .row.input-container
-                                label.col-md-4.control-label.label-tag Occupation
+                                label.col-md-4.control-label.label-tag Father&apos;s Occupation
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Occupation')
+                                    input.form-control(type='text', placeholder='Occupation' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Mother&apos;s Name
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder="Mother's Name")
+                                    input.form-control(type='text', placeholder="Mother's Name" required)
                             .form-group
                                 .row.input-container
-                                label.col-md-4.control-label.label-tag Occupation
-                                    span.text-danger *
+                                label.col-md-4.control-label.label-tag Mother&apos;s Occupation
+                                    span.text-danger
                                 .col-md-8
                                     input.form-control(type='text', placeholder='Occupation')
                             .form-group
@@ -100,13 +296,13 @@ block content
                                 label.col-md-4.control-label.label-tag Annual Income
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Total Annual Income of the family')
+                                    input.form-control(type='number', placeholder='Total Annual Income of the family' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Address for correspondence with Telephone no./Mobile No.
                                     span.text-danger *
                                 .col-md-8
-                                    textarea.form-control.input-big(rows='5', placeholder='Address for correspondence with Telephone no./Mobile No.')
+                                    textarea.form-control.input-big(rows='5', placeholder='Address for correspondence with Telephone no./Mobile No.' required)
                         .col-md-1
                     #step-2
                         h3.border-bottom.border-gray.pb-2.h3head Academic Details, Qualifications and Achievements
@@ -119,37 +315,37 @@ block content
                                 label.col-md-4.control-label.label-tag Course Name
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Course Name')
+                                    input.form-control(type='text', placeholder='Course Name' required)
                             .form-group
                                 .row.input-container
-                                label.col-md-4.control-label.label-tag Duration of course
+                                label.col-md-4.control-label.label-tag Duration of course in number
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='No. of years')
+                                    input.form-control(type='number', placeholder='No. of years as a number')
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Annual estimate of fund required for the course per year(in Rs.)
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Occupation')
+                                    input.form-control(type='number', placeholder='Fund required' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Tuition Fees
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Tuition Fees')
+                                    input.form-control(type='number', placeholder='Tuition Fees' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Book Fees
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Book Fees')
+                                    input.form-control(type='number', placeholder='Book Fees' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Institute/College Hostel Charges
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='text', placeholder='Institute/College Hostel Charges')
+                                    input.form-control(type='number', placeholder='Institute/College Hostel Charges' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Any other fees(in detail):
@@ -171,26 +367,26 @@ block content
                                 tbody
                                     tr
                                         td.col-md-2.col-md-offset-1.col-xs-2.col-xs-offset-1
-                                            input.form-control(type='text')
+                                            input.form-control(type='text' required)
                                         td.col-md-2.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-md-2.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-md-2.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-md-2.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                     tr
                                         td.col-md-2.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1
-                                            input.form-control(type='text')
+                                            input.form-control(type='text' required)
                                         td.col-md-2.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-md-2.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-md-2.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-md-2.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                             h5.table2head
                                 | Graduation and above: 
                                 i (If result of final year are not received, mention upto latest result)
@@ -207,30 +403,30 @@ block content
                                 tbody
                                     tr
                                         td.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                         td.col-sm-2.col-xs-2
-                                            input.form-control.table-input(type='text')
+                                            input.form-control.table-input(type='text' required)
                                 tr
                                     td.col-sm-2.col-xs-2
-                                        input.form-control.table-input(type='text')
+                                        input.form-control.table-input(type='text' required)
                                     td.col-sm-2.col-xs-2
-                                        input.form-control.table-input(type='text')
+                                        input.form-control.table-input(type='text' required)
                                     td.col-sm-2.col-xs-2
-                                        input.form-control.table-input(type='text')
+                                        input.form-control.table-input(type='text' required)
                                     td.col-sm-2.col-xs-2
-                                        input.form-control.table-input(type='text')
+                                        input.form-control.table-input(type='text' required)
                                     td.col-sm-2.col-xs-2
-                                        input.form-control.table-input(type='text')
+                                        input.form-control.table-input(type='text' required)
                                     td.col-sm-2.col-xs-2
-                                        input.form-control.table-input(type='text')
+                                        input.form-control.table-input(type='text' required)
                         .col-md-1
                         h4.heading Qualitative Achievement
                         hr
@@ -257,23 +453,29 @@ block content
                                 label.col-md-4.control-label.label-tag Annual Income Certificate
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='file',name='document')
+                                    input.form-control(type='file',name='document' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Transcript
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='file',name='document')
+                                    input.form-control(type='file',name='document' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag 12th Marksheet
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='file',name='document')
+                                    input.form-control(type='file',name='document' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag 10th Marksheet
                                     span.text-danger *
+                                .col-md-8
+                                    input.form-control(type='file',name='document' required)
+                            .form-group
+                                .row.input-container
+                                label.col-md-4.control-label.label-tag Bank Statement for loans(if taken)
+                                    span.text-danger 
                                 .col-md-8
                                     input.form-control(type='file',name='document')
                             .form-group(style='margin-top:7vh;')

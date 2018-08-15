@@ -63,6 +63,10 @@ table td input{
     font-size: 0.7em;
 }
 
+input[type="radio"]:focus {
+    outline: none !important;
+}
+
 .table-input{
     padding-left: 0 !important;
     padding-right: 0 !important;

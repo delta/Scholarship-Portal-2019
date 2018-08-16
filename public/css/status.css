@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Open Sans";
+    font-family: "Montserrat","Raleway",sans-serif;
   }
 
 .progress{
@@ -27,7 +27,7 @@
 
 .progress .bar {
     position: relative;
-    width: 80px;
+    width: 110px;
     height: 6px;
     top: -33px;
     margin-left: -5px;
@@ -55,7 +55,6 @@
     margin-left: -5px;
 }
 
-/* Done / Active */
 .progress .bar.done, .progress .circle.done {
     background: #eee;
 }

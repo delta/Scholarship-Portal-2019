@@ -37,11 +37,11 @@ exports.validateLogin = (req, res) => {
 
 exports.registerUser = (req,res) => {
   //check for null/missing inputs
-  if(!checkEmptyInput(req)){
-    return res.render(`/user/${_USERNAME}/register`,{
-      errors:'Missing inputs. Please try again.'
-    })
-  }
+  // if(!checkEmptyInput(req)){
+  //   return res.render(`register`,{
+  //     errors:'Missing inputs. Please try again.'
+  //   })
+  // }
   // check for validation errors
   // if(validationErrors(req)){
   //   return res.render(`/user/${_USERNAME}/register`,{
@@ -54,7 +54,10 @@ exports.registerUser = (req,res) => {
       console.log(error);
       return res.redirect('/user/scholarship/register');
     }
-    let newStudent = new Scholarship(studentDetail(req.body))
+    // console.log(req.body)
+    // console.log('filesasdzxcz...................................')
+    // console.log(req.files)
+    let newStudent = new Scholarship(studentDetail(req))
     newStudent.save(err => {
       if (err) {
         console.log(err);
@@ -102,7 +105,7 @@ function checkEmptyInput(req){
   )
   return bool;
 }
-function studentDetail(detail){
+function studentDetail(req){
   return {
     personalDetails:{
       rollno:sanitize(req.body.rollno),
@@ -150,7 +153,7 @@ function studentDetail(detail){
       degree_grade_2:req.body.degree_grade_2 ? sanitize(req.body.degree_grade_2) : null,
       degree_percentage_2:req.body.degree_percentage_2 ? sanitize(req.body.degree_percentage_2) : null,
     },
-    documents:req.body.files,
+    documents:req.files,
     scholarshipStatus:-1,
     uniqueID:shortid.generate()
   }

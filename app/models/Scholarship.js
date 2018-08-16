@@ -10,7 +10,7 @@ const scholarshipSchema = mongoose.Schema({
     required : true
   },
   documents:{
-    type: Object,
+    type: Array,
     required : true
   },
   scholarshipStatus:{

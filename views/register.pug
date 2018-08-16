@@ -321,7 +321,7 @@ block content
                                 label.col-md-4.control-label.label-tag Duration of course in number
                                     span.text-danger *
                                 .col-md-8
-                                    input.form-control(type='number', placeholder='No. of years as a number' name='course_duration')
+                                    input.form-control(type='number', placeholder='No. of years as a number' name='course_duration' required)
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Annual estimate of fund required for the course per year(in Rs.)
@@ -378,7 +378,7 @@ block content
                                             input.form-control.table-input(type='text' name='exam_percentage_1' required)
                                     tr
                                         td.col-md-2.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1
-                                            input.form-control(type='text' name='exam_year_1' required)
+                                            input.form-control(type='text' name='exam_name_2' required)
                                         td.col-md-2.col-sm-2.col-xs-2
                                             input.form-control.table-input(type='text' name='exam_year_2' required)
                                         td.col-md-2.col-sm-2.col-xs-2
@@ -437,7 +437,7 @@ block content
                                 label.col-md-4.control-label.label-tag Academic distinctions, grants and scholarships
                                     span.text-danger *
                                 .col-md-8
-                                    textarea.form-control.input-big(rows='5', placeholder='Please mention any academic distinction, grants, scholarships and prizes received by you.')
+                                    textarea.form-control.input-big(rows='5' required placeholder='Please mention any academic distinction, grants, scholarships and prizes received by you.')
                             .form-group
                                 .row.input-container
                                 label.col-md-4.control-label.label-tag Achievements, aspirations and life goals:

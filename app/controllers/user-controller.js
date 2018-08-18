@@ -37,11 +37,7 @@ exports.validateLogin = (req, res) => {
 
 exports.registerUser = (req,res) => {
   //check for null/missing inputs
-  // if(!checkEmptyInput(req)){
-  //   return res.render(`register`,{
-  //     errors:'Missing inputs. Please try again.'
-  //   })
-  // }
+
   // check for validation errors
   // if(validationErrors(req)){
   //   return res.render(`/user/${_USERNAME}/register`,{
@@ -54,9 +50,11 @@ exports.registerUser = (req,res) => {
       console.log(error);
       return res.redirect('/user/scholarship/register');
     }
-    // console.log(req.body)
-    // console.log('filesasdzxcz...................................')
-    // console.log(req.files)
+    if(!checkEmptyInput(req)){
+      return res.render(`register`,{
+        errors:'Missing inputs. Please try again.'
+      })
+    }
     let newStudent = new Scholarship(studentDetail(req))
     newStudent.save(err => {
       if (err) {
@@ -101,7 +99,7 @@ function checkEmptyInput(req){
     req.body.degree_institute_1 &&
     req.body.degree_grade_1 &&
     req.body.degree_percentage_1 &&
-    (req.body.files.length == 4 || req.body.files.length == 5)
+    (req.files.length == 4 || req.files.length == 5)
   )
   return bool;
 }

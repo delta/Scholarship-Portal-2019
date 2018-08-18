@@ -1,0 +1,101 @@
+html,body{
+	margin: 0;
+	padding: 0;
+    background-color: rgb(249,249,249);
+    font-family: 'sans-serif';
+    min-height:100vh;
+}
+
+.title{
+	text-align: center;
+	font-size: 4.5em;
+	padding: 5px;
+    margin-top: 6vh;
+    letter-spacing: 0.2em;
+}
+
+.container-custom{
+    width: 100vw;
+}
+
+.heading{
+    margin-top: 7vh;
+}
+
+.main{
+    margin-top: 8vh;
+}
+
+.input-container{
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.label-tag{
+    margin-top: 8px;
+}
+
+.input-big{
+    overflow: auto;
+    resize: none;
+}
+
+table td input{
+    width: 100%;   
+}
+
+.table-custom{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.table2head{
+    margin-top: 8vh;
+}
+
+.h3head{
+    font-size: 2em;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+.hide{
+    display:none;
+}
+
+.contain-container{
+    margin-top: 6vh;
+    width: 90vw;
+}
+
+.dropdown-head{
+    font-size: 0.7em;
+}
+
+.table-input{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .title{
+        font-size: 2em;
+        font-weight: 500;
+    }
+
+    .table2head{
+        margin-top: 6vh;
+        font-size: 1.2em;
+    }
+
+    .heading{
+        margin-top: 7vh;
+        font-size: 1.3em;
+    }
+
+    .dropdown-head{
+        font-size: 0.8em;
+    }
+
+}

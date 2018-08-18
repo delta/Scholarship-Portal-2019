@@ -1,0 +1,44 @@
+html,body{
+	margin: 0;
+	padding: 0;
+    background-color: rgb(249,249,249);
+    font-family: 'sans-serif';
+}
+
+.title{
+	text-align: center;
+	font-size: 4.5em;
+	padding: 5px;
+    margin-top: 6vh;
+    letter-spacing: 0.2em;
+}
+
+#loginTitle{
+	text-align: center;
+	font-size: 1.5em;
+	padding: 5px;
+	padding-bottom: 0px;
+    margin-top: 12vh;
+    margin-bottom: 20px;
+}
+
+#usernameIn{
+	font-size: 1.3em;
+}
+
+#passIn{
+	font-size: 1.3em;
+}
+
+#submitIn{
+    font-size: 1.3em;
+    padding: 0;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .title{
+        font-size: 2.5em;
+    }
+
+}

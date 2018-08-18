@@ -1,0 +1,267 @@
+extends ./layout.pug
+
+block append head
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title Register | Scholarship Portal
+    meta(charset='UTF-8')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    link(href='/css/smart_wizard.css', rel='stylesheet', type='text/css')
+    link(href='/css/smart_wizard_theme_arrows.css', rel='stylesheet', type='text/css')
+    link(rel="stylesheet", href="/css/register.css")
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js', integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+    script(src='/js/jquery.smartWizard.min.js')
+    script(src="/js/register.js")
+
+block content
+    h1.title Scholarship Portal
+    .container.contain-container
+        #smartwizard
+            ul
+                li
+                    a(href='#step-1') Personal Details
+                li
+                    a(href='#step-2') Academic Details, Qualifications and Achievements
+                li
+                    a(href='#step-3') Document Uploads
+            div
+                #step-1
+                    .col-md-1
+                    h3.border-bottom.border-gray.pb-2.h3head Personal Details
+                    .col-md-10
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Roll Number:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Roll Number')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag First Name:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='First Name')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Last Name:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Last Name')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Nationality:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Nationality')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Date of Birth:
+                            .col-md-8
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Gender:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Gender')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Disability(if any please mention in detail):
+                            .col-md-8
+                                textarea.form-control.input-big(rows='3', placeholder='Disability(if any please mention in detail)')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Father&apos;s Name:
+                            .col-md-8
+                                input.form-control(type='text', placeholder="Father's Name")
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Occupation:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Occupation')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Mother&apos;s Name:
+                            .col-md-8
+                                input.form-control(type='text', placeholder="Mother's Name")
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Occupation:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Occupation')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Annual Income:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Total Annual Income of the family')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Address for correspondence with Telephone no./Mobile No.:
+                            .col-md-8
+                                textarea.form-control.input-big(rows='5', placeholder='Address for correspondence with Telephone no./Mobile No.')
+                    .col-md-1
+                #step-2
+                    h3.border-bottom.border-gray.pb-2.h3head Academic Details, Qualifications and Achievements
+                    h4.heading Academic Details
+                    hr
+                    .col-md-1
+                    .col-md-10
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Course Name:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Course Name')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Duration of course:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='No. of years')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Annual estimate of fund required for the course per year(in Rs.):
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Occupation')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Tuition Fees:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Tuition Fees')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Book Fees:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Book Fees')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Institute/College Hostel Charges:
+                            .col-md-8
+                                input.form-control(type='text', placeholder='Institute/College Hostel Charges')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Any other fees(in detail):
+                            .col-md-8
+                                textarea.form-control.input-big(rows='3', placeholder='Any other fees in detail')
+                    .col-md-1
+                    h4.heading Educational Qualifications
+                    hr
+                    .col-md-1
+                    .col-md-10
+                        table.table-responsive.table-condensed.table-bordered.table-custom
+                            thead
+                                tr
+                                    th.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1 Name of the Examination
+                                    th.col-sm-2.col-xs-2 Year
+                                    th.col-sm-2.col-xs-2 Board/University/Institution
+                                    th.col-sm-2.col-xs-2 Division/Class/Grade
+                                    th.col-sm-2.col-xs-2 % Obtained
+                            tbody
+                                tr
+                                    td.col-md-2.col-md-offset-1.col-xs-2.col-xs-offset-1
+                                        input.form-control(type='text')
+                                    td.col-md-2.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-md-2.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-md-2.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-md-2.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                tr
+                                    td.col-md-2.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1
+                                        input.form-control(type='text')
+                                    td.col-md-2.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-md-2.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-md-2.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-md-2.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                        h5.table2head
+                            | Graduation and above: 
+                            i (If result of final year are not received, mention upto latest result)
+                        hr
+                        table.table-responsive.table-condensed.table-bordered.table-custom(style='margin-top: 1vh;')
+                            thead
+                                tr
+                                    th.col-sm-2.col-xs-2 Degree
+                                    th.col-sm-2.col-xs-2 Year
+                                    th.col-sm-2.col-xs-2 Subject
+                                    th.col-sm-2.col-xs-2 Institution/University
+                                    th.col-sm-2.col-xs-2 Class/Grade
+                                    th.col-sm-2.col-xs-2 % Obtained
+                            tbody
+                                tr
+                                    td.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                                    td.col-sm-2.col-xs-2
+                                        input.form-control.table-input(type='text')
+                            tr
+                                td.col-sm-2.col-xs-2
+                                    input.form-control.table-input(type='text')
+                                td.col-sm-2.col-xs-2
+                                    input.form-control.table-input(type='text')
+                                td.col-sm-2.col-xs-2
+                                    input.form-control.table-input(type='text')
+                                td.col-sm-2.col-xs-2
+                                    input.form-control.table-input(type='text')
+                                td.col-sm-2.col-xs-2
+                                    input.form-control.table-input(type='text')
+                                td.col-sm-2.col-xs-2
+                                    input.form-control.table-input(type='text')
+                    .col-md-1
+                    h4.heading Qualitative Achievement
+                    hr
+                    .col-md-1
+                    .col-md-10
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Academic distinctions, grants and scholarships:
+                            .col-md-8
+                                textarea.form-control.input-big(rows='5', placeholder='Please mention any academic distinction, grants, scholarships and prizes received by you.')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Achievements, aspirations and life goals:
+                            .col-md-8
+                                textarea.form-control.input-big(rows='5', placeholder='Please mention your dreams, life goals and aspirations.')
+                    .col-md-1
+                #step-3
+                    h3.border-bottom.border-gray.pb-2.h3head Document Uploads
+                    .col-md-1
+                    .col-md-10
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Annual Income Certificate:
+                            .col-md-8
+                                input.form-control(type='file')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag Transcript:
+                            .col-md-8
+                                input.form-control(type='file')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag 12th Marksheet:
+                            .col-md-8
+                                input.form-control(type='file')
+                        .form-group
+                            .row.input-container
+                            label.col-md-4.control-label.label-tag 10th Marksheet:
+                            .col-md-8
+                                input.form-control(type='file')
+                        .form-group(style='margin-top:7vh;')
+                            .row
+                            .col-md-4.col-sm-4.col-xs-3
+                            .col-md-3.col-sm-3.col-xs-6
+                                input.form-control.btn.btn-success.custom-submit(type='submit', value='Submit')
+                            .col-md-5.col-sm-5.col-xs-3
+                    .col-md-1
+    
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js', integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+    script(src='/js/jquery.smartWizard.min.js')
+    script(src="/js/register.js")

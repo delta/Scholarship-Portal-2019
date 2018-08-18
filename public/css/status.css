@@ -2,17 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-<<<<<<< HEAD
-=======
     font-family: "Montserrat","Raleway",sans-serif;
->>>>>>> 81e35a2ee15705d558140bd19b853a966abd737d
   }
 
 .progress{
     margin: 20px auto;
     text-align: center;
-    height: 15vh;
-    margin-top: 20vh;
+    height: 12vh;
+    margin-top: 8vh;
 }
 
 .progress .circle, .progress .bar {
@@ -78,6 +75,7 @@
 
 .text{
     font-size: 1.2em;
+    margin-left: -20px;
 }
 
 .progress .circle.active .label {
@@ -88,4 +86,12 @@
 
 .progress .circle.active .text {
     color: #0c95be;
+}
+
+.btn-logout{
+    margin-left: 5%;
+}
+
+.alert-container{
+    margin-top: 7vh;
 }

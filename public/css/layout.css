@@ -60,3 +60,11 @@ body::after{
 .footer a:hover{
     cursor: pointer;
 }
+
+@media only screen and (max-width: 500px) {
+  
+    .title{
+        font-size: 2.5em;
+    }
+
+}

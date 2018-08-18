@@ -37,7 +37,7 @@ table td input{
 }
 
 .table-custom{
-    margin-top: 3vh;
+    margin-top: 2vh;
     margin-bottom: 3vh;
 }
 
@@ -68,9 +68,9 @@ input[type="radio"]:focus {
     outline: none !important;
 }
 
-.table-input{
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+.table-td-input{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 @media only screen and (max-width: 500px) {

@@ -1,24 +1,136 @@
-extends ../../views/layout.pug
+extends ../../views/pdf-layout.pug
 
 block append head
     title Scholarship Portal
+    link(rel="stylesheet", href="/css/details.css")
     style(type='text/css')
         include ./bootstrap-grid.min.css
         include ./bootstrap.min.css
 
 block content
-    h1.title.text-center Scholarship Portal
-    .container
+    div(class="container info-container")
         .row
-            .col-md-6
+            .col-md-1
+            .col-md-10
                 h3.border-bottom.border-gray.pb-2.h3head Personal Details
                 .row.field-container
                     label.col-md-6 Roll Number :
-                    div.col-md-6 #{student.personalDetails.rollno}
+                    div.col-md-6= student.personalDetails.rollno
                 .row.field-container
                     label.col-md-6 First Name :
-                    div.col-md-6 #{student.personalDetails.firstname}
-                    .row.field-container
+                    div.col-md-6= student.personalDetails.firstname
+                .row.field-container
+                    if student.personalDetails.lastname
                         label.col-md-6 Last Name :
                         div.col-md-6= student.personalDetails.lastname
-                    
+                .row.field-container
+                    label.col-md-6 Nationality :
+                    div.col-md-6= student.personalDetails.nationality
+                .row.field-container
+                    label.col-md-6 Date of Birth :
+                    div.col-md-6= student.personalDetails.dob
+                .row.field-container
+                    label.col-md-6 Gender :
+                    div.col-md-6= student.personalDetails.gender.toUpperCase()
+                .row.field-container
+                    if student.personalDetails.disability
+                        label.col-md-6 Disability :
+                        div.col-md-6= student.personalDetails.disability
+                .row.field-container
+                    label.col-md-6 Father&apos;s Name :
+                    div.col-md-6= student.personalDetails.father_name
+                .row.field-container
+                    label.col-md-6 Father&apos;s Occupation :
+                    div.col-md-6= student.personalDetails.father_occupation
+                .row.field-container
+                    label.col-md-6 Mother&apos;s Name :
+                    div.col-md-6= student.personalDetails.mother_name
+                .row.field-container
+                    label.col-md-6 Mother&apos;s Occupation :
+                    div.col-md-6= student.personalDetails.mother_occupation
+                .row.field-container
+                    label.col-md-6 Annual Income :
+                    div.col-md-6= student.personalDetails.annual_income
+                .row.field-container
+                    label.col-md-6 Address for correspondence :
+                    div.col-md-6= student.personalDetails.address
+                h3.border-bottom.border-gray.pb-2.h3head Academic Details, Qualifications and Achievements
+                h4.heading Academic Details
+                hr
+                .row.field-container
+                    label.col-md-6 Course Name :
+                    div.col-md-6= student.acads.course_name
+                .row.field-container
+                    label.col-md-6 Duration of course :
+                    div.col-md-6= student.acads.course_duration
+                .row.field-container
+                    label.col-md-6 Annual estimate of fund required for the course per year(in Rs.) :
+                    div.col-md-6= student.acads.fund_required
+                .row.field-container
+                    if student.acads.tuition_fees
+                        label.col-md-6 Tuition Fees :
+                        div.col-md-6= 'Rs. '+student.acads.tuition_fees
+                .row.field-container
+                    if student.acads.book_fees
+                        label.col-md-6 Book Fees :
+                        div.col-md-6= 'Rs. '+student.acads.book_fees
+                .row.field-container
+                    if student.acads.hostel_fees
+                        label.col-md-6 Institute/College Hostel Charges :
+                        div.col-md-6= 'Rs. '+student.acads.hostel_fees
+                .row.field-container
+                    if student.acads.other_fees
+                        label.col-md-6 Any other fees(in detail): :
+                        div.col-md-6= student.acads.other_fees
+                h4.heading Educational Qualifications
+                hr
+                table.table-responsive.table-condensed.table-bordered.table-custom
+                    thead
+                        tr
+                            th.col-md-2.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1 Name of the Examination
+                            th.col-md-2.col-sm-2.col-xs-2 Year
+                            th.col-md-2.col-sm-2.col-xs-2 Board/University/Institution
+                            th.col-md-2.col-sm-2.col-xs-2 Division/Class/Grade
+                            th.col-md-2.col-sm-2.col-xs-2 % Obtained
+                    tbody
+                        tr
+                            td.col-md-2.col-md-offset-1.col-xs-2.col-xs-offset-1= student.acads.exam_name_1
+                            td.col-md-2.col-sm-2.col-xs-2= student.acads.exam_year_1
+                            td.col-md-2.col-sm-2.col-xs-2= student.acads.exam_board_1
+                            td.col-md-2.col-sm-2.col-xs-2= student.acads.exam_class_1
+                            td.col-md-2.col-sm-2.col-xs-2= student.acads.exam_percentage_1 + '%'
+                        tr
+                            td.col-md-2.col-md-offset-1.col-xs-2.col-xs-offset-1= student.acads.exam_name_2
+                            td.col-md-2.col-sm-2.col-xs-2= student.acads.exam_year_2
+                            td.col-md-2.col-sm-2.col-xs-2= student.acads.exam_board_2
+                            td.col-md-2.col-sm-2.col-xs-2= student.acads.exam_class_2
+                            td.col-md-2.col-sm-2.col-xs-2= student.acads.exam_percentage_2 + '%'
+                h5.table2head
+                    | Graduation and above:
+                    i (If result of final year are not received, mention upto latest result)
+                hr
+                table.table-responsive.table-condensed.table-bordered.table-custom(style='margin-top: 1vh;')
+                    thead
+                        tr
+                            th.col-sm-2.col-xs-2 Degree
+                            th.col-sm-2.col-xs-2 Year
+                            th.col-sm-2.col-xs-2 Subject
+                            th.col-sm-2.col-xs-2 Institution/University
+                            th.col-sm-2.col-xs-2 Class/Grade
+                            th.col-sm-2.col-xs-2 Percentage
+                    tbody
+                        tr
+                            td.col-sm-2.col-xs-2= student.acads.degree_1
+                            td.col-sm-2.col-xs-2= student.acads.degree_year_1
+                            td.col-sm-2.col-xs-2= student.acads.degree_subject_1
+                            td.col-sm-2.col-xs-2= student.acads.degree_institute_1
+                            td.col-sm-2.col-xs-2= student.acads.degree_grade_1
+                            td.col-sm-2.col-xs-2= student.acads.degree_percentage_1 + '%'
+                        tr
+                            td.col-sm-2.col-xs-2= student.acads.degree_2
+                            td.col-sm-2.col-xs-2= student.acads.degree_year_2
+                            td.col-sm-2.col-xs-2= student.acads.degree_subject_2
+                            td.col-sm-2.col-xs-2= student.acads.degree_institute_2
+                            td.col-sm-2.col-xs-2= student.acads.degree_grade_2
+                            td.col-sm-2.col-xs-2= student.acads.degree_percentage_2?(student.acads.degree_percentage_2 + '%'):''
+            .col-md-1

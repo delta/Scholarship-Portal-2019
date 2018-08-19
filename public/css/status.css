@@ -9,7 +9,7 @@
     margin: 20px auto;
     text-align: center;
     height: 12vh;
-    margin-top: 8vh;
+    margin-top: 3vh;
 }
 
 .progress .circle, .progress .bar {
@@ -94,4 +94,8 @@
 
 .alert-container{
     margin-top: 7vh;
+}
+
+.pdf-container{
+    margin-top: 2vh;
 }

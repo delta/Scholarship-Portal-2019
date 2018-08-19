@@ -14,14 +14,12 @@ let sessionChecker = (req,res,next) =>{
 router.get('/:username/register',sessionChecker, user.renderRegisterForm)
 router.post('/:username/register',sessionChecker, user.registerUser)
 
-// // register
-// router.get('/:username/register', user.renderRegisterForm)
-// router.post('/:username/register', user.registerUser)
-
-
 // login
 router.get('/login',user.renderLoginForm)
 router.post('/login',user.validateLogin)
+
+//status page
+router.get('/:username/status',sessionChecker, user.renderStatus)
 
 
 

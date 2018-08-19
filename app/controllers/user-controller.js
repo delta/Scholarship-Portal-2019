@@ -6,7 +6,12 @@ const Scholarship = require('../models/Scholarship.js')
 const _USERNAME = config.auth.name
 const _PASSWORD = config.auth.password
 const exec = require('child_process').exec;
+const pug = require('pug');
+const pdf = require('html-pdf');
+const options = { format: 'Letter' };
 var upload = require('../../config/upload.js');
+var html;
+
 
 exports.renderLoginForm = (req,res) => {
   res.render('login');
@@ -77,8 +82,30 @@ exports.registerUser = (req,res) => {
         return res.redirect('/user/scholarship/register');
       }
       console.log('Successfull student creation');
-      return res.render('status')
+      return res.redirect('user/scholarship/status')
     })
+  })
+}
+
+exports.renderStatus = (req,res) => {
+  Scholarship.findOne({"personalDetails.rollno":"103117050"},(err,student) => {
+    if(err){
+      console.log(err)
+      return res.redirect('/')
+    }
+    console.log(student)
+    // Compile the source code for pdf file
+    const compiledFunction = pug.compileFile('./public/template/pdf-template.pug');
+
+    // Render a set of data
+    html = compiledFunction({
+      student: student
+    });
+    pdf.create(html, options).toFile('./public/files/generated-pdfs/103117050.pdf', function(err, res) {
+      if (err) return console.log(err);
+      console.log(res); // { filename: '/app/newfile.pdf' }
+    });
+    res.render('status')
   })
 }
 

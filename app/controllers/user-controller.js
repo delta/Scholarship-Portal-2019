@@ -28,9 +28,11 @@ exports.validateLogin = (req, res) => {
     function checkCredentials(access){  
       // wrong credentials
       if(access==0){
+        console.log("****Wrong Credentials!****");
         return res.redirect('/user/login')
       }
       //correct credentials, create session
+      console.log("****Credentials are correct!****");
       req.session.user = {
         name: username,
         password: password

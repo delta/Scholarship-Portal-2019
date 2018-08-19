@@ -1,0 +1,24 @@
+extends ../../views/layout.pug
+
+block append head
+    title Scholarship Portal
+    style(type='text/css')
+        include ./bootstrap-grid.min.css
+        include ./bootstrap.min.css
+
+block content
+    h1.title.text-center Scholarship Portal
+    .container
+        .row
+            .col-md-6
+                h3.border-bottom.border-gray.pb-2.h3head Personal Details
+                .row.field-container
+                    label.col-md-6 Roll Number :
+                    div.col-md-6 #{student.personalDetails.rollno}
+                .row.field-container
+                    label.col-md-6 First Name :
+                    div.col-md-6 #{student.personalDetails.firstname}
+                    .row.field-container
+                        label.col-md-6 Last Name :
+                        div.col-md-6= student.personalDetails.lastname
+                    

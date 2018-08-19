@@ -9,20 +9,26 @@ block append head
 block content
     h1.title Scholarship Portal
     .container
-        .col-md-3
-        div(style="text-align: center;").progress.col-md-6
-            div(class="progress-contain" style="text-align: center;")
-                .circle.done
-                    span.label 1
-                    span.text Registration
-                span.bar.done
-                .circle.done
-                    span.label 2
-                    span.text Confirmation
-                span.bar.half
-                .circle.active
-                    span.label 3
-                    span.text Response
-        .col-md-3
+        .row
+            .col-md-3
+            div(style="text-align: center;").progress.col-md-6
+                div(class="progress-contain" style="text-align: center;")
+                    .circle.done
+                        span.label 1
+                        span.text Registration
+                    span.bar.done
+                    .circle.done
+                        span.label 2
+                        span.text Confirmation
+                    span.bar.half
+                    .circle.active
+                        span.label 3
+                        span.text Response
+            .col-md-3
+        .row
+            .col-md-2
+            .col-md-8
+                embed(src="/files/generated-pdfs/103117050.pdf" type="application/pdf" style="width: 350px;height: 300px;" )
+            .col-md-2
     script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(src="/js/status.js")

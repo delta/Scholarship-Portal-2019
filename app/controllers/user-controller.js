@@ -5,6 +5,7 @@ const config = require('../../config/config.js');
 const Scholarship = require('../models/Scholarship.js')
 const _USERNAME = config.auth.name
 const _PASSWORD = config.auth.password
+const exec = require('child_process').exec;
 var upload = require('../../config/upload.js');
 
 exports.renderLoginForm = (req,res) => {
@@ -23,16 +24,28 @@ exports.validateLogin = (req, res) => {
   // no missing inputs, go for further validations
   let username = req.body.username
   let password = req.body.password
-  // wrong credentials
-  if(username !== _USERNAME || password !== _PASSWORD ){
-    return res.redirect('/user/login')
-  }
-  //correct credentials, create session
-  req.session.user = {
-    name:_USERNAME,
-    password:_PASSWORD
-  }
-  return res.redirect(`/user/${_USERNAME}/register`)
+
+    function checkCredentials(access){  
+      // wrong credentials
+      if(access==0){
+        return res.redirect('/user/login')
+      }
+      //correct credentials, create session
+      req.session.user = {
+        name: username,
+        password: password
+      }
+      return res.redirect(`/user/${username}/register`)
+    }
+
+  var execlog = exec('./checkCredentials.sh '+username+' '+password,
+    (error, stdout, stderr) => {
+        if (error !== null) {
+            console.log(`exec error: ${error}`);
+        }
+      checkCredentials(stdout);
+    });
+
 }
 
 exports.registerUser = (req,res) => {

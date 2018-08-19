@@ -8,7 +8,6 @@ const config = require('./config/config.js');
 const expressValidator = require('express-validator');
 const session = require('express-session');
 
-
 //importing router
 const userRouter = require('./app/routes/user-router.js');
 
@@ -82,7 +81,11 @@ app.get('*',(req,res,next) => {
 app.get('/',(req,res)=>{
   res.render('home');
 })
-app.get('/status', (req,res) => { return res.render('status')})
+
+app.get('/status', (req,res) =>{ 
+  return res.render('status')
+})
+
 app.use('/user', userRouter);
 
 app.get('*',(req,res)=>{

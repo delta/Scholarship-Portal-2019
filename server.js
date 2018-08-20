@@ -82,8 +82,13 @@ app.get('/',(req,res)=>{
   res.render('home');
 })
 
-app.get('/status', (req,res) =>{ 
-  return res.render('status')
+app.get('/status',sessionChecker, (req,res) =>{
+  return res.render('status', {user:req.session.user.name})
+})
+
+app.get('/logout',sessionChecker,(req,res)=>{
+  req.session.user=undefined;
+  res.redirect("/");
 })
 
 app.use('/user', userRouter);

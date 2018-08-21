@@ -16,13 +16,13 @@ const app = express();
 
 //database Connection
 mongoose.connect(config.mongodb.dbURI)
-.then(()=>{
-  signale.success('*****Database Connection Successfull******');
-}).catch(err=>{
-  signale.fatal(new Error(err));
-  signale.warn('Could not connect to Database. Exiting now...');
-  process.exit();
-})
+  .then(() => {
+    signale.success('*****Database Connection Successfull******');
+  }).catch(err => {
+    signale.fatal(new Error(err));
+    signale.warn('Could not connect to Database. Exiting now...');
+    process.exit();
+  })
 let db = mongoose.connection
 
 // view engine setup
@@ -31,7 +31,9 @@ app.set('view engine', 'pug');
 
 //middlewares
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -39,17 +41,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 //middlewares for expressValidator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+    var namespace = param.split('.'),
+      root = namespace.shift(),
+      formParam = root;
 
-    while(namespace.length) {
+    while (namespace.length) {
       formParam += '[' + namespace.shift() + ']';
     }
     return {
-      param : formParam,
-      msg   : msg,
-      value : value
+      param: formParam,
+      msg: msg,
+      value: value
     };
   }
 }));
@@ -58,45 +60,47 @@ app.use(cookieParser());
 
 // initialize express-session to allow us track the logged-in user across sessions.
 app.use(session({
-  secret:config.session.secretString,
-  resave:true,
-  saveUninitialized:false
+  secret: config.session.secretString,
+  resave: true,
+  saveUninitialized: false
 }))
-  //sessionChecker middlewares
-  let sessionChecker = (req,res,next) =>{
-    if(!req.session.user){
-      res.redirect('/user/login')
-    }else{
-      next()
-    }
+
+//sessionChecker middlewares
+let sessionChecker = (req, res, next) => {
+  if (!req.session.user) {
+    res.redirect('/user/login')
+  } else {
+    next()
   }
+}
 
 //global vari for all routes
-app.get('*',(req,res,next) => {
+app.get('*', (req, res, next) => {
   res.locals.user = req.session.user || null
   next()
 })
 
 //Home Route
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
   res.render('home');
 })
 
-app.get('/status',sessionChecker, (req,res) =>{
-  return res.render('status', {user:req.session.user.name})
-})
 
-app.get('/logout',sessionChecker,(req,res)=>{
-  req.session.user=undefined;
-  res.redirect("/");
+app.get('/logout', sessionChecker, (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return next(err)
+    }
+    return res.redirect('/')
+  })
 })
 
 app.use('/user', userRouter);
 
-app.get('*',(req,res)=>{
+app.get('*', (req, res) => {
   res.send('ERROR 404. PAGE NOT FOUND')
 })
 
-app.listen(3000,()=> {
+app.listen(3000, () => {
   signale.success('Server Started on port: 3000');
 })

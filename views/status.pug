@@ -1,41 +1,40 @@
 extends ./layout.pug
 
 block append head
-    title Status | Scholarship Portal
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
-    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.2.0/css/all.css", integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ", crossorigin="anonymous")
-    link(rel="stylesheet", href="/css/status.css")
+  title Status | Scholarship Portal
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+  link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.2.0/css/all.css", integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ", crossorigin="anonymous")
+  link(rel="stylesheet", href="/css/status.css")
 
 block content
-    h1.title Scholarship Portal
-    .container
-        .col-md-4
-        .col-md-4(style="text-align: center;")
-            .alert.alert-info.alert-container User logged in :
-                = user
-                a(href="/logout")
-                    button.btn.btn-default.btn-logout Logout
-        .col-md-4
-    .container
-        .col-md-2
-        div(style="text-align: center;").progress.col-md-8
-            div(class="progress-contain" style="text-align: center;")
-                .circle.done
-                    span.label 1
-                    span.text Registration
-                span.bar.done
-                .circle.done
-                    span.label 2
-                    span.text Confirmation
-                span.bar.half
-                .circle.active
-                    span.label 3
-                    span.text Response
-        .col-md-2
-    .container.pdf-container
-        .col-md-4
-        .col-md-4
-            embed(src="/files/generated-pdfs/103117050.pdf" type="application/pdf" style="width: 350px;height: 300px;" )
-        .col-md-4
-    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
-    script(src="/js/status.js")
+  h1.title Scholarship Portal
+  .container
+    .col-md-4
+    .col-md-4(style="text-align: center;")
+      .alert.alert-info.alert-container User logged in : #{user.name}
+        a(href="/logout")
+          button.btn.btn-default.btn-logout Logout
+    .col-md-4
+  .container
+    .col-md-2
+    div(style="text-align: center;").progress.col-md-8
+      div(class="progress-contain" style="text-align: center;")
+        .circle.done
+          span.label 1
+          span.text Registration
+        span.bar.done
+        .circle.done
+          span.label 2
+          span.text Confirmation
+        span.bar.half
+        .circle.active
+          span.label 3
+          span.text Response
+    .col-md-2
+  .container.pdf-container
+    .col-md-4
+    .col-md-4
+      embed(src=`/files/generated-pdfs/${user.name}.pdf` type="application/pdf" style="width: 450px;height: 400px;" )
+    .col-md-4
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+  script(src="/js/status.js")

@@ -1,24 +1,24 @@
 extends ./layout.pug
 
 block append head
-    title Login | Scholarship Portal
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
-    link(rel="stylesheet", href="/css/login.css")
+  title Login | Scholarship Portal
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+  link(rel="stylesheet", href="/css/login.css")
 
 block content
-    h1.title Scholarship Portal    
-    h2#loginTitle Login
-    .container
-        .row
-            .col-md-4.col-sm-4.col-xs-2
-            .col-md-4.col-sm-4.col-xs-8
-                .text-center
-                    form(method="post" autocomplete="off" action = '/user/login').formClass
-                        .form-group
-                            input(id="usernameIn" type="text" placeholder="Webmail Username" name="username" required).form-control
-                        .form-group
-                            input(id="passIn" type="password" placeholder="Webmail Password" name="password" required).form-control
-                        .form-group
-                            input(id="submitIn" class="form-control btn btn-success" type="submit"
-                            value="Login" name="login" required)  
-            .col-md-4.col-sm-4.col-xs-2
+  h1.title Scholarship Portal    
+  h2#loginTitle Login
+  .container
+    .row
+      .col-md-4.col-sm-4.col-xs-2
+      .col-md-4.col-sm-4.col-xs-8
+        .text-center
+          form(method="post" autocomplete="off" action = '/user/login').formClass
+            .form-group
+              input(id="usernameIn" type="text" placeholder="Webmail Username" name="username" required).form-control
+            .form-group
+              input(id="passIn" type="password" placeholder="Webmail Password" name="password" required).form-control
+            .form-group
+              input(id="submitIn" class="form-control btn btn-success" type="submit"
+              value="Login" name="login" required)  
+      .col-md-4.col-sm-4.col-xs-2

@@ -1,70 +1,68 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-html{
-    height: 94vh;
-    font-family: "Montserrat","Raleway",sans-serif;
+html {
+  height: 94vh;
+  font-family: "Montserrat", "Raleway", sans-serif;
 }
 
-body{
-    min-height:100%;
-    padding:0;
-    margin:0;
-    position:relative;
-    font-family: "Montserrat","Raleway",sans-serif;
+body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  font-family: "Montserrat", "Raleway", sans-serif;
 }
 
-body::after{
-    content:'';
-    display:block;
-    height:100px;
+body::after {
+  content: '';
+  display: block;
+  height: 100px;
 }
 
-.footer{
-    height: 1.9em;
-    text-align: center;
-    background-color: #111111;
-    color: #eee;
-    overflow: hidden;
-    position:absolute;
-    bottom:0;
-    width:100%;
-    font-size: 18px;
-    font-family: "Montserrat","Raleway",sans-serif;
+.footer {
+  height: 1.9em;
+  text-align: center;
+  background-color: #111111;
+  color: #eee;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 18px;
+  font-family: "Montserrat", "Raleway", sans-serif;
 }
 
-.title{
-	text-align: center;
-	font-size: 4.5em;
-	padding: 5px;
-    margin-top: 6vh;
-    letter-spacing: 0.05em;
-    font-family: "Montserrat","Raleway",sans-serif;
+.title {
+  text-align: center;
+  font-size: 4.5em;
+  padding: 5px;
+  margin-top: 6vh;
+  letter-spacing: 0.05em;
+  font-family: "Montserrat", "Raleway", sans-serif;
 }
 
-.heart{
-    color: #8ed10c;
+.heart {
+  color: #8ed10c;
 }
 
-.footer a{
-    text-decoration: none;
-    color: #8ed10c;
+.footer a {
+  text-decoration: none;
+  color: #8ed10c;
 }
 
-.footer a:hover,.footer a:visited,.footer a:link,.footer a:active{
-    text-decoration: none;
-    color: #8ed10c;
+.footer a:hover, .footer a:visited, .footer a:link, .footer a:active {
+  text-decoration: none;
+  color: #8ed10c;
 }
 
-.footer a:hover{
-    cursor: pointer;
+.footer a:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 500px) {
-  
-    .title{
-        font-size: 2.5em;
-    }
-
+  .title {
+    font-size: 2.5em;
+  }
 }

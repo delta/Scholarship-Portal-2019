@@ -1,68 +1,62 @@
-html{
-    margin: 0;
-	padding: 0;
-    background-color: rgb(249,249,249);
-    background: url('/files/images/bg.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: "Montserrat","Raleway",sans-serif;
+html {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(249, 249, 249);
+  background: url('/files/images/bg.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Montserrat", "Raleway", sans-serif;
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    font-family: "Montserrat","Raleway",sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: "Montserrat", "Raleway", sans-serif;
 }
 
-.jumbo-container{
-    margin-top: 5vh;
+.jumbo-container {
+  margin-top: 5vh;
 }
 
-.jumbo-class{
-    background: rgba(249,249,249,0.4);
+.jumbo-class {
+  background: rgba(249, 249, 249, 0.4);
 }
 
-.welcomehead{
-    font-size: 3em;
+.welcomehead {
+  font-size: 3em;
 }
 
-.first-scholarship{
-    margin-top: 3vh;
+.first-scholarship {
+  margin-top: 3vh;
 }
 
-.scholarship-name{
-    font-size: 1.7em;
+.scholarship-name {
+  font-size: 1.7em;
 }
 
-.scholarship-details{
-    margin-left: 2vw;
-    margin-top: 2vh;
-    font-size: 1.1em;
+.scholarship-details {
+  margin-left: 2vw;
+  margin-top: 2vh;
+  font-size: 1.1em;
 }
 
 @media only screen and (max-width: 500px) {
-
-    .title{
-        font-size: 2.5em;
-    }
-
-    .jumbo-container{
-        margin-top: 2vh;
-    }
-
-    .welcomehead{
-        font-size: 2em;
-    }
-
-    .scholarship-name{
-        font-size: 1.46em;
-    }
-
-    .scholarship-details{
-        font-size: 1em;
-    }
-
+  .title {
+    font-size: 2.5em;
+  }
+  .jumbo-container {
+    margin-top: 2vh;
+  }
+  .welcomehead {
+    font-size: 2em;
+  }
+  .scholarship-name {
+    font-size: 1.46em;
+  }
+  .scholarship-details {
+    font-size: 1em;
+  }
 }

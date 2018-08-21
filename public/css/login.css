@@ -1,39 +1,37 @@
-html,body,main{
+html, body, main {
   margin: 0;
   padding: 0;
-  background-color: rgb(249,249,249);
-  font-family: "Montserrat","Raleway",sans-serif;
+  background-color: rgb(249, 249, 249);
+  font-family: "Montserrat", "Raleway", sans-serif;
 }
 
-#loginTitle{
-	text-align: center;
-	font-size: 2.8em;
-	padding: 5px;
-	padding-bottom: 0px;
+#loginTitle {
+  text-align: center;
+  font-size: 2.8em;
+  padding: 5px;
+  padding-bottom: 0px;
   margin-top: 12vh;
   margin-bottom: 20px;
 }
 
-#usernameIn{
-	font-size: 1.3em;
+#usernameIn {
+  font-size: 1.3em;
 }
 
-#passIn{
-	font-size: 1.3em;
+#passIn {
+  font-size: 1.3em;
 }
 
-#submitIn{
-    font-size: 1.3em;
-    padding: 0;
+#submitIn {
+  font-size: 1.3em;
+  padding: 0;
 }
 
 @media only screen and (max-width: 500px) {
-  
-  .title{
-      font-size: 2.5em;
+  .title {
+    font-size: 2.5em;
   }
-
-  #loginTitle{
-      font-size: 1.75em;
+  #loginTitle {
+    font-size: 1.75em;
   }
 }

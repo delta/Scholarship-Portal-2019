@@ -1,97 +1,92 @@
-html,body,main{
-	margin: 0;
-	padding: 0;
-    background-color: rgb(249,249,249);
-    min-height:100vh;
-    font-family: "Montserrat","Raleway",sans-serif;
+html, body, main {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(249, 249, 249);
+  min-height: 100vh;
+  font-family: "Montserrat", "Raleway", sans-serif;
 }
 
-.container-custom{
-    width: 100vw;
+.container-custom {
+  width: 100vw;
 }
 
-.heading{
-    margin-top: 7vh;
+.heading {
+  margin-top: 7vh;
 }
 
-.main{
-    margin-top: 8vh;
+.main {
+  margin-top: 8vh;
 }
 
-.input-container{
-    padding-top: 7px;
-    padding-bottom: 7px;
+.input-container {
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
-.label-tag{
-    margin-top: 8px;
+.label-tag {
+  margin-top: 8px;
 }
 
-.input-big{
-    overflow: auto;
-    resize: none;
+.input-big {
+  overflow: auto;
+  resize: none;
 }
 
-table td input{
-    width: 100%;
+table td input {
+  width: 100%;
 }
 
-.table-custom{
-    margin-top: 2vh;
-    margin-bottom: 3vh;
+.table-custom {
+  margin-top: 2vh;
+  margin-bottom: 3vh;
 }
 
-.table2head{
-    margin-top: 8vh;
+.table2head {
+  margin-top: 8vh;
 }
 
-.h3head{
-    font-size: 2em;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
+.h3head {
+  font-size: 2em;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 
-.hide{
-    display:none;
+.hide {
+  display: none;
 }
 
-.contain-container{
-    margin-top: 6vh;
-    width: 90vw;
+.contain-container {
+  margin-top: 6vh;
+  width: 90vw;
 }
 
-.dropdown-head{
-    font-size: 0.7em;
+.dropdown-head {
+  font-size: 0.7em;
 }
 
 input[type="radio"]:focus {
-    outline: none !important;
+  outline: none !important;
 }
 
-.table-td-input{
-    padding-left: 0;
-    padding-right: 0;
+.table-td-input {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media only screen and (max-width: 500px) {
-
-    .title{
-        font-size: 2em;
-        font-weight: 500;
-    }
-
-    .table2head{
-        margin-top: 6vh;
-        font-size: 1.2em;
-    }
-
-    .heading{
-        margin-top: 7vh;
-        font-size: 1.3em;
-    }
-
-    .dropdown-head{
-        font-size: 0.8em;
-    }
-
+  .title {
+    font-size: 2em;
+    font-weight: 500;
+  }
+  .table2head {
+    margin-top: 6vh;
+    font-size: 1.2em;
+  }
+  .heading {
+    margin-top: 7vh;
+    font-size: 1.3em;
+  }
+  .dropdown-head {
+    font-size: 0.8em;
+  }
 }

@@ -1,101 +1,101 @@
 *, *:after, *:before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat","Raleway",sans-serif;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", "Raleway", sans-serif;
+}
 
-.progress{
-    margin: 20px auto;
-    text-align: center;
-    height: 12vh;
-    margin-top: 3vh;
+.progress {
+  margin: 20px auto;
+  text-align: center;
+  height: 12vh;
+  margin-top: 3vh;
 }
 
 .progress .circle, .progress .bar {
-    display: inline-block;
-    background: #fff;
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
-    border: 1px solid #d5d5da;
+  display: inline-block;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid #d5d5da;
 }
 
-.progress-contain{
-    margin-top: 2vh;
+.progress-contain {
+  margin-top: 2vh;
 }
 
 .progress .bar {
-    position: relative;
-    width: 110px;
-    height: 6px;
-    top: -33px;
-    margin-left: -5px;
-    margin-right: -5px;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
+  position: relative;
+  width: 110px;
+  height: 6px;
+  top: -33px;
+  margin-left: -5px;
+  margin-right: -5px;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
 }
 
 .progress .circle .label {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    border-radius: 32px;
-    margin-top: 3px;
-    color: #b5b5ba;
-    font-size: 17px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 32px;
+  margin-top: 3px;
+  color: #b5b5ba;
+  font-size: 17px;
 }
 
 .progress .circle .title {
-    color: #b5b5ba;
-    font-size: 13px;
-    line-height: 30px;
-    margin-left: -5px;
+  color: #b5b5ba;
+  font-size: 13px;
+  line-height: 30px;
+  margin-left: -5px;
 }
 
 .progress .bar.done, .progress .circle.done {
-    background: #eee;
+  background: #eee;
 }
 
 .progress .bar.active {
-    background: linear-gradient(to right, #EEE 40%, #FFF 60%);
+  background: linear-gradient(to right, #EEE 40%, #FFF 60%);
 }
 
 .progress .circle.done .label {
-    color: #FFF;
-    background: #8bc435;
-    box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+  color: #FFF;
+  background: #8bc435;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
 }
 
 .progress .circle.done .text {
-    color: #444;
+  color: #444;
 }
 
-.text{
-    font-size: 1.2em;
-    margin-left: -20px;
+.text {
+  font-size: 1.2em;
+  margin-left: -20px;
 }
 
 .progress .circle.active .label {
-    color: #FFF;
-    background: #0c95be;
-    box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+  color: #FFF;
+  background: #0c95be;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
 }
 
 .progress .circle.active .text {
-    color: #0c95be;
+  color: #0c95be;
 }
 
-.btn-logout{
-    margin-left: 5%;
+.btn-logout {
+  margin-left: 5%;
 }
 
-.alert-container{
-    margin-top: 7vh;
+.alert-container {
+  margin-top: 7vh;
 }
 
-.pdf-container{
-    margin-top: 2vh;
+.pdf-container {
+  margin-top: 2vh;
 }

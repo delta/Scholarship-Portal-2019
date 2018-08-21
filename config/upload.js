@@ -1,31 +1,33 @@
 const multer = require('multer');
-const path   = require('path');
+const path = require('path');
 
 /** Storage Engine */
 const storageEngine = multer.diskStorage({
   destination: './public/files/uploads/',
-  filename: function(req, file, fn){
-    fn(null,  new Date().getTime().toString()+'-'+file.fieldname+path.extname(file.originalname));
+  filename: function(req, file, fn) {
+    fn(null, new Date().getTime().toString() + '-' + file.fieldname + path.extname(file.originalname));
   }
 });
 
 //init
-const upload =  multer({
+const upload = multer({
   storage: storageEngine,
-  limits: { fileSize:1000000 },
-  fileFilter: function(req, file, callback){
+  limits: {
+    fileSize: 1000000
+  },
+  fileFilter: function(req, file, callback) {
     validateFile(file, callback);
   }
 }).array('document');
 
 
-var validateFile = function(file, cb ){
+var validateFile = function(file, cb) {
   allowedFileTypes = /jpeg|jpg|png|gif/;
   const extension = allowedFileTypes.test(path.extname(file.originalname).toLowerCase());
-  const mimeType  = allowedFileTypes.test(file.mimetype);
-  if(extension && mimeType){
+  const mimeType = allowedFileTypes.test(file.mimetype);
+  if (extension && mimeType) {
     return cb(null, true);
-  }else{
+  } else {
     cb("Invalid file type. Only JPEG, PNG and GIF file are allowed.")
   }
 }

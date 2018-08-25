@@ -7,6 +7,7 @@ const Scholarship = require('../models/Scholarship.js')
 const exec = require('child_process').exec;
 const pug = require('pug');
 const pdf = require('html-pdf');
+const spawn = require("child_process").spawn;
 const options = {
   format: 'Letter',
   base: 'file://' + path.resolve('./public') + '/'
@@ -33,27 +34,43 @@ exports.validateLogin = (req, res) => {
   let username = req.body.username
   let password = req.body.password
 
-  function checkCredentials(access) {
-    // wrong credentials
-    if (access == 0) {
+  const pythonProcess = spawn('python',["./checkCredentialsWebmail.py",username, password]);
+  pythonProcess.stdout.on('data', (data) => {
+    console.log(data.toString());
+    if(data.toString() == 0){
       signale.note("****Wrong Credentials!****");
       return res.redirect('/user/login')
     }
-    //correct credentials, create session
+    else{
     signale.note("****Credentials are correct!****");
-    req.session.user = {
-      name: username
-    }
-    return res.redirect(`/user/${username}/register`)
-  }
-
-  var execlog = exec('./checkCredentials.sh ' + username + ' ' + password,
-    (error, stdout, stderr) => {
-      if (error !== null) {
-        signale.error(`exec error: ${error}`);
+      req.session.user = {
+        name: username
       }
-      checkCredentials(stdout);
-    });
+      return res.redirect(`/user/${username}/register`)
+    }
+  })
+
+  // function checkCredentials(access) {
+  //   // wrong credentials
+  //   if (access == 0) {
+  //     signale.note("****Wrong Credentials!****");
+  //     return res.redirect('/user/login')
+  //   }
+  //   //correct credentials, create session
+  //   signale.note("****Credentials are correct!****");
+  //   req.session.user = {
+  //     name: username
+  //   }
+  //   return res.redirect(`/user/${username}/register`)
+  // }
+
+  // var execlog = exec('./checkCredentials.sh ' + username + ' ' + password,
+  //   (error, stdout, stderr) => {
+  //     if (error !== null) {
+  //       signale.error(`exec error: ${error}`);
+  //     }
+  //     checkCredentials(stdout);
+  //   });
 
 }
 

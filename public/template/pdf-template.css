@@ -27,6 +27,7 @@ body {
 
 .heading {
   margin-top: 7vh;
+  font-weight: bold;
 }
 
 table td input {
@@ -46,6 +47,7 @@ table td input {
   font-size: 1.8em;
   padding-top: 3vh;
   padding-bottom: 3vh;
+  font-weight: bold;
 }
 
 .hide {
@@ -77,6 +79,32 @@ table td input {
 
 .sch-contain {
   margin-left: 3%;
+}
+
+.page-break{
+  display: block;
+  page-break-before: always;
+  margin-top: 40px;
+}
+
+.fileTitle{
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-top: 10vh;
+  margin-left: 15vw;
+}
+
+.file-img{
+  margin-top: 15vh;
+  margin-left: 20vw;
+}
+
+label{
+  font-weight: bold;
+}
+
+.updochead{
+  margin-top: 50px;
 }
 
 @media only screen and (max-width: 500px) {

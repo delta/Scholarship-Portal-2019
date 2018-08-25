@@ -137,28 +137,30 @@ block content
         .row.field-container
           label.col-md-6 Achievements, aspirations and life goals :
           div.col-md-6= student.acads.qualitative_achievement_2
-        h3.border-bottom.border-gray.pb-2.h3head Uploaded Documents
-        hr
-        .row.field-container
-          label.col-md-6 Annual Income Certificate
-          div.col-md-6
-            img(src = student.documents[0].path.slice(7))
-        .row.field-container
-          label.col-md-6 Transcript
-          div.col-md-6
-            img(src= student.documents[1].path.slice(7))
-        .row.field-container
-          label.col-md-6 12th Marksheet
-          div.col-md-6
-            img(src = student.documents[2].path.slice(7))
-        .row.field-container
-          label.col-md-6 10th Marksheet
-          div.col-md-6
-            img(src = student.documents[3].path.slice(7))
+        h3.border-bottom.border-gray.pb-2.h3head.page-break.updochead Uploaded Documents
+        .field-container
+          div.fileTitle Annual Income Certificate
+          hr
+          div
+            img.file-img(src = student.documents[0].path.slice(7) width='900px')
+        .field-container.page-break
+          div.fileTitle Transcript
+          hr
+          div
+            img.file-img(src= student.documents[1].path.slice(7) width='900px')
+        .field-container.page-break
+          div.fileTitle 12th Marksheet
+          hr
+          div
+            img.file-img(src = student.documents[2].path.slice(7) width='900px')
+        .field-container.page-break
+          div.fileTitle 10th Marksheet
+          hr
+          div
+            img.file-img(src = student.documents[3].path.slice(7) width='900px')
         if(student.documents.length == 5)  
-          .row.field-container
-            label.col-md-6 Bank Statement for loans
-            div.col-md-6
-              img(src = student.documents[4].path.slice(7))
-          
-    
+          .field-container.page-break
+            div.fileTitle Bank Statement for loans
+            hr
+            div
+              img.file-img(src = student.documents[4].path.slice(7) width='900px')

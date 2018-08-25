@@ -32,9 +32,10 @@ block content
           span.text Response
     .col-md-2
   .container.pdf-container
-    .col-md-4
-    .col-md-4
-      embed(src=`/files/generated-pdfs/${user.name}.pdf` type="application/pdf" style="width: 450px;height: 400px;" )
-    .col-md-4
+    .row
+      .col-md-3
+      .col-md-8
+        embed(src=`/files/generated-pdfs/${user.name}.pdf` type="application/pdf" style="width: 550px;height: 400px;" )
+      .col-md-1
   script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
   script(src="/js/status.js")

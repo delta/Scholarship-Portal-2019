@@ -64,7 +64,7 @@ exports.validateLogin = (req, res) => {
   //   return res.redirect(`/user/${username}/register`)
   // }
 
-  // var execlog = exec('./checkCredentials.sh ' + username + ' ' + password,
+  // var execlog = exec('./checkCredentialsOcta.sh ' + username + ' ' + password,
   //   (error, stdout, stderr) => {
   //     if (error !== null) {
   //       signale.error(`exec error: ${error}`);

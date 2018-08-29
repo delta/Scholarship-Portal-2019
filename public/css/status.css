@@ -5,6 +5,17 @@
   font-family: "Montserrat", "Raleway", sans-serif;
 }
 
+a.elo{
+  float: right;
+  margin-top: 10px;
+  margin-right: 1%;
+  text-decoration: underline solid;
+}
+
+.elo:hover{
+  cursor: pointer;
+}
+
 .progress {
   margin: 20px auto;
   text-align: center;

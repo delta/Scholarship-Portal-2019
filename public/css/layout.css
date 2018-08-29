@@ -21,17 +21,17 @@ body::after {
   height: 100px;
 }
 
-.footer {
+.footer{
   height: 1.9em;
   text-align: center;
   background-color: #111111;
   color: #eee;
   overflow: hidden;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  position:absolute;
+  bottom:0;
+  width:100%;
   font-size: 18px;
-  font-family: "Montserrat", "Raleway", sans-serif;
+  font-family: "Montserrat","Raleway",sans-serif;
 }
 
 .title {
@@ -55,21 +55,22 @@ a:hover, button:hover{
   cursor: pointer;
 }
 
-.heart {
+.heart{
   color: #8ed10c;
 }
 
-.footer a {
+.footer a{
+  text-decoration: none;
+  color: #8ed10c;
+  font-size: 1.2em;
+}
+
+.footer a:hover,.footer a:visited,.footer a:link,.footer a:active{
   text-decoration: none;
   color: #8ed10c;
 }
 
-.footer a:hover, .footer a:visited, .footer a:link, .footer a:active {
-  text-decoration: none;
-  color: #8ed10c;
-}
-
-.footer a:hover {
+.footer a:hover{
   cursor: pointer;
 }
 

@@ -43,6 +43,18 @@ body::after {
   font-family: "Montserrat", "Raleway", sans-serif;
 }
 
+.nittlogo{
+  margin-right: 10px;
+}
+
+.titlespan{
+  margin-left: 20px;
+}
+
+a:hover, button:hover{
+  cursor: pointer;
+}
+
 .heart {
   color: #8ed10c;
 }

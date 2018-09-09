@@ -8,7 +8,7 @@ block append head
   
 block content
   div(style="text-align: center")
-    img(src="/images/NITT-Logo.png" width="90px" height="90px")
+    img.logo(src="files/images/NITT-Logo.png" width="90px" height="90px")
     h1 SCHOLARSHIP REGISTRATION DETAILS
   div(class="container info-container")
     .row
@@ -83,7 +83,8 @@ block content
           if student.acads.other_fees
             label.col-md-6 Any other fees(in detail): :
             div.col-md-6= student.acads.other_fees
-        h4.heading Educational Qualifications
+        .page-break(style='margin-top: 7vh;')
+        h3.heading.educlass Educational Qualifications
         hr
         table.table-responsive.table-condensed.table-bordered.table-custom
           thead

@@ -146,25 +146,25 @@ block content
           div.fileTitle Annual Income Certificate
           hr
           div
-            img.file-img(src = student.documents[0].path.slice(7) width='900px')
+            img.file-img(src = ("../" + student.documents[0].path) width='900px')
         .field-container.page-break
           div.fileTitle Transcript
           hr
           div
-            img.file-img(src= student.documents[1].path.slice(7) width='900px')
+            img.file-img(src= ("../" + student.documents[1].path) width='900px')
         .field-container.page-break
           div.fileTitle 12th Marksheet
           hr
           div
-            img.file-img(src = student.documents[2].path.slice(7) width='900px')
+            img.file-img(src = ("../" + student.documents[2].path) width='900px')
         .field-container.page-break
           div.fileTitle 10th Marksheet
           hr
           div
-            img.file-img(src = student.documents[3].path.slice(7) width='900px')
+            img.file-img(src = ("../" + student.documents[3].path) width='900px')
         if(student.documents.length == 5)  
           .field-container.page-break
             div.fileTitle Bank Statement for loans
             hr
             div
-              img.file-img(src = student.documents[4].path.slice(7) width='900px')
+              img.file-img(src = ("../" + student.documents[4].path) width='900px')

@@ -364,7 +364,6 @@ block content
                     th.col-md-2.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1 Name of the Examination
                     th.col-md-2.col-sm-2.col-xs-2 Year
                     th.col-md-2.col-sm-2.col-xs-2 Board/University/Institution
-                    th.col-md-2.col-sm-2.col-xs-2 Division/Class/Grade
                     th.col-md-2.col-sm-2.col-xs-2 % Obtained
                 tbody
                   tr
@@ -375,8 +374,6 @@ block content
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_1' id="exam_board_1" placeholder="Eg: CBSE" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_class_1' id="exam_class_1" required)
-                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
                       input.form-control.table-input(type='text' name='exam_percentage_1' id="exam_percentage_1" placeholder='Eg: 94' required)
                   tr
                     td.col-md-2.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1.table-td-input
@@ -385,8 +382,6 @@ block content
                       input.form-control.table-input(type='text' name='exam_year_2' id="exam_year_2" placeholder="Eg: 2010" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_2' id="exam_board_2" placeholder="Eg:  CBSE" required)
-                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_class_2' id="exam_class_2" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
                       input.form-control.table-input(type='text' name='exam_percentage_2' id="exam_percentage_2" placeholder="Eg: 92" required)
               h5.table2head
@@ -458,31 +453,31 @@ block content
                 label.col-md-4.control-label.label-tag Annual Income Certificate
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='file',name='document' required)
+                  input.form-control(type='file',name='document' id="Annual Income Certificate" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Transcript
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='file',name='document' required)
+                  input.form-control(type='file',name='document' id="Transcript" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag 12th Marksheet
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='file',name='document' required)
+                  input.form-control(type='file',name='document' id="12th Marksheet" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag 10th Marksheet
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='file',name='document' required)
+                  input.form-control(type='file',name='document' id="10th Marksheet" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Bank Statement for loans(if taken)
                   span.text-danger 
                 .col-md-8
-                  input.form-control(type='file',name='document')
+                  input.form-control(type='file',name='document' id="Bank Statement")
               .form-group(style='margin-top:7vh;')
                 .row
                 .col-md-4.col-sm-4.col-xs-3

@@ -153,12 +153,10 @@ function checkEmptyInput(req) {
     req.body.exam_name_1 &&
     req.body.exam_year_1 &&
     req.body.exam_board_1 &&
-    req.body.exam_class_1 &&
     req.body.exam_percentage_1 &&
     req.body.exam_name_2 &&
     req.body.exam_year_2 &&
     req.body.exam_board_2 &&
-    req.body.exam_class_2 &&
     req.body.exam_percentage_2 &&
     req.body.degree_1 &&
     req.body.degree_year_1 &&
@@ -198,7 +196,7 @@ function studentDetail(req) {
       book_fees: req.body.book_fees ? sanitize(req.body.book_fees) : null,
       hostel_fees: req.body.hostel_fees ? sanitize(req.body.hostel_fees) : null,
       other_fees: req.body.other_fees ? sanitize(req.body.other_fees) : null,
-      exam_name_1: sanitize(req.body.exam_name_1),
+      exam_name_1: "NA",
       exam_year_1: sanitize(req.body.exam_year_1),
       exam_board_1: sanitize(req.body.exam_board_1),
       exam_class_1: sanitize(req.body.exam_class_1),
@@ -206,7 +204,7 @@ function studentDetail(req) {
       exam_name_2: sanitize(req.body.exam_name_2),
       exam_year_2: sanitize(req.body.exam_year_2),
       exam_board_2: sanitize(req.body.exam_board_2),
-      exam_class_2: sanitize(req.body.exam_class_2),
+      exam_class_2: "NA",
       exam_percentage_2: sanitize(req.body.exam_percentage_2),
       degree_1: sanitize(req.body.degree_1),
       degree_year_1: sanitize(req.body.degree_year_1),

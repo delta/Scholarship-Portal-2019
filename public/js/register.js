@@ -71,12 +71,10 @@ window.onload = function() {
       document.getElementById("exam_name_1").value, 
       document.getElementById("exam_year_1").value, 
       document.getElementById("exam_board_1").value, 
-      document.getElementById("exam_class_1").value, 
       document.getElementById("exam_percentage_1").value, 
       document.getElementById("exam_name_2").value, 
       document.getElementById("exam_year_2").value, 
       document.getElementById("exam_board_2").value, 
-      document.getElementById("exam_class_2").value, 
       document.getElementById("exam_percentage_2").value, 
       document.getElementById("degree_1").value, 
       document.getElementById("degree_subject_1").value, 
@@ -84,21 +82,49 @@ window.onload = function() {
       document.getElementById("degree_grade_1").value, 
       document.getElementById("degree_percentage_1").value, 
       document.getElementById("qualitative_achievement_1").value, 
-      document.getElementById("qualitative_achievement_2").value
-      ]
+      document.getElementById("qualitative_achievement_2").value,
+      document.getElementById("Annual Income Certificate").value,
+      document.getElementById("Transcript").value,
+      document.getElementById("12th Marksheet").value,
+      document.getElementById("10th Marksheet").value
+     ]
 
-    flag = 1;
-      
-    arr.forEach((val)=>{
+     
+     
+     
+     flag = 1;
+     mimeFlag = 1;
+     arr.forEach((val)=>{
       if(val == ""){
         flag = 0;  
       }
-    })
-
-    if(!flag){
+     })
+     if(!flag){
       $('#submitModal').modal('show');
-    }
+     } 
 
-  })
+     if(flag){
+      var mime = [
+        String(document.getElementById("Annual Income Certificate").value).split('.')[1],
+        String(document.getElementById("Transcript").value).split('.')[1],
+        String(document.getElementById("12th Marksheet").value).split('.')[1],
+        String(document.getElementById("10th Marksheet").value).split('.')[1]
+       ];
+       mimeFlag = 1;
+       console.log(mime);
+       
+       mime.forEach((val)=>{
+         if(val != 'jpeg' && val!='jpg' && val!='png' && val!='gif')
+         {
+          mimeFlag = 0;
+         }
+       })
+
+      if(!mimeFlag){
+        e.preventDefault();
+        $('#submitModal').modal('show');
+      }
+     }
+   })
   
 }

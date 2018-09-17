@@ -490,3 +490,19 @@ block content
                   input.form-control.btn.btn-success(type='submit', value='Submit' id="submit")
                 .col-md-5.col-sm-5.col-xs-3
             .col-md-1
+  .container
+    #submitModal.modal.fade(role='dialog')
+        .modal-dialog.modal-lg
+            .modal-content
+                .modal-header
+                  h5.modal-title You have not filled the form correctly, please fill the form correctly !
+                  button.close(type='button' data-dismiss='modal') &times;   
+                .modal-body
+                  div.note-body Note :
+                    ul
+                      li
+                        span.asterisk * 
+                        |  - fields are required fields.
+                      li In Document uploads, only .jpg/.jpeg/.png/.gif file extension types are allowed.
+                .modal-footer
+                  button.btn.btn-default(type='button' data-dismiss='modal') Close

@@ -47,9 +47,9 @@ window.onload = function() {
     window.scrollTo(0, 0);
   })
 
-
-   var submit = document.getElementById("submit");
-   submit.addEventListener('click',(e)=>{
+  // var submitModal = new Modal('#submitModal');
+  var submit = document.getElementById("submit");
+  submit.addEventListener('click',(e)=>{
     var arr = [
       document.getElementById("Roll Number").value, 
       document.getElementById("First Name").value, 
@@ -85,16 +85,20 @@ window.onload = function() {
       document.getElementById("degree_percentage_1").value, 
       document.getElementById("qualitative_achievement_1").value, 
       document.getElementById("qualitative_achievement_2").value
-     ]
-     flag = 1;
-     arr.forEach((val)=>{
+      ]
+
+    flag = 1;
+      
+    arr.forEach((val)=>{
       if(val == ""){
         flag = 0;  
       }
-     })
-     if(!flag){
-       alert("not filled");
-     } 
-   })
+    })
+
+    if(!flag){
+      $('#submitModal').modal('show');
+    }
+
+  })
   
 }

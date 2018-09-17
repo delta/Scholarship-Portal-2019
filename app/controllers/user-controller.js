@@ -127,7 +127,9 @@ exports.renderStatus = (req, res) => {
     pdf.create(html, options).toFile(`./public/files/generated-pdfs/${req.session.user.name}.pdf`, function(err, resp) {
       if (err) return signale.error(err);
       signale.note(resp); // { filename: '/app/newfile.pdf' }
-      return res.render('status')
+      return res.render('status',{
+        student:student
+      })
 
     });
   })

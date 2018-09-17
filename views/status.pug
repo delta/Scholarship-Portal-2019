@@ -2,6 +2,7 @@ extends ./layout.pug
 
 block append head
   title Status | Scholarship Portal
+  link(rel="icon" href="../../files/images/NITT-Logo.png" type="image/x-icon")
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
   link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.2.0/css/all.css", integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ", crossorigin="anonymous")
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
@@ -20,18 +21,14 @@ block content
     .col-md-2
     div(style="text-align: center;").progress.col-md-8
       div
-        a.elo(data-toggle="popover" data-placement="bottom" data-content="<div><div>Registration : </div><div>Confirmation : </div><div>Response : </div></div>") Info
-      div(class="progress-contain" style="text-align: center;")
+        a.elo(data-toggle="popover" data-placement="bottom" data-content="<div><div><b>Registration :</b> User successfully registered! </div><div><b>Response :</b> <div>&#10003; - Scholarship Approved</div> <div>X - Scholarship Rejected</div></div></div>") Info
+      div(class="progress-contain" style="text-align: center;" data-studentStatus = student.scholarshipStatus)
         .circle.done
           span.label 1
           span.text Registration
         span.bar.done
         .circle.done
           span.label 2
-          span.text Confirmation
-        span.bar.half
-        .circle.active
-          span.label 3
           span.text Response
     .col-md-2
   .container.pdf-container

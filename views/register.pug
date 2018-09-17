@@ -361,28 +361,28 @@ block content
               table.table-responsive.table-condensed.table-bordered.table-custom
                 thead
                   tr
-                    th.col-md-2.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1 Name of the Examination
-                    th.col-md-2.col-sm-2.col-xs-2 Year
-                    th.col-md-2.col-sm-2.col-xs-2 Board/University/Institution
-                    th.col-md-2.col-sm-2.col-xs-2 % Obtained
+                    th.col-md-3.col-sm-3.col-xs-3 Name of the Examination
+                    th.col-md-3.col-sm-3.col-xs-3 Year
+                    th.col-md-3.col-sm-3.col-xs-3 Board/University/Institution
+                    th.col-md-3.col-sm-3.col-xs-3 % Obtained
                 tbody
                   tr
-                    td.col-md-2.col-md-offset-1.col-xs-2.col-xs-offset-1.table-td-input
+                    td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control(type='text' name='exam_name_1' id="exam_name_1" placeholder="Eg: XIIth" required)
-                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
+                    td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_year_1' id="exam_year_1" placeholder="Eg: 2012" required)
-                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
+                    td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_1' id="exam_board_1" placeholder="Eg: CBSE" required)
-                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
+                    td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_percentage_1' id="exam_percentage_1" placeholder='Eg: 94' required)
                   tr
-                    td.col-md-2.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1.table-td-input
+                    td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control(type='text' name='exam_name_2' id="exam_name_2" placeholder="Eg: Xth" required)
-                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
+                    td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_year_2' id="exam_year_2" placeholder="Eg: 2010" required)
-                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
+                    td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_2' id="exam_board_2" placeholder="Eg:  CBSE" required)
-                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
+                    td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_percentage_2' id="exam_percentage_2" placeholder="Eg: 92" required)
               h5.table2head
                 | Graduation and above: 
@@ -486,7 +486,7 @@ block content
                 .col-md-5.col-sm-5.col-xs-3
             .col-md-1
   .container
-    #submitModal.modal.fade(role='dialog')
+    #requiredSubmitModal.modal.fade(role='dialog')
         .modal-dialog.modal-lg
             .modal-content
                 .modal-header
@@ -498,6 +498,18 @@ block content
                       li
                         span.asterisk * 
                         |  - fields are required fields.
-                      li In Document uploads, only .jpg/.jpeg/.png/.gif file extension types are allowed.
+                .modal-footer
+                  button.btn.btn-default(type='button' data-dismiss='modal') Close
+    .container
+    #mimeSubmitModal.modal.fade(role='dialog')
+        .modal-dialog.modal-lg
+            .modal-content
+                .modal-header
+                  h5.modal-title You have not filled the form correctly, please fill the form correctly !
+                  button.close(type='button' data-dismiss='modal') &times;   
+                .modal-body
+                  div.note-body Note :
+                    ul
+                      li Only .jpg/.jpeg/.png/.gif file extension types are allowed.
                 .modal-footer
                   button.btn.btn-default(type='button' data-dismiss='modal') Close

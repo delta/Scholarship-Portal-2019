@@ -78,8 +78,8 @@ window.onload = function() {
       document.getElementById("exam_percentage_2").value, 
       document.getElementById("degree_1").value, 
       document.getElementById("degree_subject_1").value, 
-      document.getElementById("degree_institute_1").value, 
-      document.getElementById("degree_grade_1").value, 
+      document.getElementById("degree_institute_1").value,
+      document.getElementById("degree_grade_1").value,  
       document.getElementById("degree_percentage_1").value, 
       document.getElementById("qualitative_achievement_1").value, 
       document.getElementById("qualitative_achievement_2").value,
@@ -89,9 +89,6 @@ window.onload = function() {
       document.getElementById("10th Marksheet").value
      ]
 
-     
-     
-     
      flag = 1;
      mimeFlag = 1;
      arr.forEach((val)=>{
@@ -100,7 +97,7 @@ window.onload = function() {
       }
      })
      if(!flag){
-      $('#submitModal').modal('show');
+      $('#requiredSubmitModal').modal('show');
      } 
 
      if(flag){
@@ -111,7 +108,6 @@ window.onload = function() {
         String(document.getElementById("10th Marksheet").value).split('.')[1]
        ];
        mimeFlag = 1;
-       console.log(mime);
        
        mime.forEach((val)=>{
          if(val != 'jpeg' && val!='jpg' && val!='png' && val!='gif')
@@ -122,7 +118,7 @@ window.onload = function() {
 
       if(!mimeFlag){
         e.preventDefault();
-        $('#submitModal').modal('show');
+        $('#mimeSubmitModal').modal('show');
       }
      }
    })

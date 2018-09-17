@@ -23,6 +23,10 @@ const scholarshipSchema = mongoose.Schema({
   },
   scholarship: {
     type: String
+  },
+  approvedDate:{
+    type:Object,
+    default:undefined
   }
 })
 

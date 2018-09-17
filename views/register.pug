@@ -35,24 +35,24 @@ block content
                 label.col-md-4.control-label.label-tag Roll Number
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text' disabled placeholder='Roll Number' name='rollno' pattern="[0-9]{8,12}" title="Please enter a valid roll number" maxlength='12' required value=user.name)
+                  input.form-control(type='text' disabled placeholder='Roll Number' id="Roll Number" name='rollno' pattern="[0-9]{8,12}" title="Please enter a valid roll number" maxlength='12' required value=user.name)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag First Name
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text', placeholder='First Name' name='firstname' required)
+                  input.form-control(type='text', placeholder='First Name' id="First Name" name='firstname' required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Last Name
                 .col-md-8
-                  input.form-control(type='text', placeholder='Last Name' name='lastname')
+                  input.form-control(type='text', placeholder='Last Name' name='lastname' id="Last Name")
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Nationality
                   span.text-danger *
                 .col-md-8
-                  select.form-control(placeholder='Nationality' name='nationality' required)
+                  select.form-control(placeholder='Nationality' name='nationality' id="Nationality" required)
                     option(value='afghan') Afghan
                     option(value='albanian') Albanian
                     option(value='algerian') Algerian
@@ -251,13 +251,13 @@ block content
                 label.col-md-4.control-label.label-tag Date of Birth
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='date', placeholder='Date of Birth' name='dob' required)
+                  input.form-control(type='date', placeholder='Date of Birth' id="Date of Birth"  name='dob' required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Gender
                   span.text-danger *
                 .col-md-8
-                  select.form-control(placeholder='Gender' name='gender' required)
+                  select.form-control(placeholder='Gender' id="Gender" name='gender' required)
                     option(value='male' selected) Male
                     option(value='female') Female
                     option(value='other') Others
@@ -271,37 +271,37 @@ block content
                 label.col-md-4.control-label.label-tag Father&apos;s Name
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text', placeholder="Father's Name" required name='father_name')
+                  input.form-control(type='text', placeholder="Father's Name" id="Father's Name" required name='father_name')
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Father&apos;s Occupation
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text', placeholder='Occupation' required name='father_occupation')
+                  input.form-control(type='text' id="Occupation" placeholder='Occupation' required name='father_occupation')
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Mother&apos;s Name
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text', placeholder="Mother's Name" required name='mother_name')
+                  input.form-control(type='text' id="Mother's Name" placeholder="Mother's Name" required name='mother_name')
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Mother&apos;s Occupation
                   span.text-danger
                 .col-md-8
-                  input.form-control(type='text', placeholder='Occupation' name='mother_occupation')
+                  input.form-control(type='text', placeholder='Occupation' name='mother_occupation' id="mother_occupation")
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Annual Income
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='number', placeholder='Total Annual Income of the family' required name='annual_income')
+                  input.form-control(type='number', placeholder='Total Annual Income of the family' required name='annual_income' id="annual_income")
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Address for correspondence with Telephone no./Mobile No.
                   span.text-danger *
                 .col-md-8
-                  textarea.form-control.input-big(rows='5', placeholder='Address for correspondence with Telephone no./Mobile No.' name='address' required)
+                  textarea.form-control.input-big(rows='5', placeholder='Address for correspondence with Telephone no./Mobile No.' name='address' id="address" required)
             .col-md-1
           #step-2
             h3.border-bottom.border-gray.pb-2.h3head Academic Details, Qualifications and Achievements
@@ -314,37 +314,37 @@ block content
                 label.col-md-4.control-label.label-tag Course Name
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text', placeholder='Course Name' name='course_name' required)
+                  input.form-control(type='text', placeholder='Course Name' name='course_name' id="course_name" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Duration of course in number
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='number', placeholder='No. of years as a number' name='course_duration' required)
+                  input.form-control(type='number', placeholder='No. of years as a number' name='course_duration' id="course_duration" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Annual estimate of fund required for the course per year(in Rs.)
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='number', placeholder='Fund required' name='fund_required' required)
+                  input.form-control(type='number', placeholder='Fund required' name='fund_required' id="fund_required" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Tuition Fees
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='number', placeholder='Tuition Fees' name='tuition_fees' required)
+                  input.form-control(type='number', placeholder='Tuition Fees' name='tuition_fees' id="tuition_fees" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Book Fees
                   span.text-danger
                 .col-md-8
-                  input.form-control(type='number', placeholder='Book Fees' name='book_fees' )
+                  input.form-control(type='number', placeholder='Book Fees' name='book_fees' id="book_fees" )
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Institute/College Hostel Charges
                   span.text-danger
                 .col-md-8
-                  input.form-control(type='number', placeholder='Institute/College Hostel Charges' name='hostel_fees')
+                  input.form-control(type='number', placeholder='Institute/College Hostel Charges' name='hostel_fees' id="hostel_fees")
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Any other fees(in detail):
@@ -368,26 +368,26 @@ block content
                 tbody
                   tr
                     td.col-md-2.col-md-offset-1.col-xs-2.col-xs-offset-1.table-td-input
-                      input.form-control(type='text' name='exam_name_1' placeholder="Eg: XIIth" required)
+                      input.form-control(type='text' name='exam_name_1' id="exam_name_1" placeholder="Eg: XIIth" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_year_1' placeholder="Eg: 2012" required)
+                      input.form-control.table-input(type='text' name='exam_year_1' id="exam_year_1" placeholder="Eg: 2012" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_board_1' placeholder="Eg: CBSE" required)
+                      input.form-control.table-input(type='text' name='exam_board_1' id="exam_board_1" placeholder="Eg: CBSE" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_class_1' required)
+                      input.form-control.table-input(type='text' name='exam_class_1' id="exam_class_1" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_percentage_1' placeholder='Eg: 94' required)
+                      input.form-control.table-input(type='text' name='exam_percentage_1' id="exam_percentage_1" placeholder='Eg: 94' required)
                   tr
                     td.col-md-2.col-sm-2.col-md-offset-1.col-xs-2.col-xs-offset-1.table-td-input
-                      input.form-control(type='text' name='exam_name_2' placeholder="Eg: Xth" required)
+                      input.form-control(type='text' name='exam_name_2' id="exam_name_2" placeholder="Eg: Xth" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_year_2' placeholder="Eg: 2010" required)
+                      input.form-control.table-input(type='text' name='exam_year_2' id="exam_year_2" placeholder="Eg: 2010" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_board_2' placeholder="Eg:  CBSE" required)
+                      input.form-control.table-input(type='text' name='exam_board_2' id="exam_board_2" placeholder="Eg:  CBSE" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_class_2' required)
+                      input.form-control.table-input(type='text' name='exam_class_2' id="exam_class_2" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='exam_percentage_2' placeholder="Eg: 92" required)
+                      input.form-control.table-input(type='text' name='exam_percentage_2' id="exam_percentage_2" placeholder="Eg: 92" required)
               h5.table2head
                 | Graduation and above: 
                 i (If result of final year are not received, mention upto latest result)
@@ -406,17 +406,17 @@ block content
                 tbody
                   tr
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_1' placeholder="Eg: B.Tech" required)
+                      input.form-control.table-input(type='text' name='degree_1' id="degree_1" placeholder="Eg: B.Tech" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_year_1' placeholder="Eg: 2016" required)
+                      input.form-control.table-input(type='text' name='degree_year_1' id="degree_year_1" placeholder="Eg: 2016" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_subject_1' placeholder="Eg: ECE" required)
+                      input.form-control.table-input(type='text' name='degree_subject_1' id="degree_subject_1" placeholder="Eg: ECE" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_institute_1' placeholder="Eg: NIT Trichy" required)
+                      input.form-control.table-input(type='text' name='degree_institute_1' id="degree_institute_1" placeholder="Eg: NIT Trichy" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_grade_1' required)
+                      input.form-control.table-input(type='text' name='degree_grade_1' id="degree_grade_1" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_percentage_1' placeholder="Eg: 90" required)
+                      input.form-control.table-input(type='text' name='degree_percentage_1' id="degree_percentage_1" placeholder="Eg: 90" required)
                 tr
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
                     input.form-control.table-input(type='text' name='degree_2' placeholder="Eg: M.Tech")
@@ -440,13 +440,13 @@ block content
                 label.col-md-4.control-label.label-tag Academic distinctions, grants and scholarships
                   span.text-danger *
                 .col-md-8
-                  textarea.form-control.input-big(rows='5' name='qualitative_achievement_1' required placeholder='Please mention any academic distinction, grants, scholarships and prizes received by you. ')
+                  textarea.form-control.input-big(rows='5' name='qualitative_achievement_1' id="qualitative_achievement_1" required placeholder='Please mention any academic distinction, grants, scholarships and prizes received by you. ')
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Achievements, aspirations and life goals:
                   span.text-danger *
                 .col-md-8
-                  textarea.form-control.input-big(rows='5'  name='qualitative_achievement_2'  required placeholder='Please mention your dreams, life goals and aspirations.')
+                  textarea.form-control.input-big(rows='5'  name='qualitative_achievement_2' id="qualitative_achievement_2" required placeholder='Please mention your dreams, life goals and aspirations.')
             .col-md-1
           #step-3
             h3.border-bottom.border-gray.pb-2.h3head Document Uploads
@@ -486,6 +486,6 @@ block content
                 .row
                 .col-md-4.col-sm-4.col-xs-3
                 .col-md-3.col-sm-3.col-xs-6
-                  input.form-control.btn.btn-success(type='submit', value='Submit')
+                  input.form-control.btn.btn-success(type='submit', value='Submit' id="submit")
                 .col-md-5.col-sm-5.col-xs-3
             .col-md-1

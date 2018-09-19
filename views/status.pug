@@ -47,4 +47,22 @@ block content
         a(href=`/files/generated-pdfs/${user.name}.pdf` target="_blank")
           button.btn.btn-default View Registered Details 
       .col-md-4
+  hr
+  br
+  .container.pdf-container
+    .row
+      .col-md-2
+      a.col-md-2(href="../" + student.documents[0].path)
+          button.btn.btn-default Income Certificate
+      a.col-md-2(href="../" + student.documents[1].path)
+          button.btn.btn-default Transcript
+      a.col-md-2(href="../" + student.documents[2].path)
+          button.btn.btn-default 12th Marksheet
+      a.col-md-2(href="../" + student.documents[3].path)
+          button.btn.btn-default 10th Marksheet
+      if(student.documents.length == 5) 
+          a.col-md-2(href="../" + student.documents[4].path)
+              button.btn.btn-default Bank Statement
+      else
+          .col-md-2
   script(src="/js/status.js")

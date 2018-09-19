@@ -22,13 +22,13 @@ const upload = multer({
 
 
 var validateFile = function(file, cb) {
-  allowedFileTypes = /jpeg|jpg|png|gif/;
+  allowedFileTypes = /jpeg|jpg|png|gif|pdf/;
   const extension = allowedFileTypes.test(path.extname(file.originalname).toLowerCase());
   const mimeType = allowedFileTypes.test(file.mimetype);
   if (extension && mimeType) {
     return cb(null, true);
   } else {
-    cb("Invalid file type. Only JPEG, PNG and GIF file are allowed.")
+    cb("Invalid file type. Only JPEG, PNG, PDF, JPG and GIF file are allowed.")
   }
 }
 

@@ -31,6 +31,15 @@ block content
           span.label 2
           span.text Response
     .col-md-2
+  if student.scholarshipStatus == 0
+    .container
+      .row
+        .col-md-4
+        .col-md-4(style="text-align: center;")
+          span= "You have been selected for :"
+          br
+          strong=  student.scholarship 
+        .col-md-4
   .container.pdf-container
     .row
       .col-md-4

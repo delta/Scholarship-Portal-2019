@@ -114,7 +114,7 @@ window.onload = function() {
        console.log(mime);
        
        mime.forEach((val)=>{
-         if(val != 'jpeg' && val!='jpg' && val!='png' && val!='gif')
+         if(val != 'jpeg' && val!='jpg' && val!='png' && val!='gif' && val!='pdf')
          {
           mimeFlag = 0;
          }

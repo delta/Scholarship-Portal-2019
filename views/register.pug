@@ -373,8 +373,13 @@ block content
                       input.form-control.table-input(type='text' name='exam_year_1' id="exam_year_1" placeholder="Eg: 2012" required)
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_1' id="exam_board_1" placeholder="Eg: CBSE" required)
+<<<<<<< HEAD
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_percentage_1' id="exam_percentage_1" placeholder='Eg: 94' required)
+=======
+                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
+                      input.form-control.table-input(type='number' name='exam_percentage_1' id="exam_percentage_1" placeholder='Eg: 94' max='100' min='0' required)
+>>>>>>> pdf allowed and details on status page
                   tr
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control(type='text' name='exam_name_2' id="exam_name_2" placeholder="Eg: Xth" required)
@@ -382,8 +387,13 @@ block content
                       input.form-control.table-input(type='text' name='exam_year_2' id="exam_year_2" placeholder="Eg: 2010" required)
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_2' id="exam_board_2" placeholder="Eg:  CBSE" required)
+<<<<<<< HEAD
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_percentage_2' id="exam_percentage_2" placeholder="Eg: 92" required)
+=======
+                    td.col-md-2.col-sm-2.col-xs-2.table-td-input
+                      input.form-control.table-input(type='number' name='exam_percentage_2' id="exam_percentage_2" placeholder="Eg: 92" max='100' min='0' required)
+>>>>>>> pdf allowed and details on status page
               h5.table2head
                 | Graduation and above: 
                 i (If result of final year are not received, mention upto latest result)
@@ -412,7 +422,7 @@ block content
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
                       input.form-control.table-input(type='text' name='degree_grade_1' id="degree_grade_1" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_percentage_1' id="degree_percentage_1" placeholder="Eg: 90" required)
+                      input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_1' id="degree_percentage_1" placeholder="Eg: 90" required)
                 tr
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
                     input.form-control.table-input(type='text' name='degree_2' placeholder="Eg: M.Tech")
@@ -425,7 +435,7 @@ block content
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
                     input.form-control.table-input(type='text' name='degree_grade_2')
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                    input.form-control.table-input(type='text' name='degree_percentage_2' placeholder="Eg: 90")
+                    input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_2' placeholder="Eg: 90")
             .col-md-0
             h4.heading Qualitative Achievement
             hr
@@ -445,7 +455,9 @@ block content
                   textarea.form-control.input-big(rows='5'  name='qualitative_achievement_2' id="qualitative_achievement_2" required placeholder='Please mention your dreams, life goals and aspirations.')
             .col-md-1
           #step-3
-            h3.border-bottom.border-gray.pb-2.h3head Document Uploads
+            h3.pb-2.h3head Document Uploads
+            span (pdf, png, jpg, jpeg, gif)
+            hr
             .col-md-1
             .col-md-10
               .form-group
@@ -510,6 +522,6 @@ block content
                 .modal-body
                   div.note-body Note :
                     ul
-                      li Only .jpg/.jpeg/.png/.gif file extension types are allowed.
+                      li Only .jpg/.jpeg/.png/.gif/.pdf file extension types are allowed.
                 .modal-footer
                   button.btn.btn-default(type='button' data-dismiss='modal') Close

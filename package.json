@@ -11,10 +11,12 @@
   "dependencies": {
     "body-parser": "*",
     "cookie-parser": "*",
+    "easy-pdf-merge": "^0.2.0",
     "express": "*",
     "express-session": "*",
     "express-validator": "*",
     "html-pdf": "^2.2.0",
+    "md5": "^2.2.1",
     "mongo-sanitize": "^1.0.0",
     "mongoose": "*",
     "multer": "^1.3.1",

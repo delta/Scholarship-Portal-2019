@@ -44,9 +44,11 @@ block content
     .row
       .col-md-4
       .col-md-4(style="text-align: center;")
-        a(href=`/files/generated-pdfs/${user.name}.pdf` target="_blank")
+        -var resolvedPath = path.substr(9)
+        a(href= `/${resolvedPath}` target="_blank")
           button.btn.btn-default View Registered Details 
       .col-md-4
+<<<<<<< HEAD
   hr
   br
   .container.pdf-container
@@ -70,4 +72,6 @@ block content
             button.btn.btn-default Bank Statement
       else
         .col-md-2
+=======
+>>>>>>> pdf combined
   script(src="/js/status.js")

@@ -8,6 +8,8 @@ const exec = require('child_process').exec;
 const pug = require('pug');
 const pdf = require('html-pdf');
 const spawn = require("child_process").spawn;
+var merge = require('easy-pdf-merge');
+var md5 = require('md5');
 const options = {
   format: 'Letter',
   base: 'file://' + path.resolve('./public') + '/'
@@ -124,13 +126,26 @@ exports.renderStatus = (req, res) => {
     html = compiledFunction({
       student: student
     });
-    pdf.create(html, options).toFile(`./public/files/generated-pdfs/${req.session.user.name}.pdf`, function(err, resp) {
+    pdf.create(html, options).toFile(`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`, function(err, resp) {
       if (err) return signale.error(err);
       signale.note(resp); // { filename: '/app/newfile.pdf' }
-      return res.render('status',{
-        student:student
-      })
+      console.log(student.documents[0].path);
+      
+      const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`,"./"+ student.documents[0].path, "./"+ student.documents[1].path,"./"+ student.documents[2].path,"./"+ student.documents[3].path];
+      if(student.documents.length > 4){
+        files.push("./"+ student.documents[4].path);
+      }
+      target = "./public/files/generated-pdfs/" + md5("delta_cares_" + req.session.user.name +"_security" )+".pdf";
 
+      merge(files,target,function(err){
+        if(err) console.log(err);
+        
+        console.log(target);
+        
+        return res.render('status',{
+          student:student, path:target
+        })
+      });
     });
   })
 }
@@ -196,10 +211,10 @@ function studentDetail(req) {
       book_fees: req.body.book_fees ? sanitize(req.body.book_fees) : null,
       hostel_fees: req.body.hostel_fees ? sanitize(req.body.hostel_fees) : null,
       other_fees: req.body.other_fees ? sanitize(req.body.other_fees) : null,
-      exam_name_1: "NA",
+      exam_name_1: req.body.exam_name_1,
       exam_year_1: sanitize(req.body.exam_year_1),
       exam_board_1: sanitize(req.body.exam_board_1),
-      exam_class_1: sanitize(req.body.exam_class_1),
+      exam_class_1: "NA",
       exam_percentage_1: sanitize(req.body.exam_percentage_1),
       exam_name_2: sanitize(req.body.exam_name_2),
       exam_year_2: sanitize(req.body.exam_year_2),

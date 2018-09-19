@@ -110,7 +110,7 @@ window.onload = function() {
        mimeFlag = 1;
        
        mime.forEach((val)=>{
-         if(val != 'jpeg' && val!='jpg' && val!='png' && val!='gif' && val!='pdf')
+         if(val!='pdf')
          {
           mimeFlag = 0;
          }

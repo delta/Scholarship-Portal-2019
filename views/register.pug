@@ -16,6 +16,8 @@ block append head
   script(src="/js/register.js")
 
 block content
+  a(href= "/logout" style="float:right; margin-right:18%")
+    button.btn.btn-default Logout
   .container.contain-container
     form(action=`/user/${user.name}/register`, enctype="multipart/form-data", method='POST')
       #smartwizard

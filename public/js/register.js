@@ -52,22 +52,19 @@ window.onload = function() {
   submit.addEventListener('click',(e)=>{
     var arr = [
       document.getElementById("Roll Number").value, 
-      document.getElementById("First Name").value, 
-      document.getElementById("Last Name").value, 
+      document.getElementById("First Name").value,  
       document.getElementById("Nationality").value, 
       document.getElementById("Date of Birth").value, 
       document.getElementById("Gender").value, 
       document.getElementById("Father's Name").value, 
       document.getElementById("Occupation").value, 
       document.getElementById("Mother's Name").value, 
-      document.getElementById("mother_occupation").value, 
       document.getElementById("annual_income").value, 
       document.getElementById("address").value, 
       document.getElementById("course_name").value, 
       document.getElementById("course_duration").value, 
       document.getElementById("fund_required").value, 
       document.getElementById("tuition_fees").value, 
-      document.getElementById("hostel_fees").value, 
       document.getElementById("exam_name_1").value, 
       document.getElementById("exam_year_1").value, 
       document.getElementById("exam_board_1").value, 
@@ -77,6 +74,7 @@ window.onload = function() {
       document.getElementById("exam_board_2").value, 
       document.getElementById("exam_percentage_2").value, 
       document.getElementById("degree_1").value, 
+      document.getElementById("degree_year_1").value,
       document.getElementById("degree_subject_1").value, 
       document.getElementById("degree_institute_1").value,
       document.getElementById("degree_grade_1").value,  
@@ -100,15 +98,26 @@ window.onload = function() {
       $('#requiredSubmitModal').modal('show');
      } 
 
-     if(flag){
+     if(flag){ 
+
+      var incomeExt = document.getElementById("Annual Income Certificate").value.split('.').length-1;
+      var transcriptExt = document.getElementById("Transcript").value.split('.').length-1;
+      var twExt = document.getElementById("12th Marksheet").value.split('.').length-1;
+      var tenExt = document.getElementById("10th Marksheet").value.split('.').length-1;
+
       var mime = [
-        String(document.getElementById("Annual Income Certificate").value).split('.')[1],
-        String(document.getElementById("Transcript").value).split('.')[1],
-        String(document.getElementById("12th Marksheet").value).split('.')[1],
-        String(document.getElementById("10th Marksheet").value).split('.')[1]
+        String(document.getElementById("Annual Income Certificate").value).split('.')[incomeExt],
+        String(document.getElementById("Transcript").value).split('.')[transcriptExt],
+        String(document.getElementById("12th Marksheet").value).split('.')[twExt],
+        String(document.getElementById("10th Marksheet").value).split('.')[tenExt]
        ];
+      
+      if(document.getElementById("Bank Statement").value){
+        var bankExt = document.getElementById("Bank Statement").value.split('.').length-1;
+        mime.push(String(document.getElementById("Bank Statement").value).split('.')[bankExt]);
+      }
        mimeFlag = 1;
-       
+
        mime.forEach((val)=>{
          if(val!='pdf')
          {

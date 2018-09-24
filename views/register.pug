@@ -19,6 +19,8 @@ block content
   a(href= "/logout" style="float:right; margin-right:18%")
     button.btn.btn-default Logout
   .container.contain-container
+    if(errors)
+      .alert.alert-danger #{errors}
     form(action=`/user/${user.name}/register`, enctype="multipart/form-data", method='POST')
       #smartwizard
         ul

@@ -89,7 +89,9 @@ exports.registerUser = (req, res) => {
   upload(req, res, (error) => {
     if (error) {
       signale.error(error);
-      return res.redirect(`/user/${req.session.user.name}/register`);
+      return res.render(`register`, {
+        errors: 'Error uploading documents. Check documents format, size and please try again.'
+      })
     }
     if (!checkEmptyInput(req)) {
       return res.render(`register`, {

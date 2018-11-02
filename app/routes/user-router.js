@@ -17,6 +17,7 @@ let validateURL = (req, res, next) => {
   if (req.params.username != req.session.user.name) {
     req.session.destroy(err => {
       if (err) {
+        signale.debug('error')
         return next(err)
       }
       return res.redirect('/user/login')

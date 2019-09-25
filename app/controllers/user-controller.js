@@ -10,6 +10,11 @@ const pdf = require('html-pdf');
 const spawn = require("child_process").spawn;
 var merge = require('easy-pdf-merge');
 var md5 = require('md5');
+const express = require('express');
+const app = express();
+app.use(express.json({
+  type: ['application/json', 'text/plain']
+}))
 const options = {
   format: 'Letter',
   base: 'file://' + path.resolve('./public') + '/'
@@ -23,7 +28,31 @@ exports.renderLoginForm = (req, res) => {
 }
 
 exports.renderRegisterForm = (req, res) => {
-  return res.render('register');
+
+  Scholarship.findOne({
+    "personalDetails.rollno": req.session.user.name,
+    "regStatus": false
+
+  }, (err, student) => {
+    if (err) {
+      signale.error(err);
+      return res.redirect(`/user/${req.session.user.name}/register`);
+
+    }
+    else {
+      // console.log(student);
+
+
+      return res.render('register', {
+        student: student,
+        user: req.session.user
+
+
+
+      })
+    }
+  })
+
 }
 
 //matching login credentials to create a new session
@@ -36,15 +65,15 @@ exports.validateLogin = (req, res) => {
   let username = req.body.username
   let password = req.body.password
 
-  const pythonProcess = spawn('python',["./checkCredentialsWebmail.py",username, password]);
+  const pythonProcess = spawn('python', ["./checkCredentialsWebmail.py", username, password]);
   pythonProcess.stdout.on('data', (data) => {
     console.log(data.toString());
-    if(data.toString() == 0){
+    if (data.toString() == 0) {
       signale.note("****Wrong Credentials!****");
       return res.redirect('/user/login')
     }
-    else{
-    signale.note("****Credentials are correct!****");
+    else {
+      signale.note("****Credentials are correct!****");
       req.session.user = {
         name: username
       }
@@ -76,6 +105,232 @@ exports.validateLogin = (req, res) => {
 
 }
 
+exports.regUser1 = (req, res) => {
+ 
+  if (!checkEmptyInputPersonal(req)) {
+    return res.render(`register`, {
+      errors: 'Missing inputs. Please try again.',
+      user: req.session.user
+    })
+  }
+  else {
+    Scholarship.findOne({
+      "personalDetails.rollno": req.session.user.name,
+      "regStatus": false
+    }, (err, student) => {
+      if (err) {
+        signale.error(err);
+      }
+      else {
+        if (student != null) {
+          student.personalDetails = {
+            rollno: sanitize(req.session.user.name),
+            firstname: sanitize(req.body.firstname),
+            lastname: req.body.lastname ? sanitize(req.body.lastname) : null,
+            nationality: sanitize(req.body.nationality),
+            dob: sanitize(req.body.dob),
+            gender: sanitize(req.body.gender),
+            disability: req.body.disability ? sanitize(req.body.disability) : null,
+            father_name: sanitize(req.body.father_name),
+            father_occupation: sanitize(req.body.father_occupation),
+            mother_name: sanitize(req.body.mother_name),
+            mother_occupation: req.body.mother_occupation ? sanitize(req.body.mother_occupation) : null,
+            annual_income: sanitize(req.body.annual_income),
+            address: sanitize(req.body.address)
+          }
+          student.save(err => {
+            if (err) {
+              signale.error(err);
+
+              return res.redirect(`/user/${req.session.user.name}/register`);
+            }
+            else {
+              res.send("ok");
+            }
+
+          })
+        }
+        else {
+
+          let newStudent = new Scholarship(studentDetail(req))
+          newStudent.regStatus = false;
+
+          for (var i = 0; i < 5; i++) {
+            newStudent.documents.push(null);
+          }
+          newStudent.save(err => {
+            if (err) {
+              signale.error(err);
+
+              return res.redirect(`/user/${req.session.user.name}/register`);
+            }
+            else {
+              res.send("ok");
+            }
+
+
+          })
+        }
+      }
+    })
+  }
+
+
+
+
+
+
+}
+
+exports.regUser2 = (req, res) => {
+  Scholarship.findOne({
+    "personalDetails.rollno": req.session.user.name,
+    "regStatus": false
+  }, (err, student) => {
+      if (err) {
+        signale.error(err);
+
+        return res.redirect(`/user/${req.session.user.name}/register`);
+
+      }
+      else {
+
+        student.acads = {
+          course_name: sanitize(req.body.course_name),
+          course_duration: sanitize(req.body.course_duration),
+          fund_required: sanitize(req.body.fund_required),
+          tuition_fees: sanitize(req.body.tuition_fees),
+          book_fees: req.body.book_fees ? sanitize(req.body.book_fees) : null,
+          hostel_fees: req.body.hostel_fees ? sanitize(req.body.hostel_fees) : null,
+          other_fees: req.body.other_fees ? sanitize(req.body.other_fees) : null,
+          exam_name_1: req.body.exam_name_1,
+          exam_year_1: sanitize(req.body.exam_year_1),
+          exam_board_1: sanitize(req.body.exam_board_1),
+          exam_class_1: "NA",
+          exam_percentage_1: sanitize(req.body.exam_percentage_1),
+          exam_name_2: sanitize(req.body.exam_name_2),
+          exam_year_2: sanitize(req.body.exam_year_2),
+          exam_board_2: sanitize(req.body.exam_board_2),
+          exam_class_2: "NA",
+          exam_percentage_2: sanitize(req.body.exam_percentage_2),
+          degree_1: sanitize(req.body.degree_1),
+          degree_year_1: sanitize(req.body.degree_year_1),
+          degree_subject_1: sanitize(req.body.degree_subject_1),
+          degree_institute_1: sanitize(req.body.degree_institute_1),
+          degree_grade_1: sanitize(req.body.degree_grade_1),
+          degree_percentage_1: sanitize(req.body.degree_percentage_1),
+          degree_2: req.body.degree_2 ? sanitize(req.body.degree_2) : null,
+          degree_year_2: req.body.degree_year_2 ? sanitize(req.body.degree_year_2) : null,
+          degree_subject_2: req.body.degree_subject_2 ? sanitize(req.body.degree_subject_2) : null,
+          degree_institute_2: req.body.degree_institute_2 ? sanitize(req.body.degree_institute_2) : null,
+          degree_grade_2: req.body.degree_grade_2 ? sanitize(req.body.degree_grade_2) : null,
+          degree_percentage_2: req.body.degree_percentage_2 ? sanitize(req.body.degree_percentage_2) : null,
+          qualitative_achievement_1: sanitize(req.body.qualitative_achievement_1),
+          qualitative_achievement_2: sanitize(req.body.qualitative_achievement_2)
+        }
+
+
+        student.save(err => {
+          if (err) {
+            signale.error(err);
+            return res.redirect(`/user/${req.session.user.name}/register`);
+          }
+          else {
+            res.send("ok");
+          }
+
+
+        })
+
+      }
+    })
+}
+
+exports.uploadFiles = (req, res) => {
+  upload(req, res, (error) => {
+    if (error) {
+      signale.error(error);
+      return res.render(`register`, {
+        errors: 'Error uploading documents. Check documents format, size and please try again.',
+        user: req.session.user
+      })
+    }
+    else {
+      signale.note(req.files);
+
+      Scholarship.findOne({
+        "personalDetails.rollno": req.session.user.name,
+        "regStatus": false
+      }, (err, student) => {
+        if (err) {
+          console.error(err);
+        }
+        else {
+         
+          let file_type = req.params.type;
+          let file = req.files[0];
+          let len = file.path.length;
+          let st = file.path;
+          let p = st.slice(34, len);
+         
+          file.path = p;
+        
+
+          if (file_type == "annual") {
+            // student.docStatus[0]=true;
+            // student.docStatus.set(0,true);
+            student.documents.set(0, file);
+          }
+          if (file_type == "transcript") {
+            // student.docStatus[1]=true;
+            // student.docStatus.set(1,true);
+            student.documents.set(1, file);
+          }
+          if (file_type == "marksheet12") {
+            // student.docStatus[2]=true;
+            // student.docStatus.set(2,true);
+            student.documents.set(2, file);
+          }
+          if (file_type == "marksheet10") {
+            // student.docStatus[3]=true;
+            // student.docStatus.set(3,true);
+            student.documents.set(3, file);
+          }
+          if (file_type == "bankstatement") {
+            // student.docStatus[4]=true; <- not a correct way to assign array values in JS
+            // student.docStatus.set(4,true);
+            student.documents.set(4, file);
+
+          }
+          // student.docStatus[0]=1;
+
+          //  student.documents.push(req.files[0]);
+
+          student.save(err => {
+            if (err) {
+              signale.error(err);
+              return res.redirect("/");
+            }
+            else {
+
+              // console.log(student);
+              res.send("ok");
+            }
+
+
+
+          })
+
+        }
+      })
+
+
+
+    }
+  })
+
+}
+
 exports.registerUser = (req, res) => {
   //check for null/missing inputs
 
@@ -90,29 +345,55 @@ exports.registerUser = (req, res) => {
     if (error) {
       signale.error(error);
       return res.render(`register`, {
-        errors: 'Error uploading documents. Check documents format, size and please try again.'
+        errors: 'Error uploading documents. Check documents format, size and please try again.',
+        user: req.session.user
       })
     }
-    if (!checkEmptyInput(req)) {
-      return res.render(`register`, {
-        errors: 'Missing inputs. Please try again.'
-      })
-    }
-    let newStudent = new Scholarship(studentDetail(req))
 
-    newStudent.save(err => {
+    // let newStudent = new Scholarship(studentDetail(req))
+    Scholarship.findOne({
+      "personalDetails.rollno": req.session.user.name,
+      "regStatus": false
+    }, (err, student) => {
       if (err) {
-        signale.error(err);
-        return res.redirect(`/user/${req.session.user.name}/register`);
+        signale.error(err)
+        return res.redirect('/')
       }
-      return res.redirect(`/user/${req.session.user.name}/status`)
+      else {
+
+        student.regStatus = true;
+        student.scholarshipStatus = -1,
+          student.uniqueID = shortid.generate(),
+          student.scholarship = 'No response received';
+
+
+
+
+
+
+        // console.log(student);
+        student.save(err, () => {
+          if (err) {
+            signale.error(err);
+            return res.redirect(`/user/${req.session.user.name}/register`);
+          }
+          else {
+            // res.send("ok");
+            return res.redirect(`/user/${req.session.user.name}/status`)
+          }
+
+        })
+      }
     })
+
+
   })
 }
 
 exports.renderStatus = (req, res) => {
   Scholarship.findOne({
-    "personalDetails.rollno": req.session.user.name
+    "personalDetails.rollno": req.session.user.name,
+    "regStatus": true
   }, (err, student) => {
     if (err) {
       signale.error(err)
@@ -128,65 +409,52 @@ exports.renderStatus = (req, res) => {
     html = compiledFunction({
       student: student
     });
-    pdf.create(html, options).toFile(`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`, function(err, resp) {
+    pdf.create(html, options).toFile(`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`, function (err, resp) {
       if (err) return signale.error(err);
       signale.note(resp); // { filename: '/app/newfile.pdf' }
-      console.log(student.documents[0].path);
-      
-      const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`,"./"+ student.documents[0].path, "./"+ student.documents[1].path,"./"+ student.documents[2].path,"./"+ student.documents[3].path];
-      if(student.documents.length > 4){
-        files.push("./"+ student.documents[4].path);
-      }
-      target = "./public/files/generated-pdfs/" + md5("delta_cares_" + req.session.user.name +"_security" )+".pdf";
+      // console.log(student.documents[0].path);
 
-      merge(files,target,function(err){
-        if(err) console.log(err);
-        
-        console.log(target);
-        
-        return res.render('status',{
-          student:student, path:target
+      // const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`,config.Admin_BaseDir.path+"public"+ student.documents[0].path, config.Admin_BaseDir.path+"public"+ student.documents[1].path,config.Admin_BaseDir.path+"public"+ student.documents[2].path,config.Admin_BaseDir.path+"public"+ student.documents[3].path];
+      // if(student.documents.length > 4){
+      //   files.push(config.Admin_BaseDir.path+"public"+ student.documents[4].path);
+      // }
+      const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf` + "public" + student.documents[0].path, config.Admin_BaseDir.path + "public" + student.documents[1].path, config.Admin_BaseDir.path + "public" + student.documents[2].path, config.Admin_BaseDir.path + "public" + student.documents[3].path];
+      if (student.documents.length > 4) {
+        files.push(config.Admin_BaseDir.path + "public" + student.documents[4].path);
+      }
+      target = "./public/files/generated-pdfs/" + md5("delta_cares_" + req.session.user.name + "_security") + ".pdf";
+
+      merge(files, target, function (err) {
+        if (err) console.log(err);
+
+        // console.log(target);
+
+        return res.render('status', {
+          student: student, path: target
         })
       });
     });
   })
 }
 
-function checkEmptyInput(req) {
+function checkEmptyInputPersonal(req) {
   let bool = (
-    req.body.firstname &&
-    req.body.nationality &&
-    req.body.dob &&
-    req.body.gender &&
-    req.body.father_name &&
-    req.body.father_occupation &&
-    req.body.mother_name &&
-    req.body.annual_income &&
-    req.body.address &&
-    req.body.course_name &&
-    req.body.course_duration &&
-    req.body.fund_required &&
-    req.body.tuition_fees &&
-    req.body.exam_name_1 &&
-    req.body.exam_year_1 &&
-    req.body.exam_board_1 &&
-    req.body.exam_percentage_1 &&
-    req.body.exam_name_2 &&
-    req.body.exam_year_2 &&
-    req.body.exam_board_2 &&
-    req.body.exam_percentage_2 &&
-    req.body.degree_1 &&
-    req.body.degree_year_1 &&
-    req.body.degree_subject_1 &&
-    req.body.degree_institute_1 &&
-    req.body.degree_grade_1 &&
-    req.body.degree_percentage_1 &&
-    req.body.qualitative_achievement_1 &&
-    req.body.qualitative_achievement_2 &&
-    (req.files.length == 4 || req.files.length == 5)
+    req.body.firstname != '' &&
+    req.body.nationality != '' &&
+    req.body.dob != '' &&
+    req.body.gender != '' &&
+    req.body.father_name != '' &&
+    req.body.father_occupation != '' &&
+    req.body.mother_name != '' &&
+    req.body.annual_income != '' &&
+    req.body.address != ''
   )
   return bool;
 }
+
+
+
+
 
 function studentDetail(req) {
   return {

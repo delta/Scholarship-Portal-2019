@@ -1,8 +1,13 @@
 const router = require('express').Router();
+
 const signale = require('signale');
 const user = require('../controllers/user-controller.js');
 const Scholarship = require('../models/Scholarship.js')
-
+const express=require('express');
+const app=express();
+app.use(express.json({
+  type: ['application/json', 'text/plain']
+}))
 //sessionChecker middlewares
 let sessionChecker = (req, res, next) => {
   if (!req.session.user) {
@@ -18,12 +23,16 @@ let validateURL = (req, res, next) => {
     req.session.destroy(err => {
       if (err) {
         signale.debug('error')
+        signale.note("login error");
         return next(err)
       }
       return res.redirect('/user/login')
     })
   }
-  next()
+  else{
+    next();
+  }
+  
 }
 
 //check if already logged in.
@@ -38,7 +47,8 @@ let loggedIn = (req, res, next) => {
 //check if already registered for Scholarship
 let ifRegistered = (req, res, next) => {
   Scholarship.findOne({
-    "personalDetails.rollno": req.session.user.name
+    "personalDetails.rollno": req.session.user.name,
+    "regStatus":true
   }, (err, student) => {
     if (err) {
       signale.error(err)
@@ -54,6 +64,10 @@ let ifRegistered = (req, res, next) => {
 // register
 router.get('/:username/register', sessionChecker, validateURL, ifRegistered, user.renderRegisterForm)
 router.post('/:username/register', sessionChecker, validateURL, user.registerUser)
+router.post("/:username/personal",sessionChecker,validateURL,user.regUser1)
+router.post("/:username/acad",sessionChecker,validateURL,user.regUser2)
+router.post("/:username/file/:type",sessionChecker,validateURL,user.uploadFiles)
+
 
 // login
 router.get('/login', loggedIn, user.renderLoginForm)

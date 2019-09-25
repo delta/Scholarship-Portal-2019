@@ -27,7 +27,14 @@ const scholarshipSchema = mongoose.Schema({
   approvedDate:{
     type:Object,
     default:undefined
-  }
+  },
+  regStatus:{
+    type:Boolean,
+    default:false
+  },
+ 
+
+
 })
 
 module.exports = mongoose.model('scholarship', scholarshipSchema)

@@ -7,4 +7,7 @@ module.exports = {
   session: {
     secretString: "Scholarships are goooood xD"
   },
+  Admin_BaseDir:{
+  path:"/home/deltawork1/Scholarship-Portal-Admin/"
+  }
 };

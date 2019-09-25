@@ -7,12 +7,17 @@ const cookieParser = require('cookie-parser');
 const config = require('./config/config.js');
 const expressValidator = require('express-validator');
 const session = require('express-session');
+// const express=require('express');
+const app=express();
+app.use(express.json({
+  type: ['application/json', 'text/plain']
+}))
 
 //importing router
 const userRouter = require('./app/routes/user-router.js');
 
 //initialising express
-const app = express();
+// const app = express();
 
 //database Connection
 mongoose.connect(config.mongodb.dbURI)
@@ -36,6 +41,8 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// console.log(path);
+app.use(express.static(path.resolve(config.Admin_BaseDir.path,'public','files','uploads')));
 
 
 //middlewares for expressValidator

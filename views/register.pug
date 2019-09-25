@@ -1,19 +1,20 @@
 extends ./layout.pug
 
 block append head
-  meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+  meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
   title Register | Scholarship Portal
   meta(charset='UTF-8')
   link(rel="icon" href="files/images/NITT-Logo.png" type="image/x-icon")
-  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
-  link(href='/css/smart_wizard.css', rel='stylesheet', type='text/css')
-  link(href='/css/smart_wizard_theme_arrows.css', rel='stylesheet', type='text/css')
-  link(rel="stylesheet", href="/css/register.css")
-  script(src='https://code.jquery.com/jquery-3.3.1.min.js', integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=', crossorigin='anonymous')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
-  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  link(href='/css/smart_wizard.css' rel='stylesheet' type='text/css')
+  link(href='/css/smart_wizard_theme_arrows.css' rel='stylesheet' type='text/css')
+  link(rel="stylesheet" href="/css/register.css")
+  script(src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
   script(src='/js/jquery.smartWizard.min.js')
   script(src="/js/register.js")
+
 
 block content
   div.logout-container
@@ -22,7 +23,7 @@ block content
   .container.contain-container
     if(errors)
       .alert.alert-danger #{errors}
-    form(action=`/user/${user.name}/register`, enctype="multipart/form-data", method='POST')
+    form(action=`/user/${user.name}/register`, enctype="multipart/form-data" method='POST')
       #smartwizard
         ul
           li
@@ -32,6 +33,8 @@ block content
           li
             a(href='#step-3') Document Uploads
         div
+
+
           #step-1
             .col-md-1
             h3.border-bottom.border-gray.pb-2.h3head Personal Details 
@@ -47,18 +50,18 @@ block content
                 label.col-md-4.control-label.label-tag First Name
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text', placeholder='First Name' id="First Name" name='firstname' required)
+                  input.form-control(type='text' placeholder='First Name' id="First Name" name='firstname' value=student?student.personalDetails.firstname :"" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Last Name
                 .col-md-8
-                  input.form-control(type='text', placeholder='Last Name' name='lastname' id="Last Name")
+                  input.form-control(type='text' placeholder='Last Name' name='lastname'  value=student?student.personalDetails.lastname:"" id="Last Name")
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Nationality
                   span.text-danger *
                 .col-md-8
-                  select.form-control(placeholder='Nationality' name='nationality' id="Nationality" required)
+                  select.form-control(placeholder='Nationality' name='nationality' id="Nationality"  value=student?student.personalDetails.nationality :"" required)
                     option(value='afghan') Afghan
                     option(value='albanian') Albanian
                     option(value='algerian') Algerian
@@ -257,13 +260,13 @@ block content
                 label.col-md-4.control-label.label-tag Date of Birth
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='date', placeholder='Date of Birth' id="Date of Birth"  name='dob' required)
+                  input.form-control(type='date' placeholder='Date of Birth' id="Date of Birth"  value=student?student.personalDetails.dob:"" name='dob' required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Gender
                   span.text-danger *
                 .col-md-8
-                  select.form-control(placeholder='Gender' id="Gender" name='gender' required)
+                  select.form-control(placeholder='Gender' id="Gender" name='gender'  value=student?student.personalDetails.gender:"" required)
                     option(value='male' selected) Male
                     option(value='female') Female
                     option(value='other') Others
@@ -271,43 +274,44 @@ block content
                 .row.input-container
                 label.col-md-4.control-label.label-tag Disability(if any please mention in detail):
                 .col-md-8
-                  textarea.form-control.input-big(rows='3', placeholder='Disability(if any please mention in detail)' name='disability')
+                  textarea.form-control.input-big(rows='3' id="disability" placeholder='Disability(if any please mention in detail)' name='disability')=student?student.personalDetails.disability:""
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Father&apos;s Name
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text', placeholder="Father's Name" id="Father's Name" required name='father_name')
+                  input.form-control(type='text' placeholder="Father's Name" id="Father's Name"  value=student?student.personalDetails.father_name:"" required name='father_name')
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Father&apos;s Occupation
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text' id="Occupation" placeholder='Occupation' required name='father_occupation')
+                  input.form-control(type='text' id="Occupation" placeholder='Occupation' required  value=student?student.personalDetails.father_occupation:"" name='father_occupation')
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Mother&apos;s Name
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text' id="Mother's Name" placeholder="Mother's Name" required name='mother_name')
+                  input.form-control(type='text' id="Mother's Name" placeholder="Mother's Name"  value=student?student.personalDetails.mother_name:"" required name='mother_name')
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Mother&apos;s Occupation
                   span.text-danger
                 .col-md-8
-                  input.form-control(type='text', placeholder='Occupation' name='mother_occupation' id="mother_occupation")
+                  input.form-control(type='text' placeholder='Occupation' name='mother_occupation'  value=student?student.personalDetails.mother_occupation:"" id="mother_occupation")
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Annual Income
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='number', placeholder='Total Annual Income of the family' required name='annual_income' id="annual_income")
+                  input.form-control(type='number' placeholder='Total Annual Income of the family' required name='annual_income'  value=student?student.personalDetails.annual_income:"" id="annual_income")
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Address for correspondence with Telephone no./Mobile No.
                   span.text-danger *
                 .col-md-8
-                  textarea.form-control.input-big(rows='5', placeholder='Address for correspondence with Telephone no./Mobile No.' name='address' id="address" required)
+                  textarea.form-control.input-big(rows='5' placeholder='Address for correspondence with Telephone no./Mobile No.' name='address' id="address" required)=  student? student.personalDetails.address:""
+
             .col-md-1
           #step-2
             h3.border-bottom.border-gray.pb-2.h3head Academic Details, Qualifications and Achievements
@@ -320,42 +324,42 @@ block content
                 label.col-md-4.control-label.label-tag Course Name
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='text', placeholder='Course Name' name='course_name' id="course_name" required)
+                  input.form-control(type='text' placeholder='Course Name' name='course_name' id="course_name" value=student?student.acads.course_name:"" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Duration of course in number
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='number', placeholder='No. of years as a number' name='course_duration' id="course_duration" required)
+                  input.form-control(type='number' placeholder='No. of years as a number' name='course_duration' id="course_duration" value=student?student.acads.course_duration:"" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Annual estimate of fund required for the course per year(in Rs.)
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='number', placeholder='Fund required' name='fund_required' id="fund_required" required)
+                  input.form-control(type='number' placeholder='Fund required' name='fund_required' id="fund_required" value=student?student.acads.fund_required:"" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Tuition Fees
                   span.text-danger *
                 .col-md-8
-                  input.form-control(type='number', placeholder='Tuition Fees' name='tuition_fees' id="tuition_fees" required)
+                  input.form-control(type='number' placeholder='Tuition Fees' name='tuition_fees' id="tuition_fees" value=student?student.acads.tuition_fees:"" required)
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Book Fees
                   span.text-danger
                 .col-md-8
-                  input.form-control(type='number', placeholder='Book Fees' name='book_fees' id="book_fees" )
+                  input.form-control(type='number' placeholder='Book Fees' name='book_fees' id="book_fees"  value=student?student.acads.book_fees:""   )
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Institute/College Hostel Charges
                   span.text-danger
                 .col-md-8
-                  input.form-control(type='number', placeholder='Institute/College Hostel Charges' name='hostel_fees' id="hostel_fees")
+                  input.form-control(type='number' placeholder='Institute/College Hostel Charges' name='hostel_fees' id="hostel_fees"  value=student?student.acads.hostel_fees:"" )
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Any other fees(in detail):
                 .col-md-8
-                  textarea.form-control.input-big(rows='3', placeholder='Any other fees in detail' name='other_fees')
+                  textarea.form-control.input-big(rows='3' id="other_fees" placeholder='Any other fees in detail' name='other_fees'  )= student?student.acads.other_fees:""
             .col-md-1
             h4.heading Educational Qualifications
             hr
@@ -373,22 +377,22 @@ block content
                 tbody
                   tr
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
-                      input.form-control(type='text' name='exam_name_1' id="exam_name_1" placeholder="Eg: XIIth" required)
+                      input.form-control(type='text' name='exam_name_1' id="exam_name_1" placeholder="Eg: XIIth" required  value=student?student.acads.exam_name_1:"" )
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
-                      input.form-control.table-input(type='text' name='exam_year_1' id="exam_year_1" placeholder="Eg: 2012" required)
+                      input.form-control.table-input(type='text' name='exam_year_1' id="exam_year_1" placeholder="Eg: 2012" required value=student?student.acads.exam_year_1:"" )
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
-                      input.form-control.table-input(type='text' name='exam_board_1' id="exam_board_1" placeholder="Eg: CBSE" required)
+                      input.form-control.table-input(type='text' name='exam_board_1' id="exam_board_1" placeholder="Eg: CBSE" required value=student?student.acads.exam_board_1:"" )
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='number' name='exam_percentage_1' id="exam_percentage_1" placeholder='Eg: 94' max='100' min='0' required)
+                      input.form-control.table-input(type='number' name='exam_percentage_1' id="exam_percentage_1" value=student?student.acads.exam_percentage_1:"" placeholder='Eg: 94' max='100' min='0' required)
                   tr
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
-                      input.form-control(type='text' name='exam_name_2' id="exam_name_2" placeholder="Eg: Xth" required)
+                      input.form-control(type='text' name='exam_name_2' id="exam_name_2" value=student?student.acads.exam_name_2:"" placeholder="Eg: Xth" required)
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
-                      input.form-control.table-input(type='text' name='exam_year_2' id="exam_year_2" placeholder="Eg: 2010" required)
+                      input.form-control.table-input(type='text' name='exam_year_2' id="exam_year_2" value=student?student.acads.exam_year_2:"" placeholder="Eg: 2010" required)
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
-                      input.form-control.table-input(type='text' name='exam_board_2' id="exam_board_2" placeholder="Eg:  CBSE" required)
+                      input.form-control.table-input(type='text' name='exam_board_2' id="exam_board_2" value=student?student.acads.exam_board_2:"" placeholder="Eg:  CBSE" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='number' name='exam_percentage_2' id="exam_percentage_2" placeholder="Eg: 92" max='100' min='0' required)
+                      input.form-control.table-input(type='number' name='exam_percentage_2' id="exam_percentage_2" value=student?student.acads.exam_percentage_2:"" placeholder="Eg: 92" max='100' min='0' required)
               h5.table2head
                 | Graduation and above: 
                 i (If result of final year are not received, mention upto latest result)
@@ -407,30 +411,30 @@ block content
                 tbody
                   tr
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_1' id="degree_1" placeholder="Eg: B.Tech" required)
+                      input.form-control.table-input(type='text' name='degree_1' id="degree_1" value=student?student.acads.degree_1:"" placeholder="Eg: B.Tech" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_year_1' id="degree_year_1" placeholder="Eg: 2016" required)
+                      input.form-control.table-input(type='text' name='degree_year_1' id="degree_year_1" value=student?student.acads.degree_year_1:"" placeholder="Eg: 2016" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_subject_1' id="degree_subject_1" placeholder="Eg: ECE" required)
+                      input.form-control.table-input(type='text' name='degree_subject_1' id="degree_subject_1" value=student?student.acads.degree_subject_1:"" placeholder="Eg: ECE" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_institute_1' id="degree_institute_1" placeholder="Eg: NIT Trichy" required)
+                      input.form-control.table-input(type='text' name='degree_institute_1' id="degree_institute_1" value=student?student.acads.degree_institute_1:"" placeholder="Eg: NIT Trichy" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='text' name='degree_grade_1' id="degree_grade_1" placeholder="Eg: A")
+                      input.form-control.table-input(type='text' name='degree_grade_1' id="degree_grade_1" value=student?student.acads.degree_grade_1:"" placeholder="Eg: A")
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_1' id="degree_percentage_1" placeholder="Eg: 90" required)
+                      input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_1' value=student?student.acads.degree_percentage_1:"" id="degree_percentage_1" placeholder="Eg: 90" required)
                 tr
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                    input.form-control.table-input(type='text' name='degree_2' placeholder="Eg: M.Tech")
+                    input.form-control.table-input(type='text' name='degree_2' id="degree_2" value=student?student.acads.degree_2:"" placeholder="Eg: M.Tech")
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                    input.form-control.table-input(type='text' name='degree_year_2' placeholder="Eg: 2018")
+                    input.form-control.table-input(type='text' name='degree_year_2' id="degree_year_2" value=student?student.acads.degree_year_2:"" placeholder="Eg: 2018")
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                    input.form-control.table-input(type='text' name='degree_subject_2' placeholder="Eg: VLSI Design")
+                    input.form-control.table-input(type='text' name='degree_subject_2' id="degree_subject_2" value=student?student.acads.degree_subject_2:"" placeholder="Eg: VLSI Design")
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                    input.form-control.table-input(type='text'  name='degree_institute_2' placeholder="Eg: NIT Trichy")
+                    input.form-control.table-input(type='text' name='degree_institute_2' id='degree_institute_2' value=student?student.acads.degree_institute_2:"" placeholder="Eg: NIT Trichy")
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                    input.form-control.table-input(type='text' name='degree_grade_2' placeholder="Eg: A")
+                    input.form-control.table-input(type='text' name='degree_grade_2' id="degree_grade_2" value=student?student.acads.degree_grade_2:"" placeholder="Eg: A")
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                    input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_2' placeholder="Eg: 90")
+                    input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_2' id="degree_percentage_2" value=student?student.acads.degree_percentage_2:"" placeholder="Eg: 90")
             .col-md-0
             h4.heading Qualitative Achievement
             hr
@@ -438,20 +442,21 @@ block content
             .col-md-10
               .form-group
                 .row.input-container
-                label.col-md-4.control-label.label-tag Academic distinctions, grants and scholarships
+                label.col-md-4.control-label.label-tag acadsemic distinctions, grants and scholarships
                   span.text-danger *
                 .col-md-8
-                  textarea.form-control.input-big(rows='5' name='qualitative_achievement_1' id="qualitative_achievement_1" required placeholder='Please mention any academic distinction, grants, scholarships and prizes received by you. ')
+                  textarea.form-control.input-big(rows='5' name='qualitative_achievement_1' id="qualitative_achievement_1"  required placeholder='Please mention any academic distinction, grants, scholarships and prizes received by you. ')=student? student.acads.qualitative_achievement_1:""
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Achievements, aspirations and life goals:
                   span.text-danger *
                 .col-md-8
-                  textarea.form-control.input-big(rows='5'  name='qualitative_achievement_2' id="qualitative_achievement_2" required placeholder='Please mention your dreams, life goals and aspirations.')
+                  textarea.form-control.input-big(rows='5' name='qualitative_achievement_2' id="qualitative_achievement_2" required placeholder='Please mention your dreams, life goals and aspirations.')=student?student.acads.qualitative_achievement_2:""
             .col-md-1
           #step-3
             h3.pb-2.h3head Document Uploads
             span (Only pdf files allowed & size < 5MB)
+            p (Please be careful while uploading the file! Each file is allowed to be uploaded only once)
             hr
             .col-md-1
             .col-md-10
@@ -459,64 +464,95 @@ block content
                 .row.input-container
                 label.col-md-4.control-label.label-tag Annual Income Certificate
                   span.text-danger *
-                .col-md-8
-                  input.form-control(type='file',name='document' id="Annual Income Certificate" required)
+                .row  
+                  .col-md-8
+
+                    input.form-control(type='file' name='document' id="Annual Income Certificate"  required disabled=student?(student.documents[0]?true:false):false )
+                  .col-md-2
+                    button.btn.btn-primary(type='button' id='previewannual'  value=student?(student.documents[0]?("/"+student.documents[0].filename):null):null disabled=student?(student.documents[0]?false:true):true )=student?(student.documents[0]?"View":"Preview"):"Preview" 
+                  .col-md-2
+                    button.btn.btn-success(type='button' id='uploadannual')=student?(student.documents[0]?"File Uploaded":"Upload"):"Upload" 
+
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Transcript
                   span.text-danger *
-                .col-md-8
-                  input.form-control(type='file',name='document' id="Transcript" required)
+                .row 
+
+                  .col-md-8 
+                    input.form-control(type='file' name='document' id="Transcript" required disabled=student?(student.documents[1]?true:false):false)
+                  .col-md-2
+
+                    button.btn.btn-primary(type='button' id='previewtranscript'  value=student?(student.documents[1]?("/"+student.documents[1].filename):null):null disabled=student?(student.documents[1]?false:true):true  )=student?(student.documents[1]?"View":"Preview"):"Preview" 
+                  .col-md-2
+                    button.btn.btn-success(type='button' id='uploadtranscript')=student?(student.documents[1]?"File Uploaded":"Upload"):"Upload" 
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag 12th Marksheet
                   span.text-danger *
-                .col-md-8
-                  input.form-control(type='file',name='document' id="12th Marksheet" required)
+                .row  
+                  .col-md-8
+                    input.form-control(type='file' name='document' id="12th Marksheet" required disabled=student?(student.documents[2]?true:false):false)
+                  .col-md-2
+                    button.btn.btn-primary(type='button' id='previewmarksheet12'   value=student?(student.documents[2]?("/"+student.documents[2].filename):null):null disabled=student?(student.documents[2]?false:true):true )=student?(student.documents[2]?"View":"Preview"):"Preview" 
+                  .col-md-2
+                    button.btn.btn-success(type='button' id='uploadmarksheet12')=student?(student.documents[2]?"File Uploaded":"Upload"):"Upload" 
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag 10th Marksheet
                   span.text-danger *
-                .col-md-8
-                  input.form-control(type='file',name='document' id="10th Marksheet" required)
+                .row 
+                  .col-md-8
+                    input.form-control(type='file' name='document' id="10th Marksheet" required disabled=student?(student.documents[3]?true:false):false)
+                  .col-md-2
+                    button.btn.btn-primary(type='button' id='previewmarksheet10'   value=student?(student.documents[3]?("/"+student.documents[3].filename):null):null disabled=student?(student.documents[3]?false:true):true  )=student?(student.documents[3]?"View":"Preview"):"Preview" 
+                  .col-md-2
+                    button.btn.btn-success(type='button' id='uploadmarksheet10')=student?(student.documents[3]?"File Uploaded":"Upload"):"Upload" 
               .form-group
                 .row.input-container
                 label.col-md-4.control-label.label-tag Bank Statement for loans(if taken)
-                  span.text-danger 
-                .col-md-8
-                  input.form-control(type='file',name='document' id="Bank Statement")
+                  span.text-danger
+                .row   
+                  .col-md-8
+                    input.form-control(type='file' name='document' id="Bank Statement" disabled=student?(student.documents[4]?true:false):false)
+                  .col-md-2
+                    button.btn.btn-primary(type='button' id='previewbankstatement'   value=student?(student.documents[4]?("/"+student.documents[4].filename):null):null disabled=student?(student.documents[4]?false:true):true )=student?(student.documents[4]?"View":"Preview"):"Preview" 
+                  .col-md-2
+                    button.btn.btn-success(type='button' id='uploadbankstatement')=student?(student.documents[4]?"File Uploaded":"Upload"):"Upload" 
               .form-group(style='margin-top:7vh;')
                 .row
                 .col-md-4.col-sm-4.col-xs-3
                 .col-md-3.col-sm-3.col-xs-6
-                  input.form-control.btn.btn-success(type='submit', value='Submit' id="submit")
+                  input.form-control.btn.btn-success(type='submit' value='Submit' id="submitbtn")
                 .col-md-5.col-sm-5.col-xs-3
             .col-md-1
   .container
     #requiredSubmitModal.modal.fade(role='dialog')
-        .modal-dialog.modal-lg
-            .modal-content
-                .modal-header
-                  h5.modal-title You have not filled the form correctly, please fill the form correctly !
-                  button.close(type='button' data-dismiss='modal') &times;   
-                .modal-body
-                  div.note-body Note :
-                    ul
-                      li
-                        span.asterisk * 
-                        |  - fields are required fields.
-                .modal-footer
-                  button.btn.btn-default(type='button' data-dismiss='modal') Close
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            h5.modal-title You have not filled the form correctly, please fill the form correctly !
+            button.close(type='button' data-dismiss='modal') &times;   
+          .modal-body
+            div.note-body Note :
+              ul
+                li
+                  span.asterisk * 
+                  |  - fields are required fields.
+          .modal-footer
+            button.btn.btn-default(type='button' data-dismiss='modal') Close
     .container
     #mimeSubmitModal.modal.fade(role='dialog')
-        .modal-dialog.modal-lg
-            .modal-content
-                .modal-header
-                  h5.modal-title You have not filled the form correctly, please fill the form correctly !
-                  button.close(type='button' data-dismiss='modal') &times;   
-                .modal-body
-                  div.note-body Note :
-                    ul
-                      li Only .pdf file extension allowed.
-                .modal-footer
-                  button.btn.btn-default(type='button' data-dismiss='modal') Close
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            h5.modal-title You have not filled the form correctly, please fill the form correctly !
+            button.close(type='button' data-dismiss='modal') &times;   
+          .modal-body
+            div.note-body Note :
+              ul
+                li Only .pdf file extension allowed.
+          .modal-footer
+            button.btn.btn-default(type='button' data-dismiss='modal') Close
+
+

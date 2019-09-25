@@ -14,7 +14,7 @@
     "easy-pdf-merge": "^0.2.0",
     "express": "*",
     "express-session": "*",
-    "express-validator": "*",
+    "express-validator": "5.2.0",
     "html-pdf": "^2.2.0",
     "md5": "^2.2.1",
     "mongo-sanitize": "^1.0.0",

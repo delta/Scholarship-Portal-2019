@@ -341,16 +341,15 @@ exports.registerUser = (req, res) => {
   //   })
   // }
 
-  upload(req, res, (error) => {
-    if (error) {
-      signale.error(error);
-      return res.render(`register`, {
-        errors: 'Error uploading documents. Check documents format, size and please try again.',
-        user: req.session.user
-      })
-    }
+
 
     // let newStudent = new Scholarship(studentDetail(req))
+// signale.note(checkInputValidation());
+  if(!checkInputValidation(req))
+  {
+    // signale.note("Checked");
+
+  
     Scholarship.findOne({
       "personalDetails.rollno": req.session.user.name,
       "regStatus": false
@@ -360,13 +359,13 @@ exports.registerUser = (req, res) => {
         return res.redirect('/')
       }
       else {
-
+      
         student.regStatus = true;
         student.scholarshipStatus = -1,
           student.uniqueID = shortid.generate(),
           student.scholarship = 'No response received';
 
-
+        
 
 
 
@@ -385,9 +384,9 @@ exports.registerUser = (req, res) => {
         })
       }
     })
+   }
 
-
-  })
+  
 }
 
 exports.renderStatus = (req, res) => {
@@ -450,6 +449,71 @@ function checkEmptyInputPersonal(req) {
     req.body.address != ''
   )
   return bool;
+}
+
+function checkInputValidation(req)
+{
+  Scholarship.findOne({
+    "personalDetails.rollno": req.session.user.name,
+    "regStatus": false
+  },(err,student)=>{
+    if (err) {
+      signale.error(err)
+      return res.redirect('/')
+    }
+    else{
+      let bool=(
+      
+        student.personalDetails.rollno&&
+        student.personalDetails.firstname&&
+        student.personalDetails.lastname &&
+        student.personalDetails.nationality&& 
+        student.personalDetails.dob &&
+        student.personalDetails.gender&&
+          
+        student.personalDetails.father_name && 
+        student.personalDetails.father_occupation &&
+        student.personalDetails.mother_name &&
+         
+        student.personalDetails.annual_income &&
+        student.personalDetails.address &&
+        
+        
+        student.acads.course_name&&
+        student.acads.course_duration&&
+        student.acads.fund_required&&
+        student.acads.tuition_fees&&
+        student.acads.exam_name_1&&
+        student.acads.exam_year_1&&
+        student.acads.exam_board_1&&
+     
+        student.acads.exam_percentage_1&&
+        student.acads.exam_name_2&&
+        student.acads.exam_year_2&&
+        student.acads.exam_board_2&&
+        student.acads.exam_percentage_2&&
+        student.acads.degree_1&&
+        student.acads.degree_year_1&&
+ 
+        student.acads.degree_subject_1&&
+        student.acads.degree_institute_1&&
+        student.acads.degree_grade_1&&
+        student.acads.degree_percentage_1&&
+ 
+        student.acads.qualitative_achievement_1&&
+        student.acads.qualitative_achievement_2&&
+
+        student.documents[0]&&
+        student.documents[1]&&
+        student.documents[2]&&
+        student.documents[3]
+      );
+
+      return bool;
+      // return true;
+    }
+  })
+  // return true;
 }
 
 

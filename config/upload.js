@@ -3,7 +3,7 @@ const path = require('path');
 const config=require('./config');
 /** Storage Engine */
 const storageEngine = multer.diskStorage({
-  destination: config.Admin_BaseDir.path+"public/files/uploads",
+  destination: path.resolve(config.dir.ADMIN_BASE_DIR,'public','files','uploads'),
   filename: function(req, file, fn) {
     fn(null, new Date().getTime().toString() + '-' + file.fieldname + path.extname(file.originalname));
   }

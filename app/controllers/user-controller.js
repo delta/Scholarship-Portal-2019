@@ -270,8 +270,7 @@ exports.uploadFiles = (req, res) => {
           let file_type = req.params.type;
           let file = req.files[0];
           let len = file.path.length;
-          let st = file.path;
-          let p = st.slice(34, len);
+          let p = `files/uploads/${file.filename}`;
          
           file.path = p;
         
@@ -413,13 +412,17 @@ exports.renderStatus = (req, res) => {
       signale.note(resp); // { filename: '/app/newfile.pdf' }
       // console.log(student.documents[0].path);
 
-      // const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`,config.Admin_BaseDir.path+"public"+ student.documents[0].path, config.Admin_BaseDir.path+"public"+ student.documents[1].path,config.Admin_BaseDir.path+"public"+ student.documents[2].path,config.Admin_BaseDir.path+"public"+ student.documents[3].path];
+      // const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`,config.dir.ADMIN_BASE_DIR+"public"+ student.documents[0].path, config.dir.ADMIN_BASE_DIR+"public"+ student.documents[1].path,config.dir.ADMIN_BASE_DIR+"public"+ student.documents[2].path,config.dir.ADMIN_BASE_DIR+"public"+ student.documents[3].path];
       // if(student.documents.length > 4){
-      //   files.push(config.Admin_BaseDir.path+"public"+ student.documents[4].path);
+      //   files.push(config.dir.ADMIN_BASE_DIR+"public"+ student.documents[4].path);
       // }
-      const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf` + "public" + student.documents[0].path, config.Admin_BaseDir.path + "public" + student.documents[1].path, config.Admin_BaseDir.path + "public" + student.documents[2].path, config.Admin_BaseDir.path + "public" + student.documents[3].path];
+      const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf` + "public" + student.documents[0].path, 
+      path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[1].path),
+      path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[2].path), 
+      path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[3].path)
+    ];
       if (student.documents.length > 4) {
-        files.push(config.Admin_BaseDir.path + "public" + student.documents[4].path);
+        files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[4].path));
       }
       target = "./public/files/generated-pdfs/" + md5("delta_cares_" + req.session.user.name + "_security") + ".pdf";
 

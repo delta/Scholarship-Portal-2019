@@ -5,7 +5,7 @@ module.exports = {
     session: {
       secretString: "Scholarships are goooood xD"
     },
-    Admin_BaseDir:{
-      path:''
+    dir: {
+      ADMIN_BASE_DIR: ""
     }
   };

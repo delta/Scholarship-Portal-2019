@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // console.log(path);
-app.use(express.static(path.resolve(config.Admin_BaseDir.path,'public','files','uploads')));
+app.use(express.static(path.resolve(config.dir.ADMIN_BASE_DIR,'public')));
 
 
 //middlewares for expressValidator

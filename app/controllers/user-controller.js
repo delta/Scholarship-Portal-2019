@@ -37,18 +37,11 @@ exports.renderRegisterForm = (req, res) => {
     if (err) {
       signale.error(err);
       return res.redirect(`/user/${req.session.user.name}/register`);
-
     }
     else {
-      // console.log(student);
-
-
       return res.render('register', {
         student: student,
         user: req.session.user
-
-
-
       })
     }
   })
@@ -67,7 +60,6 @@ exports.validateLogin = (req, res) => {
 
   const pythonProcess = spawn('python', ["./checkCredentialsWebmail.py", username, password]);
   pythonProcess.stdout.on('data', (data) => {
-    console.log(data.toString());
     if (data.toString() == 0) {
       signale.note("****Wrong Credentials!****");
       return res.redirect('/user/login')
@@ -311,20 +303,11 @@ exports.uploadFiles = (req, res) => {
               return res.redirect("/");
             }
             else {
-
-              // console.log(student);
               res.send("ok");
             }
-
-
-
           })
-
         }
       })
-
-
-
     }
   })
 
@@ -344,11 +327,7 @@ exports.registerUser = (req, res) => {
 
     // let newStudent = new Scholarship(studentDetail(req))
 // signale.note(checkInputValidation());
-  if(!checkInputValidation(req))
-  {
-    // signale.note("Checked");
-
-  
+  if(!checkInputValidation(req)) {
     Scholarship.findOne({
       "personalDetails.rollno": req.session.user.name,
       "regStatus": false
@@ -361,15 +340,9 @@ exports.registerUser = (req, res) => {
       
         student.regStatus = true;
         student.scholarshipStatus = -1,
-          student.uniqueID = shortid.generate(),
-          student.scholarship = 'No response received';
+        student.uniqueID = shortid.generate(),
+        student.scholarship = 'No response received';
 
-        
-
-
-
-
-        // console.log(student);
         student.save(err, () => {
           if (err) {
             signale.error(err);
@@ -408,14 +381,9 @@ exports.renderStatus = (req, res) => {
       student: student
     });
     pdf.create(html, options).toFile(`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`, function (err, resp) {
-      if (err) return signale.error(err);
-      signale.note(resp); // { filename: '/app/newfile.pdf' }
-      // console.log(student.documents[0].path);
-
-      // const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`,config.dir.ADMIN_BASE_DIR+"public"+ student.documents[0].path, config.dir.ADMIN_BASE_DIR+"public"+ student.documents[1].path,config.dir.ADMIN_BASE_DIR+"public"+ student.documents[2].path,config.dir.ADMIN_BASE_DIR+"public"+ student.documents[3].path];
-      // if(student.documents.length > 4){
-      //   files.push(config.dir.ADMIN_BASE_DIR+"public"+ student.documents[4].path);
-      // }
+      if (err) {
+        return signale.error(err);
+      }
       const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf` + "public" + student.documents[0].path, 
       path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[1].path),
       path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[2].path), 
@@ -427,10 +395,9 @@ exports.renderStatus = (req, res) => {
       target = "./public/files/generated-pdfs/" + md5("delta_cares_" + req.session.user.name + "_security") + ".pdf";
 
       merge(files, target, function (err) {
-        if (err) console.log(err);
-
-        // console.log(target);
-
+        if (err){
+          signale.error(err);
+        }
         return res.render('status', {
           student: student, path: target
         })

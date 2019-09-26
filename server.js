@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// console.log(path);
+// Since files are stored in admin portal directory, add admin portal public to serve uploaded files
 app.use(express.static(path.resolve(config.dir.ADMIN_BASE_DIR,'public')));
 
 

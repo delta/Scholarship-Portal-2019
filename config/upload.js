@@ -1,9 +1,9 @@
 const multer = require('multer');
 const path = require('path');
-
+const config=require('./config');
 /** Storage Engine */
 const storageEngine = multer.diskStorage({
-  destination: '../Scholarship-Portal-Admin/public/files/uploads',
+  destination: config.Admin_BaseDir.path+"public/files/uploads",
   filename: function(req, file, fn) {
     fn(null, new Date().getTime().toString() + '-' + file.fieldname + path.extname(file.originalname));
   }

@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
 
   $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
@@ -220,12 +218,12 @@ async function uploadFiles() {
       window.open(file_url);
     })
 
-    upload_annual_btn.addEventListener('click', async function () {
+    upload_annual_btn.addEventListener('click',  function () {
       let formData = new FormData();
       if (String(document.getElementById("Annual Income Certificate").value).split('.')[1] == 'pdf') {
         formData.append("document", annual.files[0]);
 
-        let res = await fetch(`/user/${rollno}/file/annual`, {
+        let res =  fetch(`/user/${rollno}/file/annual`, {
           method: "POST",
           body: formData,
         })
@@ -256,11 +254,11 @@ async function uploadFiles() {
     preview_transcript_btn.addEventListener('click', function () {
       window.open(file_url);
     })
-    upload_transcript_btn.addEventListener('click', async function () {
+    upload_transcript_btn.addEventListener('click',  function () {
       if (String(document.getElementById("Transcript").value).split('.')[1] == 'pdf') {
         let formData = new FormData();
         formData.append("document", transcript.files[0]);
-        let res = await fetch(`/user/${rollno}/file/transcript`, {
+        let res =  fetch(`/user/${rollno}/file/transcript`, {
           method: "POST",
           body: formData
         })
@@ -293,11 +291,11 @@ async function uploadFiles() {
       window.open(file_url);
     })
 
-    upload_marksheet12_btn.addEventListener('click', async function () {
+    upload_marksheet12_btn.addEventListener('click',  function () {
       if (String(document.getElementById("12th Marksheet").value).split('.')[1] == 'pdf') {
         let formData = new FormData();
         formData.append("document", marksheet12.files[0]);
-        let res = await fetch(`/user/${rollno}/file/marksheet12`, {
+        let res =  fetch(`/user/${rollno}/file/marksheet12`, {
           method: "POST",
           body: formData
         })
@@ -329,12 +327,12 @@ async function uploadFiles() {
       window.open(file_url);
     })
 
-    upload_marksheet10_btn.addEventListener('click', async function () {
+    upload_marksheet10_btn.addEventListener('click',  function () {
       if (String(document.getElementById("10th Marksheet").value).split('.')[1] == 'pdf') {
         let formData = new FormData();
 
         formData.append("document", marksheet10.files[0]);
-        let res = await fetch(`/user/${rollno}/file/marksheet10`, {
+        let res =  fetch(`/user/${rollno}/file/marksheet10`, {
           method: "POST",
           body: formData
         })
@@ -366,12 +364,12 @@ async function uploadFiles() {
       window.open(file_url);
     })
 
-    upload_bankstatement_btn.addEventListener('click', async function () {
+    upload_bankstatement_btn.addEventListener('click',  function () {
       if (String(document.getElementById("Bank Statement").value).split('.')[1] == 'pdf') {
         let formData = new FormData();
 
         formData.append("document", bankStatement.files[0]);
-        let res = await fetch(`/user/${rollno}/file/bankstatement`, {
+        let res =  fetch(`/user/${rollno}/file/bankstatement`, {
           method: "POST",
           body: formData
         })
@@ -431,11 +429,28 @@ window.onload = function () {
       document.getElementById("degree_year_1").value,
       document.getElementById("degree_subject_1").value,
       document.getElementById("degree_institute_1").value,
-      document.getElementById("degree_grade_1").value,
       document.getElementById("degree_percentage_1").value,
       document.getElementById("qualitative_achievement_1").value,
       document.getElementById("qualitative_achievement_2").value,
     ]
+
+    let upload_annual_btn = document.getElementById("uploadannual");
+    let upload_transcript_btn = document.getElementById("uploadtranscript");
+    let upload_marksheet12_btn = document.getElementById("uploadmarksheet12");
+    let upload_marksheet10_btn = document.getElementById("uploadmarksheet10");
+    let upload_bankstatement_btn = document.getElementById("uploadbankstatement");
+
+    
+
+  
+
+    if(upload_annual_btn.disabled == false) { upload_annual_btn.click(); }
+    if(upload_transcript_btn.disabled == false) { upload_transcript_btn.click(); }
+    if(upload_marksheet12_btn.disabled == false) { upload_marksheet12_btn.click(); }
+    if(upload_marksheet10_btn.disabled == false) { upload_marksheet10_btn.click(); }
+    if(upload_bankstatement_btn.disabled == false) { upload_bankstatement_btn.click(); }
+
+    
 
     flag = 1;
     mimeFlag = 1;
@@ -451,10 +466,10 @@ window.onload = function () {
 
     if (flag) {
       var mime = [
-        document.getElementById("Annual Income Certificate").disabled == true || document.getElementById("Annual Income Certificate").value != '',
-        document.getElementById("Transcript").disabled == true || document.getElementById("Transcript").value != '',
-        document.getElementById("12th Marksheet").disabled == true || document.getElementById("12th Marksheet").value != '',
-        document.getElementById("10th Marksheet").disabled == true || document.getElementById("10th Marksheet").value != '',
+        upload_annual_btn.textContent == "File Uploaded",
+        upload_transcript_btn.textContent == "File Uploaded",
+        upload_marksheet12_btn.textContent == "File Uploaded",
+        upload_marksheet10_btn.textContent == "File Uploaded"
       ];
 
       // if(document.getElementById("Bank Statement").value){

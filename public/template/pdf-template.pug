@@ -135,11 +135,4 @@ block content
               td.col-sm-2.col-xs-2= student.acads.degree_institute_2
               td.col-sm-2.col-xs-2= student.acads.degree_grade_2
               td.col-sm-2.col-xs-2= student.acads.degree_percentage_2?(student.acads.degree_percentage_2 + '%'):''
-        .field-container
-          label Academic distinctions, grants and scholarships :
-          br
-          div= student.acads.qualitative_achievement_1
-        .field-container
-          label Achievements, aspirations and life goals :
-          br
-          div= student.acads.qualitative_achievement_2
+        

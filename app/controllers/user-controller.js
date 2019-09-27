@@ -146,8 +146,7 @@ exports.regUser1 = (req, res) => {
 
           let newStudent = new Scholarship(studentDetail(req))
           newStudent.regStatus = false;
-
-          for (var i = 0; i < 5; i++) {
+          for (var i = 0; i < 4; i++) {
             newStudent.documents.push(null);
           }
           newStudent.save(err => {
@@ -290,7 +289,7 @@ exports.uploadFiles = (req, res) => {
           if (file_type == "bankstatement") {
             // student.docStatus[4]=true; <- not a correct way to assign array values in JS
             // student.docStatus.set(4,true);
-            student.documents.set(4, file);
+            student.documents.push(file);
 
           }
           // student.docStatus[0]=1;
@@ -380,11 +379,12 @@ exports.renderStatus = (req, res) => {
     html = compiledFunction({
       student: student
     });
-    pdf.create(html, options).toFile(`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`, function (err, resp) {
+    target = "./public/files/generated-pdfs/" + md5("delta_cares_" + req.session.user.name + "_security") + ".pdf";
+    pdf.create(html, options).toFile(target, function (err, resp) {
       if (err) {
         return signale.error(err);
       }
-      const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf` + "public" + student.documents[0].path, 
+      const files = [target + "public" + student.documents[0].path, 
       path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[1].path),
       path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[2].path), 
       path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[3].path)
@@ -392,7 +392,7 @@ exports.renderStatus = (req, res) => {
       if (student.documents.length > 4) {
         files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[4].path));
       }
-      target = "./public/files/generated-pdfs/" + md5("delta_cares_" + req.session.user.name + "_security") + ".pdf";
+      
 
       merge(files, target, function (err) {
         if (err){

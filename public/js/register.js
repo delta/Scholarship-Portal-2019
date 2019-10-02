@@ -467,10 +467,13 @@ window.onload = function () {
     if (flag) {
       var mime = [
         upload_annual_btn.textContent == "File Uploaded",
-        upload_transcript_btn.textContent == "File Uploaded",
         upload_marksheet12_btn.textContent == "File Uploaded",
         upload_marksheet10_btn.textContent == "File Uploaded"
       ];
+
+      if(parseInt(document.getElementById("Roll Number").value[5])!=9) {
+        mime.push(upload_transcript_btn.textContent == "File Uploaded");
+      }
 
       // if(document.getElementById("Bank Statement").value){
       //   var bankExt = document.getElementById("Bank Statement").value.split('.').length-1;

@@ -384,16 +384,20 @@ exports.renderStatus = (req, res) => {
       if (err) {
         return signale.error(err);
       }
-      const files = [target + "public" + student.documents[0].path, 
-      path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[1].path),
-      path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[2].path), 
-      path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[3].path)
-    ];
+      const files = [target + "public" + student.documents[0].path];
+      
+      // Add Transcript only for non first-year students
+      if(student.documents[1]){
+        files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[1].path));
+      }
+      files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[2].path));
+      files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[3].path));
+
+      // Add Bank Statement if it's there
       if (student.documents.length > 4) {
         files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[4].path));
       }
       
-
       merge(files, target, function (err) {
         if (err){
           signale.error(err);
@@ -474,13 +478,14 @@ function checkInputValidation(req)
         student.acads.qualitative_achievement_2&&
 
         student.documents[0]&&
-        student.documents[1]&&
         student.documents[2]&&
         student.documents[3]
       );
 
+      if(parseInt(req.session.user.name[5])!=9) // First-year constraint
+        bool = bool && student.documents[1];
+
       return bool;
-      // return true;
     }
   })
   // return true;

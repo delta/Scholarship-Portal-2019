@@ -384,7 +384,7 @@ exports.renderStatus = (req, res) => {
       if (err) {
         return signale.error(err);
       }
-      const files = [target + "public" + student.documents[0].path];
+      const files = [path.resolve(config.dir.BASE_DIR,target),path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[0].path)];
       
       // Add Transcript only for non first-year students
       if(student.documents[1]){

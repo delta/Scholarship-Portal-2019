@@ -384,7 +384,7 @@ block content
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_1' id="exam_board_1" placeholder="Eg: CBSE" required value=student?student.acads.exam_board_1:"" )
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='number' name='exam_percentage_1' id="exam_percentage_1" value=student?student.acads.exam_percentage_1:"" placeholder='Eg: 94' max='100' min='0' required)
+                      input.form-control.table-input(type='number' step="any" name='exam_percentage_1' id="exam_percentage_1" value=student?student.acads.exam_percentage_1:"" placeholder='Eg: 94' max='100' min='0' required)
                   tr
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control(type='text' name='exam_name_2' id="exam_name_2" value=student?student.acads.exam_name_2:"" placeholder="Eg: Xth" required)
@@ -393,7 +393,7 @@ block content
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_2' id="exam_board_2" value=student?student.acads.exam_board_2:"" placeholder="Eg:  CBSE" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='number' name='exam_percentage_2' id="exam_percentage_2" value=student?student.acads.exam_percentage_2:"" placeholder="Eg: 92" max='100' min='0' required)
+                      input.form-control.table-input(type='number' step="any" name='exam_percentage_2' id="exam_percentage_2" value=student?student.acads.exam_percentage_2:"" placeholder="Eg: 92" max='100' min='0' required)
               h5.table2head
                 | Graduation and above: 
                 i (If result of final year are not received, mention upto latest result)
@@ -422,7 +422,7 @@ block content
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
                       input.form-control.table-input(type='text' name='degree_grade_1' id="degree_grade_1" value=student?student.acads.degree_grade_1:"" placeholder="Eg: A")
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_1' value=student?student.acads.degree_percentage_1:"" id="degree_percentage_1" placeholder="Eg: 90" required)
+                      input.form-control.table-input(type='number' step="any" max='100' min='0' name='degree_percentage_1' value=student?student.acads.degree_percentage_1:"" id="degree_percentage_1" placeholder="Eg: 90" required)
                 tr
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
                     input.form-control.table-input(type='text' name='degree_2' id="degree_2" value=student?student.acads.degree_2:"" placeholder="Eg: M.Tech")
@@ -435,7 +435,7 @@ block content
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
                     input.form-control.table-input(type='text' name='degree_grade_2' id="degree_grade_2" value=student?student.acads.degree_grade_2:"" placeholder="Eg: A")
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                    input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_2' id="degree_percentage_2" value=student?student.acads.degree_percentage_2:"" placeholder="Eg: 90")
+                    input.form-control.table-input(type='number' step="any" max='100' min='0' name='degree_percentage_2' id="degree_percentage_2" value=student?student.acads.degree_percentage_2:"" placeholder="Eg: 90")
             .col-md-0
             h4.heading Qualitative Achievement
             hr

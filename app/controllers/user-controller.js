@@ -37,18 +37,11 @@ exports.renderRegisterForm = (req, res) => {
     if (err) {
       signale.error(err);
       return res.redirect(`/user/${req.session.user.name}/register`);
-
     }
     else {
-      // console.log(student);
-
-
       return res.render('register', {
         student: student,
         user: req.session.user
-
-
-
       })
     }
   })
@@ -67,7 +60,6 @@ exports.validateLogin = (req, res) => {
 
   const pythonProcess = spawn('python', ["./checkCredentialsWebmail.py", username, password]);
   pythonProcess.stdout.on('data', (data) => {
-    console.log(data.toString());
     if (data.toString() == 0) {
       signale.note("****Wrong Credentials!****");
       return res.redirect('/user/login')
@@ -154,8 +146,7 @@ exports.regUser1 = (req, res) => {
 
           let newStudent = new Scholarship(studentDetail(req))
           newStudent.regStatus = false;
-
-          for (var i = 0; i < 5; i++) {
+          for (var i = 0; i < 4; i++) {
             newStudent.documents.push(null);
           }
           newStudent.save(err => {
@@ -270,8 +261,7 @@ exports.uploadFiles = (req, res) => {
           let file_type = req.params.type;
           let file = req.files[0];
           let len = file.path.length;
-          let st = file.path;
-          let p = st.slice(34, len);
+          let p = `files/uploads/${file.filename}`;
          
           file.path = p;
         
@@ -299,7 +289,7 @@ exports.uploadFiles = (req, res) => {
           if (file_type == "bankstatement") {
             // student.docStatus[4]=true; <- not a correct way to assign array values in JS
             // student.docStatus.set(4,true);
-            student.documents.set(4, file);
+            student.documents.push(file);
 
           }
           // student.docStatus[0]=1;
@@ -312,20 +302,11 @@ exports.uploadFiles = (req, res) => {
               return res.redirect("/");
             }
             else {
-
-              // console.log(student);
               res.send("ok");
             }
-
-
-
           })
-
         }
       })
-
-
-
     }
   })
 
@@ -333,7 +314,7 @@ exports.uploadFiles = (req, res) => {
 
 exports.registerUser = (req, res) => {
   //check for null/missing inputs
-
+   
   // check for validation errors
   // if(validationErrors(req)){
   //   return res.render(`/user/${_USERNAME}/register`,{
@@ -341,17 +322,13 @@ exports.registerUser = (req, res) => {
   //   })
   // }
 
-
-
+  // console.log("yes");
     // let newStudent = new Scholarship(studentDetail(req))
 // signale.note(checkInputValidation());
-  if(!checkInputValidation(req))
-  {
-    // signale.note("Checked");
-
-  
+  if(checkInputValidation(req)) {
     Scholarship.findOne({
       "personalDetails.rollno": req.session.user.name,
+  
       "regStatus": false
     }, (err, student) => {
       if (err) {
@@ -359,18 +336,12 @@ exports.registerUser = (req, res) => {
         return res.redirect('/')
       }
       else {
-      
+        
         student.regStatus = true;
         student.scholarshipStatus = -1,
-          student.uniqueID = shortid.generate(),
-          student.scholarship = 'No response received';
+        student.uniqueID = shortid.generate(),
+        student.scholarship = 'No response received';
 
-        
-
-
-
-
-        // console.log(student);
         student.save(err, () => {
           if (err) {
             signale.error(err);
@@ -408,26 +379,30 @@ exports.renderStatus = (req, res) => {
     html = compiledFunction({
       student: student
     });
-    pdf.create(html, options).toFile(`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`, function (err, resp) {
-      if (err) return signale.error(err);
-      signale.note(resp); // { filename: '/app/newfile.pdf' }
-      // console.log(student.documents[0].path);
-
-      // const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf`,config.Admin_BaseDir.path+"public"+ student.documents[0].path, config.Admin_BaseDir.path+"public"+ student.documents[1].path,config.Admin_BaseDir.path+"public"+ student.documents[2].path,config.Admin_BaseDir.path+"public"+ student.documents[3].path];
-      // if(student.documents.length > 4){
-      //   files.push(config.Admin_BaseDir.path+"public"+ student.documents[4].path);
-      // }
-      const files = [`./public/files/generated-pdfs/roll_no${req.session.user.name}.pdf` + "public" + student.documents[0].path, config.Admin_BaseDir.path + "public" + student.documents[1].path, config.Admin_BaseDir.path + "public" + student.documents[2].path, config.Admin_BaseDir.path + "public" + student.documents[3].path];
-      if (student.documents.length > 4) {
-        files.push(config.Admin_BaseDir.path + "public" + student.documents[4].path);
+    target = "./public/files/generated-pdfs/" + md5("delta_cares_" + req.session.user.name + "_security") + ".pdf";
+    pdf.create(html, options).toFile(target, function (err, resp) {
+      if (err) {
+        return signale.error(err);
       }
-      target = "./public/files/generated-pdfs/" + md5("delta_cares_" + req.session.user.name + "_security") + ".pdf";
+      const files = [path.resolve(config.dir.BASE_DIR,target),path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[0].path)];
+      
+      // Add Transcript only for non first-year students
+      if(student.documents[1]){
+        files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[1].path));
+      }
+      files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[2].path));
+      files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[3].path));
 
+      // Add Bank Statement if it's there
+    
+      if (student.documents[4]!=null) {
+        files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[4].path));
+      }
+      
       merge(files, target, function (err) {
-        if (err) console.log(err);
-
-        // console.log(target);
-
+        if (err){
+          signale.error(err);
+        }
         return res.render('status', {
           student: student, path: target
         })
@@ -451,17 +426,16 @@ function checkEmptyInputPersonal(req) {
   return bool;
 }
 
-function checkInputValidation(req)
+async function checkInputValidation(req)
 {
-  Scholarship.findOne({
+  try{
+
+  
+  let student=await Scholarship.findOne({
     "personalDetails.rollno": req.session.user.name,
+    
     "regStatus": false
-  },(err,student)=>{
-    if (err) {
-      signale.error(err)
-      return res.redirect('/')
-    }
-    else{
+  });
       let bool=(
       
         student.personalDetails.rollno&&
@@ -503,18 +477,27 @@ function checkInputValidation(req)
         student.acads.qualitative_achievement_1&&
         student.acads.qualitative_achievement_2&&
 
-        student.documents[0]&&
-        student.documents[1]&&
-        student.documents[2]&&
-        student.documents[3]
+        student.documents[0]!=null&&
+        student.documents[2]!=null&&
+        student.documents[3]!=null
       );
 
+    
+
+      if(parseInt(req.session.user.name[5])!=9) // First-year constraint
+        bool = bool && student.documents[1]!=null;
+       
+      // signale.note(bool==0?"0":"1");  
       return bool;
-      // return true;
-    }
-  })
-  // return true;
+    
+  }
+  catch(err)
+  {
+    signale.debug(err);
+  }
 }
+  // return true;
+
 
 
 

@@ -384,7 +384,7 @@ block content
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_1' id="exam_board_1" placeholder="Eg: CBSE" required value=student?student.acads.exam_board_1:"" )
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='number' name='exam_percentage_1' id="exam_percentage_1" value=student?student.acads.exam_percentage_1:"" placeholder='Eg: 94' max='100' min='0' required)
+                      input.form-control.table-input(type='number' step="any" name='exam_percentage_1' id="exam_percentage_1" value=student?student.acads.exam_percentage_1:"" placeholder='Eg: 94' max='100' min='0' required)
                   tr
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control(type='text' name='exam_name_2' id="exam_name_2" value=student?student.acads.exam_name_2:"" placeholder="Eg: Xth" required)
@@ -393,7 +393,7 @@ block content
                     td.col-md-3.col-sm-3.col-xs-3.table-td-input
                       input.form-control.table-input(type='text' name='exam_board_2' id="exam_board_2" value=student?student.acads.exam_board_2:"" placeholder="Eg:  CBSE" required)
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='number' name='exam_percentage_2' id="exam_percentage_2" value=student?student.acads.exam_percentage_2:"" placeholder="Eg: 92" max='100' min='0' required)
+                      input.form-control.table-input(type='number' step="any" name='exam_percentage_2' id="exam_percentage_2" value=student?student.acads.exam_percentage_2:"" placeholder="Eg: 92" max='100' min='0' required)
               h5.table2head
                 | Graduation and above: 
                 i (If result of final year are not received, mention upto latest result)
@@ -422,7 +422,7 @@ block content
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
                       input.form-control.table-input(type='text' name='degree_grade_1' id="degree_grade_1" value=student?student.acads.degree_grade_1:"" placeholder="Eg: A")
                     td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                      input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_1' value=student?student.acads.degree_percentage_1:"" id="degree_percentage_1" placeholder="Eg: 90" required)
+                      input.form-control.table-input(type='number' step="any" max='100' min='0' name='degree_percentage_1' value=student?student.acads.degree_percentage_1:"" id="degree_percentage_1" placeholder="Eg: 90" required)
                 tr
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
                     input.form-control.table-input(type='text' name='degree_2' id="degree_2" value=student?student.acads.degree_2:"" placeholder="Eg: M.Tech")
@@ -435,7 +435,7 @@ block content
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
                     input.form-control.table-input(type='text' name='degree_grade_2' id="degree_grade_2" value=student?student.acads.degree_grade_2:"" placeholder="Eg: A")
                   td.col-md-2.col-sm-2.col-xs-2.table-td-input
-                    input.form-control.table-input(type='number' max='100' min='0' name='degree_percentage_2' id="degree_percentage_2" value=student?student.acads.degree_percentage_2:"" placeholder="Eg: 90")
+                    input.form-control.table-input(type='number' step="any" max='100' min='0' name='degree_percentage_2' id="degree_percentage_2" value=student?student.acads.degree_percentage_2:"" placeholder="Eg: 90")
             .col-md-0
             h4.heading Qualitative Achievement
             hr
@@ -443,7 +443,7 @@ block content
             .col-md-10
               .form-group
                 .row.input-container
-                label.col-md-4.control-label.label-tag acadsemic distinctions, grants and scholarships
+                label.col-md-4.control-label.label-tag Academic distinctions, grants and scholarships
                   span.text-danger *
                 .col-md-8
                   textarea.form-control.input-big(rows='5' name='qualitative_achievement_1' id="qualitative_achievement_1"  required placeholder='Please mention any academic distinction, grants, scholarships and prizes received by you. ')=student? student.acads.qualitative_achievement_1:""
@@ -470,7 +470,7 @@ block content
 
                     input.form-control(type='file' name='document' id="Annual Income Certificate"  required disabled=student?(student.documents[0]?true:false):false )
                   .col-md-2
-                    button.btn.btn-primary(type='button' id='previewannual'  value=student?(student.documents[0]?("/"+student.documents[0].filename):null):null disabled=student?(student.documents[0]?false:true):true )=student?(student.documents[0]?"View":"Preview"):"Preview" 
+                    button.btn.btn-primary(type='button' id='previewannual'  value=student?(student.documents[0]?("/"+student.documents[0].path):null):null disabled=student?(student.documents[0]?false:true):true )=student?(student.documents[0]?"View":"Preview"):"Preview" 
                   .col-md-2
                     button.btn.btn-success(type='button' id='uploadannual')=student?(student.documents[0]?"File Uploaded":"Upload"):"Upload" 
 
@@ -484,7 +484,7 @@ block content
                     input.form-control(type='file' name='document' id="Transcript" required disabled=student?(student.documents[1]?true:false):false)
                   .col-md-2
 
-                    button.btn.btn-primary(type='button' id='previewtranscript'  value=student?(student.documents[1]?("/"+student.documents[1].filename):null):null disabled=student?(student.documents[1]?false:true):true  )=student?(student.documents[1]?"View":"Preview"):"Preview" 
+                    button.btn.btn-primary(type='button' id='previewtranscript'  value=student?(student.documents[1]?("/"+student.documents[1].path):null):null disabled=student?(student.documents[1]?false:true):true  )=student?(student.documents[1]?"View":"Preview"):"Preview" 
                   .col-md-2
                     button.btn.btn-success(type='button' id='uploadtranscript')=student?(student.documents[1]?"File Uploaded":"Upload"):"Upload" 
               .form-group
@@ -495,7 +495,7 @@ block content
                   .col-md-8
                     input.form-control(type='file' name='document' id="12th Marksheet" required disabled=student?(student.documents[2]?true:false):false)
                   .col-md-2
-                    button.btn.btn-primary(type='button' id='previewmarksheet12'   value=student?(student.documents[2]?("/"+student.documents[2].filename):null):null disabled=student?(student.documents[2]?false:true):true )=student?(student.documents[2]?"View":"Preview"):"Preview" 
+                    button.btn.btn-primary(type='button' id='previewmarksheet12'   value=student?(student.documents[2]?("/"+student.documents[2].path):null):null disabled=student?(student.documents[2]?false:true):true )=student?(student.documents[2]?"View":"Preview"):"Preview" 
                   .col-md-2
                     button.btn.btn-success(type='button' id='uploadmarksheet12')=student?(student.documents[2]?"File Uploaded":"Upload"):"Upload" 
               .form-group
@@ -506,7 +506,7 @@ block content
                   .col-md-8
                     input.form-control(type='file' name='document' id="10th Marksheet" required disabled=student?(student.documents[3]?true:false):false)
                   .col-md-2
-                    button.btn.btn-primary(type='button' id='previewmarksheet10'   value=student?(student.documents[3]?("/"+student.documents[3].filename):null):null disabled=student?(student.documents[3]?false:true):true  )=student?(student.documents[3]?"View":"Preview"):"Preview" 
+                    button.btn.btn-primary(type='button' id='previewmarksheet10'   value=student?(student.documents[3]?("/"+student.documents[3].path):null):null disabled=student?(student.documents[3]?false:true):true  )=student?(student.documents[3]?"View":"Preview"):"Preview" 
                   .col-md-2
                     button.btn.btn-success(type='button' id='uploadmarksheet10')=student?(student.documents[3]?"File Uploaded":"Upload"):"Upload" 
               .form-group
@@ -517,7 +517,7 @@ block content
                   .col-md-8
                     input.form-control(type='file' name='document' id="Bank Statement" disabled=student?(student.documents[4]?true:false):false)
                   .col-md-2
-                    button.btn.btn-primary(type='button' id='previewbankstatement'   value=student?(student.documents[4]?("/"+student.documents[4].filename):null):null disabled=student?(student.documents[4]?false:true):true )=student?(student.documents[4]?"View":"Preview"):"Preview" 
+                    button.btn.btn-primary(type='button' id='previewbankstatement'   value=student?(student.documents[4]?("/"+student.documents[4].path):null):null disabled=student?(student.documents[4]?false:true):true )=student?(student.documents[4]?"View":"Preview"):"Preview" 
                   .col-md-2
                     button.btn.btn-success(type='button' id='uploadbankstatement')=student?(student.documents[4]?"File Uploaded":"Upload"):"Upload" 
               .form-group(style='margin-top:7vh;')
@@ -540,6 +540,8 @@ block content
                 li
                   span.asterisk * 
                   |  - fields are required fields.
+                li
+                  | wait for documents to get uploaded, then submit again.
           .modal-footer
             button.btn.btn-default(type='button' data-dismiss='modal') Close
     .container

@@ -1,11 +1,12 @@
 module.exports = {
     mongodb: {
-      dbURI: "mongodb://localhost:27017/scholarshipportal"
+      dbURI: "mongodb://localhost:27017/scholarshipportal2019"
     },
     session: {
-      secretString: "Scholarships are goooood xD"
+      secretString: ""
     },
-    Admin_BaseDir:{
-      path:''
+    dir: {
+      BASE_DIR: "",
+      ADMIN_BASE_DIR: ""
     }
   };

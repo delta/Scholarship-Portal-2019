@@ -133,6 +133,11 @@ label{
   margin-top: 13vh;
 }
 
+.div{
+  width: 300px;
+  word-wrap: break-word;
+}
+
 @media only screen and (max-width: 500px) {
   .title {
     font-size: 2.5em;

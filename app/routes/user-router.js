@@ -23,15 +23,17 @@ let validateURL = (req, res, next) => {
     req.session.destroy(err => {
       if (err) {
         signale.debug('error')
-        signale.note("login error");
         return next(err)
       }
+       
       return res.redirect('/user/login')
     })
   }
   else{
+    
     next();
   }
+  
   
 }
 
@@ -63,7 +65,8 @@ let ifRegistered = (req, res, next) => {
 
 // register
 router.get('/:username/register', sessionChecker, validateURL, ifRegistered, user.renderRegisterForm)
-router.post('/:username/register', sessionChecker, validateURL, user.registerUser)
+// router.post('/:username/register', sessionChecker, validateURL, user.registerUser)
+router.post('/:username/register',  user.registerUser)
 router.post("/:username/personal",sessionChecker,validateURL,user.regUser1)
 router.post("/:username/acad",sessionChecker,validateURL,user.regUser2)
 router.post("/:username/file/:type",sessionChecker,validateURL,user.uploadFiles)

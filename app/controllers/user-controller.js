@@ -247,7 +247,7 @@ exports.uploadFiles = (req, res) => {
       })
     }
     else {
-      signale.note(req.files);
+      // signale.note(req.files);
 
       Scholarship.findOne({
         "personalDetails.rollno": req.session.user.name,
@@ -314,7 +314,7 @@ exports.uploadFiles = (req, res) => {
 
 exports.registerUser = (req, res) => {
   //check for null/missing inputs
-
+   
   // check for validation errors
   // if(validationErrors(req)){
   //   return res.render(`/user/${_USERNAME}/register`,{
@@ -322,13 +322,13 @@ exports.registerUser = (req, res) => {
   //   })
   // }
 
-
-
+  
     // let newStudent = new Scholarship(studentDetail(req))
 // signale.note(checkInputValidation());
-  if(!checkInputValidation(req)) {
+  if(checkInputValidation(req)) {
     Scholarship.findOne({
       "personalDetails.rollno": req.session.user.name,
+  
       "regStatus": false
     }, (err, student) => {
       if (err) {
@@ -336,7 +336,7 @@ exports.registerUser = (req, res) => {
         return res.redirect('/')
       }
       else {
-      
+        
         student.regStatus = true;
         student.scholarshipStatus = -1,
         student.uniqueID = shortid.generate(),
@@ -348,7 +348,7 @@ exports.registerUser = (req, res) => {
             return res.redirect(`/user/${req.session.user.name}/register`);
           }
           else {
-            // res.send("ok");
+            res.send("ok");
             return res.redirect(`/user/${req.session.user.name}/status`)
           }
 
@@ -394,7 +394,8 @@ exports.renderStatus = (req, res) => {
       files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[3].path));
 
       // Add Bank Statement if it's there
-      if (student.documents.length > 4) {
+    
+      if (student.documents[4]!=null) {
         files.push(path.resolve(config.dir.ADMIN_BASE_DIR,"public",student.documents[4].path));
       }
       
@@ -425,17 +426,16 @@ function checkEmptyInputPersonal(req) {
   return bool;
 }
 
-function checkInputValidation(req)
+async function checkInputValidation(req)
 {
-  Scholarship.findOne({
+  try{
+
+  
+  let student=await Scholarship.findOne({
     "personalDetails.rollno": req.session.user.name,
+    
     "regStatus": false
-  },(err,student)=>{
-    if (err) {
-      signale.error(err)
-      return res.redirect('/')
-    }
-    else{
+  });
       let bool=(
       
         student.personalDetails.rollno&&
@@ -477,19 +477,27 @@ function checkInputValidation(req)
         student.acads.qualitative_achievement_1&&
         student.acads.qualitative_achievement_2&&
 
-        student.documents[0]&&
-        student.documents[2]&&
-        student.documents[3]
+        student.documents[0]!=null&&
+        student.documents[2]!=null&&
+        student.documents[3]!=null
       );
 
-      if(parseInt(req.session.user.name[5])!=9) // First-year constraint
-        bool = bool && student.documents[1];
+    
 
+      if(parseInt(req.session.user.name[5])!=9) // First-year constraint
+        bool = bool && student.documents[1]!=null;
+       
+      
       return bool;
-    }
-  })
-  // return true;
+    
+  }
+  catch(err)
+  {
+    signale.debug(err);
+  }
 }
+  // return true;
+
 
 
 

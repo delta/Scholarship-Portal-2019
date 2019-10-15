@@ -247,7 +247,7 @@ exports.uploadFiles = (req, res) => {
       })
     }
     else {
-      signale.note(req.files);
+      // signale.note(req.files);
 
       Scholarship.findOne({
         "personalDetails.rollno": req.session.user.name,
@@ -322,7 +322,7 @@ exports.registerUser = (req, res) => {
   //   })
   // }
 
-  // console.log("yes");
+  
     // let newStudent = new Scholarship(studentDetail(req))
 // signale.note(checkInputValidation());
   if(checkInputValidation(req)) {
@@ -348,7 +348,7 @@ exports.registerUser = (req, res) => {
             return res.redirect(`/user/${req.session.user.name}/register`);
           }
           else {
-            // res.send("ok");
+            res.send("ok");
             return res.redirect(`/user/${req.session.user.name}/status`)
           }
 
@@ -487,7 +487,7 @@ async function checkInputValidation(req)
       if(parseInt(req.session.user.name[5])!=9) // First-year constraint
         bool = bool && student.documents[1]!=null;
        
-      // signale.note(bool==0?"0":"1");  
+      
       return bool;
     
   }

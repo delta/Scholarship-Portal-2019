@@ -108,6 +108,6 @@ app.get('*', (req, res) => {
   res.send('ERROR 404. PAGE NOT FOUND')
 })
 
-app.listen(3000, () => {
+app.listen(8000, () => {
   signale.success('Server Started on port: 3000');
 })

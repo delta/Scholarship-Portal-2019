@@ -15,7 +15,7 @@
     "express": "*",
     "express-session": "*",
     "express-validator": "5.2.0",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "md5": "^2.2.1",
     "mongo-sanitize": "^1.0.0",
     "mongoose": "*",
